@@ -1,0 +1,187 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{
+    margin:0;
+    padding:0;
+    outline:none;
+    list-style-image: none;
+    list-style-type: none;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+}
+
+html{
+    /*谷歌网页中的最小字体*/
+    -webkit-text-size-adjust:none;
+}
+body{
+    font-family: '微软雅黑';
+    font-size: 16px;
+    cursor:pointer;
+}
+img{
+    max-width: 100%;
+    border: 0 none;
+}
+a{
+    text-decoration: none;
+    color: #000000;
+}
+input[type='button']{
+    font-family: '微软雅黑';
+}
+
+.col-xs-9,.col-xs-3,.col-xs-5,.col-xs-7
+,.col-xs-8,.col-xs-4,.col-xs-6,.col-xs-2,.col-xs-1,.col-xs-11,.col-xs-10{
+    padding: 0!important;
+}
+.col-sm-9,.col-sm-3,.col-sm-5,.col-sm-7
+,.col-sm-8,.col-sm-4,.col-sm-6,.col-sm-2,.col-sm-1,.col-sm-11,.col-sm-10{
+    padding: 0!important;
+}
+.clearBox{
+    clear: both;
+}
+.autoWidth{
+    width: 90%;
+    margin: 0 auto;
+}
+/*蓝色导航*/
+.blueNav{
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background: #0fadfc;
+    color: white;
+    text-align: center;
+    font-size: 1.2em;
+    position: relative;
+}
+.blueNav>span{
+    width: 80%;
+    display: inline-block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.blueNav a{
+    color: white;
+}
+.blueNav b{
+    font-weight: normal;
+    float: left;
+    font-size: 1.3em;
+    position: absolute;
+    left: 2%;
+    top: 0;
+}
+.blueNav b img{
+    width: 50%;
+}
+.blueNav p{
+    position: absolute;
+    right: 5px;
+    top: 0;
+}
+.blueNav img.rightShare{
+    width: 6%;
+    position: absolute;
+    right: 2%;
+    top: 23px;
+}
+/*头部搜索css*/
+.headGroup{
+    width: 100%;
+    /*height: 98px;*/
+    padding-bottom: 10px;
+    border-top: 1px #d4d4d4 solid;
+    background: white;
+    position: relative;
+}
+.leftLogo{
+    margin-top: 15px;
+}
+.leftLogo img{
+    width: 98%;
+}
+.inputGroup{
+    width: 100%;
+    margin-top: 12px;
+    position: relative;
+}
+.inputGroup span{
+    width: 20%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.inputGroup input{
+    width: 100%;
+    height: 40px;
+    border: 1px #e6e6e6 solid;
+    border-radius: 5px;
+    background: url("../images/index_search.png") no-repeat 5% 10px;
+    background-size: 11%;
+    padding-left: 20%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-size: 0.6em;
+}
+.personRight,.navRight{
+    margin-top: 19px;
+    text-align: center;
+}
+.personRight img{
+    width: 70%;
+}
+.navRight img{
+    width: 70%;
+}
+.personNav{
+    width: 50%;
+    background: #232a30;
+    position: absolute;
+    right: -50%;
+    top: 0;
+    z-index: 999;
+    display: none;
+}
+.topUser{
+    width: 98%;
+    margin: 0 auto;
+    border-bottom: 1px #7c7d7f solid;
+    padding: 20px 0;
+}
+.userImg{
+    width: 60%;
+    border-radius: 50%;
+    margin: 0 auto;
+    overflow: hidden;
+    background: white;
+}
+.userImg img{
+    width: 100%;
+}
+.topUser .col-xs-6 p{
+    color: white;
+    font-size: 1.2em;
+    margin-top: 11%;
+    display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.bottom-list {
+    width: 100%;
+    padding-bottom: 50px;
+}
+.bottom-list ul{
+    padding-left: 12%;
+}
+.bottom-list ul li{
+    margin-top: 20px;
+}
+.bottom-list ul li a{
+    width: 100%;
+    height: 100%;
+    display: block;
+    color: white;
+    font-size: 1.2em;
+}

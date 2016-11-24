@@ -1,0 +1,45 @@
+.classInfo{
+    width: 100%;
+    margin-bottom: 80px;
+}
+.classHd{
+    width: 100%;
+}
+.classHd ul li .col-xs-4{
+    color: #6a6a6a;
+    font-size: 1em;
+    text-align: center;
+    padding: 10px 0!important;
+    border-bottom: 1px #dcdcdc solid;
+}
+.classHd ul li.on .col-xs-4{
+    border-bottom: 1px #399ed3 solid;
+    color: #399cd3;
+}
+.classInfo ul li{
+    border-bottom: 1px #ececec solid;
+    padding: 15px 5% 10px 5%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.classInfo ul li .col-xs-8 span{
+    color: #cd3d3d;
+    font-size: 0.6em;
+}
+.classInfo ul li h4{
+    font-size: 0.8em;
+    display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.classInfo ul li p{
+    font-size: 0.6em;
+    color: #b4b4b4;
+}
+.classInfo ul li a{
+    float: right;
+    font-size: 0.8em;
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: white;
+    background: #0abd62;
+}

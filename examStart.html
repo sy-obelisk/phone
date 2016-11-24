@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>雷哥GMAT模考_GMAT模考软件_GMATPREP模考_GMAT网络课程_GMAT培训_雷哥网</title>
+    <meta name="keywords" content="雷哥网，雷哥GMAT，GMAT模考，gmat模考软件,GMATPREP模考，GWD，GMAT语法解析，gmat逻辑，gmat阅读，gmat OG16，gmat PREP，gmat
+     GWD，gmat数学，gmat考试真题,gmat历年真题下载,gmat考试资料,GMAT在线题库，GMAT培训，GMAT网课，申友GMAT,gmat备考资料,考gmat,gmat数学机经">
+    <meta name="description" content="雷哥网GMAT在线(gmatonline),雷哥GMAT模考软件，GMAT考试真题,GMAT知识点,GMAT语法解析,GMAT逻辑,
+    GMAT数学,GMAT真题解析,雷哥GMAT网络培训课程,GMAT阅读,GMATPREP语法笔记,预见你想象的GMAT700">
+    <link rel="icon" href="/app/web_core/styles/images/index-title.png" type="image/x-icon" sizes="16x9"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <link rel="stylesheet" href="style/css/bootstrap.css"/>
+    <link rel="stylesheet" href="style/css/public.css"/>
+    <link rel="stylesheet" href="style/css/examStart.css"/>
+    <script type="text/javascript" src="style/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="style/js/examStart.js"></script>
+    <script type="text/javascript" src="style/js/angular1.3.1.js"></script>
+    <script type="text/javascript" src="style/js/public.js"></script>
+    <script type="text/javascript" src="style/js/bootstrap.js"></script>
+    <script type="text/javascript" src="style/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+<div ng-controller="PriceCtrl">
+<div class="blueNav">
+    <b><a href="javascript:history.go(-1);">  <img src="style/images/index_jiantou.png" alt="白色箭头图标"/></a></b>
+    <span>{{name}}</span>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="examTime">
+            <img src="style/images/exam_timeIcon.png" alt="时钟图标"/>
+            <p>模考马上将要考试</p>
+
+            <!--第一种单科显示-->
+            <div class="verbal">
+                <ul>
+                    <li>
+                        <span>{{mark}}部分</span>
+                    </li>
+                    <li>
+                        <span>共计{{num}}题，限时75分钟</span>
+                    </li>
+                </ul>
+            </div>
+            <!--第二种全套模考显示-->
+            <div class="all">
+                <div class="col-xs-6 col-sm-6">
+                    <div class="blueBorder">
+                        <ul>
+                            <li>Quant部分</li>
+                            <li>
+                                <span>共计37题</span><br/>
+                                <span>限时75分钟</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6">
+                    <div class="blueBorder">
+                        <ul>
+                            <li>Verbal部分</li>
+                            <li>
+                                <span>共计41题</span><br/>
+                                <span>限时75分钟</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearBox"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="clickStart">
+    <a href="examTest.html?&subject=suxue&breakStartTime=&break=&mkid={{mkid}}&step={{step}}&mkscoreid={{mkscoreid}}&first=1&breaktime=&startTime=&mkid={{mkid}}&mark={{mark}}">点击开始</a>
+</div>
+</div>
+</body>
+</html>

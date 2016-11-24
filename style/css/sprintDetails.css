@@ -1,0 +1,55 @@
+body{
+    background: #ecedef;
+}
+
+.listContent{
+    width: 90%;
+    margin: 0 auto;
+}
+.listContent ul li{
+    padding: 15px 0;
+    background: white;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+.listContent ul li:last-child{
+    margin-bottom: 100px;
+}
+.listContent ul li h4{
+    width: 100%;
+    border-bottom: 1px #f1f1f1 solid;
+    color: #444444;
+    font-size: 1em;
+    padding-left: 5%;
+    padding-bottom: 16px;
+    margin-bottom: 15px;
+}
+.btnGroup{
+    text-align: right;
+}
+.listContent ul li h4 span{
+    color: #29a7eb;
+    font-size: 1.2em;
+}
+.listContent ul li .col-xs-3{
+    text-align: center;
+}
+.listContent ul li .col-xs-3 p{
+    font-size: 1.2em;
+}
+.listContent ul li .col-xs-3 span{
+    color: #b1b1b1;
+    font-size: 0.8em;
+}
+.listContent ul li .col-xs-3 a.green span{
+    color: #18ae67;
+}
+.listContent ul li .col-xs-3 a.dis{
+    display: none;
+}
+.listContent ul li .col-xs-3 a.red span{
+    color: #d43439;
+}
+.listContent ul li .col-xs-3 a img{
+    width: 20%;
+}

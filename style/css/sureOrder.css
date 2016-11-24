@@ -1,0 +1,128 @@
+body{
+    background: #eeeeee;
+}
+.oneSort ul{
+    margin-top: 20px;
+}
+.oneSort ul li{
+    height: 60px;
+    line-height: 60px;
+    background: white;
+    border-top: 1px #d0d0d0 solid;
+    overflow: hidden;
+}
+.oneSort ul li:last-child{
+    border-bottom: 1px #d0d0d0 solid;
+}
+.oneSort ul li label{
+    width: 20%;
+    text-align: right;
+    font-size: 1em;
+    font-weight: normal;
+}
+.oneSort ul li input{
+    width: 78%;
+    height: 99%;
+    border: none;
+}
+.twoSort{
+    width: 100%;
+    margin-top: 20px;
+}
+.twoSort ul li{
+    padding: 10px 0;
+    border-top: 1px #d0d0d0 solid;
+    background: white;
+}
+.twoSort ul li:last-child{
+    border-bottom: 1px #d0d0d0 solid;
+}
+.twoSort ul li .col-xs-10 h2{
+    font-size: 1em;
+    margin-bottom: 10px;
+    margin-left: 15px;
+}
+.twoSort ul li .col-xs-10 span{
+    color: #f02e35;
+}
+.twoSort ul li .col-xs-10>span{
+    margin-left: 15px;
+}
+.twoSort ul li .col-xs-2{
+    /*text-align: right;*/
+    font-size: 1em;
+}
+.twoSort ul li .buyNumL{
+    margin-top: 5px;
+    padding-left: 5% !important;
+    font-size: 1em;
+}
+.twoSort ul li .buyNumR{
+    text-align: right;
+}
+.btnGroup{
+    width: 100%;
+    padding-right: 10px;
+}
+.twoSort ul li .buyNumR input{
+    background: #e6e6e6;
+    color: #808080;
+    border: none;
+    padding: 10px;
+}
+.twoSort ul li .buyNumR span{
+    width: 35%;
+    display: inline-block;
+    font-size: 1.2em;
+    padding: 0 8%;
+    text-align: center;
+}
+.threeSort{
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 150px;
+}
+.threeSort ul li{
+    background: white;
+    border-top: 1px #d0d0d0 solid;
+    border-bottom: 1px #d0d0d0 solid;
+    padding: 10px 0;
+}
+.threeSort ul li .col-xs-8{
+    font-size: 1em;
+    padding-left: 5%!important;
+}
+.threeSort ul li .col-xs-4{
+    font-size: 1em;
+    color: #f02e35;
+    text-align: right;
+    padding-right: 10%!important;
+}
+.payDiv{
+    width: 100%;
+    background: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 11;
+}
+.left-white{
+    font-size: 1em;
+    padding: 10px 0 10px 10%;
+}
+.left-white b{
+    color: #f02e35;
+    font-weight: normal;
+}
+.right-red{
+    background: #f23131;
+    text-align: center;
+    font-size: 1em;
+}
+.right-red a{
+    width: 100%;
+    height: 100%;
+    display: block;
+    color: white;
+    padding: 10px 0;
+}

@@ -1,0 +1,79 @@
+.navContent{
+    width: 100%;
+}
+.navL-left{
+    width: 30%;
+    background: #ededed;
+    font-size: 0.8em;
+    float: left;
+}
+.navL-left ul li{
+    width: 100%;
+    border-bottom: 1px #dedede solid;
+}
+.navL-left ul li a{
+    width: 100%;
+    padding: 15px 0 15px 10%;
+    display: block;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.navL-left ul li.on a{
+    background: white;
+    color: #28b5fc;
+}
+.navL-right{
+    width: 70%;
+    float: left;
+    background: white;
+}
+.compare{
+    display: none;
+}
+.firstS{
+    display: block;
+}
+.firstShow{
+    width: 100%;
+}
+.firstShow ul li{
+    width: 100%;
+    padding: 15px 0 0 0;
+    position: relative;
+}
+.firstShow ul li h4{
+    font-size: 0.8em;
+    padding: 0 0 15px 10%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border-bottom: 1px #ededed solid;
+}
+.firstShow ul li h4 img{
+    width: 2%;
+}
+.firstShow ul li span img{
+    width: 5%;
+    position: absolute;
+    right: 5%;
+    top: 30px;
+}
+.twoLevel-nav{
+    width: 90%;
+    margin-left: 10%;
+    display: none;
+}
+.twoLevel-nav ul li{
+    padding: 10px 0;
+    font-size: 0.6em;
+    border-bottom: 1px #f0f0f0 solid;
+}
+.twoLevel-nav ul li a{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.twoLevel-nav ul li img{
+    width: 5%;
+}

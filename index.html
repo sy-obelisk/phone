@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <!--阻止浏览器缓存-->
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <!-- Basic Page Needs
+     ================================================== -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="title" content="">
+    <meta name="author" content="">
+    <meta name="Copyright" content="">
+    <meta name="description" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- 让IE浏览器用最高级内核渲染页面 还有用 Chrome 框架的页面用webkit 内核
+    ================================================== -->
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge">
+    <!-- IOS6全屏 Chrome高版本全屏
+    ================================================== -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- 让360双核浏览器用webkit内核渲染页面
+    ================================================== -->
+    <meta name="renderer" content="webkit">
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <!-- !!!注意 minimal-ui 是IOS7.1的新属性，最小化浏览器UI -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="style/css/reset.css">
+    <!--<link rel="stylesheet" href="style/css/bootstrap.css">-->
+    <link rel="stylesheet" href="style/css/swiper-3.3.1.min.css">
+    <script src="style/js/jquery-1.12.2.min.js"></script>
+    <!--<script src="style/js/bootstrap.js"></script>-->
+    <script src="style/js/swiper-3.3.1.jquery.min.js"></script>
+    <script src="style/js/index-2.js"></script>
+    <script src="style/js/common.js"></script>
+    <script type="text/javascript" src="style/js/angular1.3.1.js"></script>
+    <title>APP首页</title>
+    <style>
+        #index {
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            padding: 0 0.5rem;
+            background: url("style/images-4/index-bg.png") no-repeat center center;
+            background-size: cover;
+        }
+
+        .header-user {
+            padding: 1rem 0 0.8rem;
+        }
+
+        .user-header {
+            width: 4.25rem;
+            height: 4.25rem;
+            line-height: 4rem;
+            margin: 0 1.5rem;
+            padding: 0.625rem;
+            overflow: hidden;
+            border-radius: 50%;
+            background: url("style/images-4/user-bg2.png") no-repeat 0 0;
+            background-size: cover;
+        }
+
+        .header-text span {
+            font-size: 0.9rem;
+            color: #ffffff;
+        }
+
+        .header-text p {
+            font-size: 0.6rem;
+            color: #ffffff;
+        }
+
+        .user-btn {
+            width: 3.9rem;
+            font-size: 0.5rem;
+            color: #ffffff;
+            font-family: "Microsoft YaHei";
+            border-radius: 15px;
+            line-height: 1.2rem;
+            margin: 0.5rem auto 0;
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .apply-list{
+           margin-top: 2rem;
+        }
+        .apply-list li {
+            width: 50%;
+            float: left;
+            text-align: center;
+            height: 6.35rem;
+            line-height: 6.35rem;
+        }
+        .list-wrap{
+            display: inline-block;
+            vertical-align: middle;
+            line-height: normal;
+        }
+        .icon-wrap {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+            width: 2rem;
+            height: 2rem;
+            line-height: 2rem;
+            background: rgba(255, 255, 255, 0.52);
+            border-radius: 50%;
+        }
+
+        .icon-wrap img {
+            width: 1.25rem;
+        }
+        .list-name{
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #ffffff;
+        }
+        .user-img-wrap{
+        width: 4rem;
+        height: 4rem;
+        display: inline-block;
+        vertical-align: middle;
+        line-height: normal;
+        border-radius: 50%;
+        overflow: hidden;
+        }
+        .user-img-wrap img{
+        max-width: none;
+        width: 100%;
+        }
+    </style>
+</head>
+<body id="index" class="container" ng-controller="PriceCtrl">
+<section class="header-user">
+    <div class="row">
+        <div class="clearfix tm col-xs-12">
+            <div class="header-text inb" style="margin-left: -12px;">
+                <span class="test-num">{{num}}</span>
+                <p>做题数量</p>
+            </div>
+            <!--<div class="user-header inb"><img src="style/images-4/loding-1.png" alt="未登录默认头像"></div>-->
+            <div class="user-header inb">
+                <div class="user-img-wrap">
+                <!--<img src="style/images-4/index-bg.png" alt="用户头像" id="userImg">-->
+                <img src="http://www.gmatonline.cn/{{photo}}"  alt="用户头像" id="userImg">
+                </div>
+            </div>
+            <div class="header-text inb">
+                <span class="test-percent">{{correct}}</span>
+                <p>正确率</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="tm col-xs-12">
+            <div class="header-text inb" style="margin-top: 12px;">
+                <span class="userName">{{nickname}}</span>
+                <div class="user-btn">继续做题</div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="row">
+        <ul class="apply-list col-xs-12 clearfix">
+            <li class="col-xs-6" style="background: rgba(241, 122, 114, 0.49);">
+                <a href="library-wrap.html">
+                    <div class="list-wrap">
+                        <div class="icon-wrap"><img src="style/images-4/icon-1.png" style="width: 16px;" alt=""></div>
+                        <p class="list-name">做题模考</p>
+                    </div>
+                </a>
+            </li>
+            <li class="col-xs-6" style="background: rgba(246, 246, 246, 0.26);">
+                <a href="knowledge.html">
+                    <div class="list-wrap">
+                        <div class="icon-wrap"><img src="style/images-4/icon-2.png" alt=""></div>
+                        <p class="list-name">知识库</p>
+                    </div>
+                </a>
+            </li>
+            <li class="col-xs-6" style="background: rgba(120, 188, 175, 0.19);">
+                <a href="GMAT-class.html">
+                    <div class="list-wrap">
+                        <div class="icon-wrap"><img src="style/images-4/icon-3.png" alt=""></div>
+                        <p class="list-name">GMAT课程</p>
+                    </div>
+                </a>
+            </li>
+            <li class="col-xs-6" style="background: rgba(183, 227, 228, 0.52);">
+                <a href="plan-test.html">
+                    <div class="list-wrap">
+                        <div class="icon-wrap"><img src="style/images-4/icon-4.png" alt=""></div>
+                        <p class="list-name">备考八卦</p>
+                    </div>
+                </a>
+            </li>
+            <li class="col-xs-6" style="background: rgba(237, 209, 200, 0.41);">
+                <a href="teacher.html">
+                    <div class="list-wrap">
+                        <div class="icon-wrap"><img src="style/images-4/icon-5.png" alt=""></div>
+                        <p class="list-name">名师介绍</p>
+                    </div>
+                </a>
+            </li>
+            <li class="col-xs-6" style="background: rgba(233, 194, 65, 0.31);">
+                <a href="News.html">
+                    <div class="list-wrap">
+                        <div class="icon-wrap"><img src="style/images-4/icon-6.png" alt=""></div>
+                        <p class="list-name">GMAT资讯</p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</section>
+</body>
+<script>
+
+</script>
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--阻止浏览器缓存-->
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <!-- Basic Page Needs
+     ================================================== -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="title" content="">
+    <meta name="author" content="">
+    <meta name="Copyright" content="">
+    <meta name="description" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- 让IE浏览器用最高级内核渲染页面 还有用 Chrome 框架的页面用webkit 内核
+    ================================================== -->
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge">
+    <!-- IOS6全屏 Chrome高版本全屏
+    ================================================== -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- 让360双核浏览器用webkit内核渲染页面
+    ================================================== -->
+    <meta name="renderer" content="webkit">
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <!-- !!!注意 minimal-ui 是IOS7.1的新属性，最小化浏览器UI -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="style/css/reset.css">
+    <link rel="stylesheet" href="style/css/common.css">
+    <link rel="stylesheet" href="style/css/swipebox.css">
+    <link rel="stylesheet" href="style/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style/css/swiper-3.3.1.min.css">
+    <script src="style/js/jquery-1.12.2.min.js"></script>
+    <script src="style/js/common.js"></script>
+    <script src="style/js/jquery.swipebox.js"></script>
+    <script src="style/js/swiper-3.3.1.jquery.min.js"></script>
+    <script src="style/js/public.js"></script>
+    <script type="text/javascript" src="style/js/angular1.3.1.js"></script>
+    <title>名师介绍</title>
+    <style>
+        #teacher-wrap{
+            background: #197fee;
+        }
+        .teacher-list{
+            padding:0 0.6rem;
+        }
+        .teacher-list li{
+            position: relative;
+            margin: 1.2rem 0;
+            overflow: hidden;
+            padding: 0 0.6rem 0 1.2rem;
+            background: #ffffff;
+            border-radius: 5px;
+        }
+        .heart .icon-heart{
+            font-size: 0.65rem;
+            color: #f12c34;
+        }
+        .teacher-info{
+            max-width: 10.4rem;
+        }
+        .teacher-img{
+            width: 4.5rem;
+            height: 4.5rem;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            overflow: hidden;
+        }
+        .teacher-name{
+            font-size: 1rem;
+            color: #187CE9;
+            margin-bottom: 0.4rem;
+        }
+        .teacher-tag{
+            font-size: 0.6rem;
+            color: #4d4d4d;
+            line-height: 0.9rem;
+        }
+        .show-link{
+            margin-top: -0.3rem;
+        }
+        .show-link a{
+            font-size: 0.6rem;
+            line-height: 1.5rem;
+            color: #4d4d4d;
+        }
+        .show-link .icon-double-angle-right{
+            font-size: 0.8rem;
+            color: #434343;
+            display: inline-block;
+            margin-left: 0.2rem;
+            vertical-align: middle;
+        }
+        .arc{
+            left: -2.6rem;
+            top: 50%;
+            margin-top: -1.7rem;
+            width: 3rem;
+            height: 3.4rem;
+            border-radius: 50%;
+            background: #00d5b7;
+        }
+    </style>
+</head>
+<body id="teacher-wrap">
+<!--公共标题栏-->
+<section class="commonTit tm clearfix">
+    <a href="javascript:history.go(-1)"><i class="return fl icon-angle-left"></i></a>
+    <span class="Tit inb">名师介绍</span>
+</section>
+<!--教师列表-->
+<section>
+    <ul class="teacher-list">
+        <li>
+            <a href="teacherInfo.html?contentid=4">
+            <div class="heart tr">
+                <i class="icon-heart"></i>
+                <i class="icon-heart"></i>
+                <i class="icon-heart"></i>
+            </div>
+            <div class="teacher-wrap">
+                <div class="teacher-img inb"><img src="http://www.gmatonline.cn/app/web_core/styles/images/kevin.jpg" alt=""></div>
+                <div class="teacher-info inb">
+                    <h1 class="teacher-name">雷哥Kevin</h1>
+                    <p class="teacher-tag">
+                        GMAT新派宗师
+                        <br/>
+                        留学规划与英语教育名家
+                    </p>
+                </div>
+            </div>
+            <div class="tr show-link">
+               <a href="teacherInfo.html?contentid=4"><span class="inb">查看详情</span><i class=" icon-double-angle-right"></i></a>
+            </div>
+            <div class="arc ani"></div>
+            </a>
+        </li>
+        <li>
+            <a href="teacherInfo.html?contentid=2">
+                <div class="heart tr">
+                    <i class="icon-heart"></i>
+                    <i class="icon-heart"></i>
+                    <i class="icon-heart"></i>
+                </div>
+                <div class="teacher-wrap">
+                    <div class="teacher-img inb"><img src="http://www.gmatonline.cn/app/web_core/styles/images/amanda.jpg" alt=""></div>
+                    <div class="teacher-info inb">
+                        <h1 class="teacher-name">Amanda</h1>
+                        <p class="teacher-tag">
+                            GMAT行业名师 新TOEFL名师 <br>学员最喜爱的名师
+                        </p>
+                    </div>
+                </div>
+                <div class="tr show-link">
+                    <a href="teacherInfo.html?contentid=2"><span class="inb">查看详情</span><i class=" icon-double-angle-right"></i></a>
+                </div>
+                <div class="arc ani"></div>
+            </a>
+        </li>
+        <li>
+            <a href="teacherInfo.html?contentid=6">
+                <div class="heart tr">
+                    <i class="icon-heart"></i>
+                    <i class="icon-heart"></i>
+                    <i class="icon-heart"></i>
+                </div>
+                <div class="teacher-wrap">
+                    <div class="teacher-img inb"><img src="http://www.gmatonline.cn/app/web_core/styles/images/eve.jpg" alt=""></div>
+                    <div class="teacher-info inb">
+                        <h1 class="teacher-name">Eve</h1>
+                        <p class="teacher-tag">
+                            法国高等商学院ESSCA双硕士<br> GMAT逻辑达人
+                        </p>
+                    </div>
+                </div>
+                <div class="tr show-link">
+                    <a href="teacherInfo.html?contentid=6"><span class="inb">查看详情</span><i class=" icon-double-angle-right"></i></a>
+                </div>
+                <div class="arc ani"></div>
+            </a>
+        </li>
+        <li>
+            <a href="teacherInfo.html?contentid=5">
+                <div class="heart tr">
+                    <i class="icon-heart"></i>
+                    <i class="icon-heart"></i>
+                    <i class="icon-heart"></i>
+                </div>
+                <div class="teacher-wrap">
+                    <div class="teacher-img inb"><img src="http://www.gmatonline.cn/app/web_core/styles/images/julie.jpg" alt=""></div>
+                    <div class="teacher-info inb">
+                        <h1 class="teacher-name">Julie</h1>
+                        <p class="teacher-tag">
+                            GMAT行业名师 美国工学博士  <br>学员评价“睿智的老师”
+                        </p>
+                    </div>
+                </div>
+                <div class="tr show-link">
+                    <a href="teacherInfo.html?contentid=5"><span class="inb">查看详情</span><i class=" icon-double-angle-right"></i></a>
+                </div>
+                <div class="arc ani"></div>
+            </a>
+        </li>
+        <li>
+            <a href="teacherInfo.html?contentid=57">
+                <div class="heart tr">
+                    <i class="icon-heart"></i>
+                    <i class="icon-heart"></i>
+                    <i class="icon-heart"></i>
+                </div>
+                <div class="teacher-wrap">
+                    <div class="teacher-img inb"><img src="http://www.gmatonline.cn/app/web_core/styles/images/jenny.png" alt=""></div>
+                    <div class="teacher-info inb">
+                        <h1 class="teacher-name">Jenny</h1>
+                        <p class="teacher-tag">
+                            GMAT专家讲师 <br>学员评价为“超负责任老师”
+                        </p>
+                    </div>
+                </div>
+                <div class="tr show-link">
+                    <a href="teacherInfo.html?contentid=57"><span class="inb">查看详情</span><i class=" icon-double-angle-right"></i></a>
+                </div>
+                <div class="arc ani"></div>
+            </a>
+        </li>
+        <li>
+            <a href="teacherInfo.html?contentid=258">
+                <div class="heart tr">
+                    <i class="icon-heart"></i>
+                    <i class="icon-heart"></i>
+                    <i class="icon-heart"></i>
+                </div>
+                <div class="teacher-wrap">
+                    <div class="teacher-img inb"><img src="http://www.gmatonline.cn/app/web_core/styles/images/Shirley.jpg" alt=""></div>
+                    <div class="teacher-info inb">
+                        <h1 class="teacher-name">Shirley</h1>
+                        <p class="teacher-tag">
+                            多年GMAT教学经验 <br>学生的亲切大姐姐
+                        </p>
+                    </div>
+                </div>
+                <div class="tr show-link">
+                    <a href="teacherInfo.html?contentid=258"><span class="inb">查看详情</span><i class=" icon-double-angle-right"></i></a>
+                </div>
+                <div class="arc ani"></div>
+            </a>
+        </li>
+        <li>
+            <a href="teacherInfo.html?contentid=55">
+                <div class="heart tr">
+                    <i class="icon-heart"></i>
+                    <i class="icon-heart"></i>
+                    <i class="icon-heart"></i>
+                </div>
+                <div class="teacher-wrap">
+                    <div class="teacher-img inb"><img src="http://www.gmatonline.cn/app/web_core/styles/images/phoebe.jpg" alt=""></div>
+                    <div class="teacher-info inb">
+                        <h1 class="teacher-name">phoebe</h1>
+                        <p class="teacher-tag">
+                            多年GMAT培训行业经验 <br>英语培训丰富教学经验
+                        </p>
+                    </div>
+                </div>
+                <div class="tr show-link">
+                    <a href="teacherInfo.html?contentid=55"><span class="inb">查看详情</span><i class=" icon-double-angle-right"></i></a>
+                </div>
+                <div class="arc ani"></div>
+            </a>
+        </li>
+        <li>
+            <a href="teacherInfo.html?contentid=28">
+                <div class="heart tr">
+                    <i class="icon-heart"></i>
+                    <i class="icon-heart"></i>
+                    <i class="icon-heart"></i>
+                </div>
+                <div class="teacher-wrap">
+                    <div class="teacher-img inb"><img src="http://www.gmatonline.cn/app/web_core/styles/images/eva.jpg" alt=""></div>
+                    <div class="teacher-info inb">
+                        <h1 class="teacher-name">Eva</h1>
+                        <p class="teacher-tag">
+                            GMAT专家讲师 <br>BFA博鳌亚洲论坛会议联络官
+                        </p>
+                    </div>
+                </div>
+                <div class="tr show-link">
+                    <a href="teacherInfo.html?contentid=28"><span class="inb">查看详情</span><i class=" icon-double-angle-right"></i></a>
+                </div>
+                <div class="arc ani"></div>
+            </a>
+        </li>
+        <li>
+            <a href="teacherInfo.html?contentid=8">
+                <div class="heart tr">
+                    <i class="icon-heart"></i>
+                    <i class="icon-heart"></i>
+                    <i class="icon-heart"></i>
+                </div>
+                <div class="teacher-wrap">
+                    <div class="teacher-img inb"><img src="http://www.gmatonline.cn/app/web_core/styles/images/donz.jpg" alt=""></div>
+                    <div class="teacher-info inb">
+                        <h1 class="teacher-name">Donz</h1>
+                        <p class="teacher-tag">
+                            在台湾的GMAT教学领域享有很高的知名度
+                        </p>
+                    </div>
+                </div>
+                <div class="tr show-link">
+                    <a href="teacherInfo.html?contentid=8"><span class="inb">查看详情</span><i class=" icon-double-angle-right"></i></a>
+                </div>
+                <div class="arc ani"></div>
+            </a>
+        </li>
+        <li>
+            <a href="teacherInfo.html?contentid=27">
+                <div class="heart tr">
+                    <i class="icon-heart"></i>
+                    <i class="icon-heart"></i>
+                    <i class="icon-heart"></i>
+                </div>
+                <div class="teacher-wrap">
+                    <div class="teacher-img inb"><img src="http://www.gmatonline.cn/app/web_core/styles/images/james.jpg" alt=""></div>
+                    <div class="teacher-info inb">
+                        <h1 class="teacher-name">James</h1>
+                        <p class="teacher-tag">
+                            美国名校计算机硕士 <br/>熟谙北美GT考试
+                        </p>
+                    </div>
+                </div>
+                <div class="tr show-link">
+                    <a href="teacherInfo.html?contentid=27"><span class="inb">查看详情</span><i class=" icon-double-angle-right"></i></a>
+                </div>
+                <div class="arc ani"></div>
+            </a>
+        </li>
+    </ul>
+</section>
+</body>
+</html>

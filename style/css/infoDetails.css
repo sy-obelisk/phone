@@ -1,0 +1,43 @@
+.infoHd{
+    width: 100%;
+}
+.infoHd ul li .col-xs-4{
+    color: #6a6a6a;
+    font-size: 1em;
+    text-align: center;
+    padding: 10px 0!important;
+    border-bottom: 1px #dcdcdc solid;
+}
+.infoHd ul li.on .col-xs-4{
+    border-bottom: 1px #399ed3 solid;
+    color: #399cd3;
+}
+
+.infoCon{
+    width: 100%;
+    margin-bottom: 100px;
+}
+.infoCon ul li{
+    font-size: 0.8em;
+    border-bottom: 1px #e5e5e5 solid;
+}
+.infoCon ul li a{
+    width: 90%;
+    margin: 0 auto;
+    height: 100%;
+    display: block;
+    padding: 15px 0;
+}
+.infoCon ul li h4{
+    font-size: 1em;
+    display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.infoCon ul li p{
+    color: #828282;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.infoCon ul li span{
+    color: #bebebe;
+}

@@ -1,0 +1,30 @@
+
+.titleInfo{
+    width: 100%;
+    border-bottom: 1px #e4e4e4 solid;
+    padding: 20px 5%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.titleInfo h2{
+    font-size: 1em;
+}
+.titleInfo p{
+    color: #a4a4a4;
+    font-size: 0.8em;
+}
+.titleCon{
+    width: 100%;
+    overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    padding: 0 5%;
+    font-size: 0.8em;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.titleCon section{
+    max-width: 100%!important;
+}

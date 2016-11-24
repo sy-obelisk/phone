@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--阻止浏览器缓存-->
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <!-- Basic Page Needs
+     ================================================== -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="title" content="">
+    <meta name="author" content="">
+    <meta name="Copyright" content="">
+    <meta name="description" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- 让IE浏览器用最高级内核渲染页面 还有用 Chrome 框架的页面用webkit 内核
+    ================================================== -->
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge">
+    <!-- IOS6全屏 Chrome高版本全屏
+    ================================================== -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- 让360双核浏览器用webkit内核渲染页面
+    ================================================== -->
+    <meta name="renderer" content="webkit">
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <!-- !!!注意 minimal-ui 是IOS7.1的新属性，最小化浏览器UI -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="style/css/reset.css">
+    <link rel="stylesheet" href="style/css/common.css">
+    <link rel="stylesheet" href="style/css/swipebox.css">
+    <link rel="stylesheet" href="style/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style/css/swiper-3.3.1.min.css">
+    <script src="style/js/jquery-1.12.2.min.js"></script>
+    <script src="style/js/common.js"></script>
+    <script src="style/js/jquery.swipebox.js"></script>
+    <script src="style/js/swiper-3.3.1.jquery.min.js"></script>
+    <title>发布帖子</title>
+    <style>
+        /*公共标题*/
+        .commonTit {
+            padding: 0.3rem 0.6rem;
+            /*height: 2.2rem;*/
+            background: #197FEE;
+        }
+
+        .commonTit i.return {
+            font-size: 1.4rem;
+            color: #ffffff;
+            /*vertical-align: middle;*/
+        }
+
+        .commonTit span.Tit {
+            color: #ffffff;
+            font-size: 1rem;
+        }
+
+        .forum-wrap {
+            background: #ffffff;
+        }
+
+        .forum-tit {
+            padding: 0 0.5rem;
+            /*border-bottom: 1px solid #999999;*/
+        }
+
+        .forum-tit-int {
+            width: 100%;
+            height: 1.5rem;
+            font-size: 0.7rem;
+            vertical-align: top;
+            color: #4d4d4d;
+            border: none;
+            outline: none;
+        }
+
+        input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+            color: #4d4d4d;
+        }
+
+        input:-moz-placeholder, textarea:-moz-placeholder {
+            color: #4d4d4d;
+        }
+
+        input::-moz-placeholder, textarea::-moz-placeholder {
+            color: #4d4d4d;
+        }
+
+        input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+            color: #4d4d4d;
+        }
+
+        .forum-text {
+            margin-top: 0.1rem;
+            border-top: 1px solid #999999;
+            padding: 0.5rem;
+        }
+
+        .text-write {
+            font-size: 0.7rem;
+            color: #4d4d4d;
+        }
+
+        .add-img {
+            position: relative;
+            width: 2.2rem;
+            line-height: 2rem;
+            height: 2.2rem;
+            overflow: hidden;
+            text-align: center;
+            border: 1px dashed #cccccc;
+        }
+
+        #add-img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 99;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+
+        .text-write {
+            width: 100%;
+            outline: none;
+            border: none;
+            resize: none;
+            height: 7.5rem;
+        }
+        .submit-wrap{
+            /*position: absolute;*/
+            /*bottom: 1.5rem;*/
+            /*left: 50%;*/
+            /*margin-left: -40%;*/
+            width: 80%;
+            margin: 9rem auto 0;
+        }
+        .forum-submit {
+            border: none;
+            outline: none;
+            height: 2rem;
+            width: 100%;
+            font-size: 1rem;
+            border-radius: 30px;
+            background: #6699FF;
+            color: #ffffff;
+        }
+        .forum-wrap .article-img .up-img{
+            width: 2.3rem;
+            height: 2.3rem;
+            line-height: 2rem;
+        }
+    </style>
+</head>
+<body>
+<!--公共标题栏-->
+<section class="commonTit tm clearfix">
+    <a href="javascript:history.go(-1)"><i class="return fl icon-angle-left"></i></a>
+    <span class="Tit inb">分布帖子</span>
+    <a class="fr" href="#"><img src="style/images-4/icon-pen.png" style="height: 0.8rem" alt=""></a>
+</section>
+<section>
+    <div class="forum-wrap">
+        <div class="forum-tit">
+            <input class="forum-tit-int" type="text" maxlength="30" placeholder="请输入30以内的标题">
+        </div>
+        <div class="forum-text">
+            <div>
+                <textarea class="text-write" placeholder="写点什么……"></textarea>
+            </div>
+            <div class="up-icon">
+                <div class="article-img">
+                    <div class="up-img">
+                        <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
+                    </div>
+                    <div class="up-img">
+                        <a href="style/images-4/index-bg.png" class="swipebox" title="My Caption"><img src="style/images-4/index-bg.png" alt="image"></a>
+                    </div>
+                    <div class="up-img">
+                        <a href="style/images-4/bg-5.png" class="swipebox" title="My Caption"><img src="style/images-4/bg-5.png" alt="image"></a>
+                    </div>
+                    <div class="up-img">
+                        <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
+                    </div>
+
+                    <div class="add-img inb">
+                        <input id="add-img" type="file" accept="image/*"/>
+                        <img src="style/images-4/add-img2.png" style="width: 1.2rem" alt="">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="submit-wrap tm">
+        <input class="forum-submit" type="button" value="发布">
+    </div>
+</section>
+</body>
+<script>
+    jQuery(function ($) {
+        $(".swipebox").swipebox({
+            useCSS: true, // false will force the use of jQuery for animations
+            useSVG: true, // false to force the use of png for buttons
+            initialIndexOnArray: 0, // which image index to init when a array is passed
+            hideCloseButtonOnMobile: false, // true will hide the close button on mobile devices
+            removeBarsOnMobile: true, // false will show top bar on mobile devices
+            hideBarsDelay: 3000, // delay before hiding bars on desktop
+            beforeOpen: function () {
+            }, // called before opening
+            afterOpen: null, // called after opening
+            afterClose: function () {
+            }, // called after closing
+            loopAtEnd: false // true will return to the first image after the last image is reached
+        });
+    });
+</script>
+</html>

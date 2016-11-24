@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>GMAT语法解析_GMAT真题解析_GMATOG16_GMAT考试真题_GMAT题库_雷哥GMAT在线_雷哥网</title>
+    <meta name="keywords" content="雷哥网，雷哥GMAT，GMAT在线，gmat真题解析，gmat逻辑解析，manhattan，gmat考试真题,gmat考试资料,GMAT语法解析，gmat逻辑，gmat阅读，gmat OG16，
+    gmat PREP，gmat GWD，GMAT复习资料，GMAT模考解析，GMAT培训，GMAT网络课程，GMAT在线课程，GMAT网课，GMAT模考，gmat模考软件,GMATPREP模考">
+    <meta name="description" content="雷哥网GMAT在线(gmatonline)GMAT语法解析,GMAT真题解析,GMATOG16,GMAT考试真题,GMAT题库,雷哥网预见你想象的GMAT700">
+    <link rel="icon" href="/app/web_core/styles/images/index-title.png" type="image/x-icon" sizes="16x9"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <link rel="stylesheet" href="style/css/bootstrap.css"/>
+    <link rel="stylesheet" href="style/css/public.css"/>
+    <link rel="stylesheet" href="style/css/myTest.css"/>
+    <script type="text/javascript" src="style/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="style/js/bootstrap.js"></script>
+    <script type="text/javascript" src="style/js/jquery.SuperSlide.2.1.1.js"></script>
+    <script type="text/javascript" src="style/js/public.js"></script>
+    <script type="text/javascript" src="style/js/myTest.js"></script>
+    <script type="text/javascript" src="style/js/angular1.3.1.js"></script>
+</head>
+<body>
+
+<div ng-controller="PriceCtrl">
+    <!-------------------头部搜索--------------------->
+    <div class="headGroup">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 leftLogo">
+                    <a href="index.html"><img src="style/images/index_gmatLogo.png" alt="logo"></a>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="inputGroup">
+                        <span onclick="searchClick(this)" id="iconS"></span>
+                        <input type="text" placeholder="搜索GMAT题目" onkeydown="javascript:searchEn(event)"/>
+                    </div>
+                </div>
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 personRight">
+                    <img src="style/images/index_person.png" alt="个人中心图标" onclick="personNav(event)" id="personIcon"/>
+                </div>
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 navRight">
+                    <a href="navList.html"><img src="style/images/index_listIcon.png" alt="侧边导航图标"/></a>
+                </div>
+                <div class="clearBox"></div>
+            </div>
+        </div>
+        <!--个人中心导航栏-->
+        <div class="personNav">
+            <div class="topUser">
+                <div class="col-xs-6 col-sm-6">
+                    <div class="userImg">
+                        <img src="http://www.gmatonline.cn/{{photo}}" alt="用户头像" id="userImg02"/>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6">
+                    <p>{{nickname}}</p>
+                </div>
+                <div class="clearBox"></div>
+            </div>
+            <div class="bottom-list">
+                <ul>
+                    <li><a href="myCourse.html?status=2">我的课程</a></li>
+                    <li><a href="mistakeRecord.html">错题记录</a></li>
+                    <li><a href="recordProblem.html?section=6">做题记录</a></li>
+                    <li><a href="examRecord.html?type=verbal">模考记录</a></li>
+                    <li><a href="vip.html">VIP会员</a></li>
+                    <li><a href="javascript:loginOut();">退出登录</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--蓝色导航-->
+    <div class="blueNav">
+        <b><a href="javascript:history.go(-1);"> <img src="style/images/index_jiantou.png" alt="白色箭头图标"/></a></b>
+        <span>我要做题</span>
+    </div>
+    <!--灰色导航-->
+    <div class="greyNav">
+        <ul>
+            <li class="on" onclick="changeLowerOne(this)" data-id="6">
+                <div class="col-xs-2 col-sm-2">SC</div>
+            </li>
+            <li onclick="changeLowerOne(this)" data-id="8">
+                <div class="col-xs-2 col-sm-2">CR</div>
+            </li>
+            <li onclick="changeLowerOne(this)" data-id="7">
+                <div class="col-xs-2 col-sm-2">RC</div>
+            </li>
+            <li onclick="changeLowerOne(this)" data-id="4">
+                <div class="col-xs-2 col-sm-2">PS</div>
+            </li>
+            <li onclick="changeLowerOne(this)" data-id="5">
+                <div class="col-xs-2 col-sm-2">DS</div>
+            </li>
+        </ul>
+        <div class="clearBox"></div>
+    </div>
+    <!--三级导航-->
+    <div class="threeLevel">
+        <div class="autoWidth">
+            <div class="col-xs-3 col-sm-3">
+                <div class="borderDiv on" data-id="12" onclick="changeLowerTwo(this)">讲义</div>
+            </div>
+            <div class="col-xs-3 col-sm-3">
+                <div class="borderDiv" data-id="1,15" onclick="changeLowerTwo(this)">OG</div>
+            </div>
+            <div class="col-xs-3 col-sm-3">
+                <div class="borderDiv" data-id="8,10,11" onclick="changeLowerTwo(this)">PREP</div>
+            </div>
+            <div class="col-xs-3 col-sm-3">
+                <div class="borderDiv" data-id="2" onclick="changeLowerTwo(this)">GWD</div>
+            </div>
+            <div class="clearBox"></div>
+        </div>
+    </div>
+
+    <!--下面的数据显示-->
+    <div class="dataShow">
+        <ul>
+            <li ng-repeat="item4 in items4">
+                <a href="practice.html?tikuId={{item4.stid}}&type=1&knowName=讲义-SC&articletitle=''">
+                    <div class="col-xs-10 col-sm-10">
+                        <h4>讲义-SC：{{item4.stname}}</h4>
+                        <p>题目总数：20 平均正确率：24%</p>
+                    </div>
+                    <div class="col-xs-2 col-sm-2 rightA">
+                        <img src="style/images/practice_jiantou.png" alt="箭头图标" class="jian">
+                        <!--完成展示-->
+                        <!--<img src="style/images/practice_gou.png" alt="勾勾图标" class="gou">-->
+                        <!--做了未做完展示-->
+                        <!--<a href="#">继续</a>-->
+                    </div>
+                    <div class="clearBox"></div>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+
+</div>
+
+</body>
+</html>

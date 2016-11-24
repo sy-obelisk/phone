@@ -1,0 +1,100 @@
+
+.resultCon{
+    width: 100%;
+    margin-top: 30px;
+}
+.resultCon .col-xs-3{
+    text-align: center;
+    margin-top: 15%;
+    word-wrap: break-word;
+}
+
+.resultCon .col-xs-3 h4{
+    color: #4d4d4d;
+    font-size: 2em;
+}
+.resultCon .col-xs-3 p{
+    color: #4d4d4d;
+    font-size: 1em;
+}
+.centerData{
+    width: 100%;
+    text-align: center;
+    background: url("../images/result_greenbg.png") no-repeat;
+    background-size: 100% 100%;
+    padding-top: 8%;
+}
+.centerData h2{
+    font-size: 2em;
+    color: #0abd60;
+    margin-top: 6%;
+}
+.centerData span{
+    color: #0abd60;
+    font-size: 1em;
+}
+.centerData p{
+    color: white;
+    margin-top: 25%;
+}
+.greyBtn{
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.greyBtn input{
+    width: 50%;
+    margin-bottom: 24px;
+    background: #e6e6e6;
+    color: #666666;
+    border-radius: 5px;
+    font-size: 1.2em;
+    padding: 10px 0;
+    border: none;
+}
+.modal-header{
+    background: #f23232;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: white;
+    text-align: center;
+
+}
+.modal-header img{
+    width: 8%;
+}
+.warn-center{
+   width: 90%;
+    background: white;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 9999;
+    margin-top: -25%;
+}
+.modal-footer{
+    text-align: center;
+}
+.modal-footer .btn{
+    background: white;
+    border: 1px #cccccc solid;
+    color: #000000;
+}
+
+/*模考结果页*/
+.blueFont{
+    width: 100%;
+    text-align: center;
+}
+.blueFont h4{
+    color: #0facfc;
+    font-size: 1.5em;
+    margin-top: 30px;
+}
+.blueFont div.fontDiv{
+    color: #8f8f8f;
+    font-size: 1em;
+    margin-top: 15px;
+}

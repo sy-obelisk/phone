@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--阻止浏览器缓存-->
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <!-- Basic Page Needs
+     ================================================== -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="title" content="">
+    <meta name="author" content="">
+    <meta name="Copyright" content="">
+    <meta name="description" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- 让IE浏览器用最高级内核渲染页面 还有用 Chrome 框架的页面用webkit 内核
+    ================================================== -->
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge">
+    <!-- IOS6全屏 Chrome高版本全屏
+    ================================================== -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- 让360双核浏览器用webkit内核渲染页面
+    ================================================== -->
+    <meta name="renderer" content="webkit">
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <!-- !!!注意 minimal-ui 是IOS7.1的新属性，最小化浏览器UI -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="style/css/reset.css">
+    <link rel="stylesheet" href="style/css/common.css">
+    <link rel="stylesheet" href="style/css/swipebox.css">
+    <link rel="stylesheet" href="style/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style/css/swiper-3.3.1.min.css">
+    <script src="style/js/jquery-1.12.2.min.js"></script>
+    <script src="style/js/common.js"></script>
+    <script src="style/js/jquery.swipebox.js"></script>
+    <script src="style/js/swiper-3.3.1.jquery.min.js"></script>
+    <title>做题模考</title>
+    <style>
+        html{
+            height: 100%;
+            overflow: hidden;
+        }
+        #test-wrap{
+            height: 100%;
+            overflow: hidden;
+            background: url("style/images-4/test-bg.png")no-repeat 0 0;
+            background-size: cover;
+        }
+        .test-list{
+            height: 100%;
+            overflow: hidden;
+            padding:0 0.6rem;
+        }
+        .test-wrap{
+            height: 100%;
+            overflow: hidden;
+        }
+        .test-list li{
+            height: 25%;
+            margin: 1.2rem 0;
+            text-align: center;
+            border-radius: 5px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.23);
+        }
+        .test-tit,.test-de{
+            color: #ffffff;
+            font-weight: normal;
+        }
+        .test-tit{
+            margin-top: 7%;
+            font-size: 0.9rem;
+        }
+        .test-de{
+            font-size: 0.5rem;
+            margin: 0.25rem 0 0.6rem;
+        }
+        .test-link a{
+            display: inline-block;
+            vertical-align: middle;
+            color: #ffffff;
+            width: 3.3rem;
+            border-radius: 5px;
+            font-size: 0.6rem;
+            line-height: 1.2rem;
+            background: #197fee;
+        }
+    </style>
+</head>
+<body id="test-wrap">
+<!--公共标题栏-->
+<section class="commonTit tm clearfix">
+    <a href="user-center.html"><i class="return fl icon-angle-left"></i></a>
+    <span class="Tit inb">做题模考</span>
+</section>
+<!--做题模考分类-->
+<section class="test-wrap">
+    <ul class="test-list">
+        <li>
+            <h1 class="test-tit">考点冲刺</h1>
+            <p class="test-de">准确了解各考点情况</p>
+            <div class="test-link"><a href="test-sprint.html">GO</a></div>
+        </li>
+        <li>
+            <h1 class="test-tit">题库</h1>
+            <p class="test-de">更全题库，高效刷题，查看解析，避免漏题</p>
+            <div class="test-link"><a href="topic-library.html">GO</a></div>
+        </li>
+        <li>
+            <h1 class="test-tit">模考</h1>
+            <p class="test-de">多套模考全方位满足你的需求 拷贝</p>
+            <div class="test-link"><a href="imitate-test.html">GO</a></div>
+        </li>
+    </ul>
+</section>
+</body>
+</html>

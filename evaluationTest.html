@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>GMAT测评_GMAT模考评估_GMAT模考_GMAT网络课程_GMAT培训_雷哥GMAT在线_雷哥网</title>
+    <meta name="keywords" content="雷哥网，雷哥GMAT，GMAT测评，GMAT模考评估，GMAT模考，gmat模考软件,GMATPREP模考，gmat考试真题,gmat历年真题下载,
+    gmat考试资料,GWD，GMAT语法解析，gmat逻辑，gmat阅读，gmat OG16，gmat PREP，gmat GWD，gmat数学，GMAT在线题库，GMAT培训，GMAT网课">
+    <meta name="description" content="雷哥网GMAT在线(gmatonline)|雷哥GMAT测评，雷哥GMAT模考，GMAT考试真题|GMAT知识点|GMAT语法解析|GMAT逻辑|GMAT数学|GMAT真题解析|雷哥GMAT网络培训课程|GMAT阅读|GMATPREP语法笔记|预见你想象的GMAT700">
+    <link rel="icon" href="/app/web_core/styles/images/index-title.png" type="image/x-icon" sizes="16x9"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <link rel="stylesheet" href="style/css/bootstrap.css"/>
+    <link rel="stylesheet" href="style/css/public.css"/>
+    <link rel="stylesheet" href="style/css/practice.css"/>
+    <script type="text/javascript" src="style/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="style/js/public.js"></script>
+    <script type="text/javascript" src="style/js/bootstrap.js"></script>
+    <script type="text/javascript" src="style/js/jquery.SuperSlide.2.1.1.js"></script>
+    <script type="text/javascript" src="style/js/evaluationTest.js"></script>
+    <script type="text/javascript" src="style/js/angular1.3.1.js"></script>
+</head>
+<body>
+<div ng-controller="PriceCtrl">
+    <input value="" type="hidden" id="cptime"/>
+    <input value="{{questionid}}" type="hidden" id="questionid"/>
+    <input value="" type="hidden" id="twoobjecttype"/>
+    <input value="{{sectiontype}}" type="hidden" id="sectiontype"/>
+    <input value="{{oneobjecttype}}" type="hidden" id="oneobjecttype"/>
+    <input value="" type="hidden" id="subjecttype"/>
+    <input value="" type="hidden" id="stname"/>
+    <input value="" type="hidden" id="knowsid"/>
+    <input value="{{step}}" type="hidden" id="step"/>
+    <!--蓝色导航-->
+    <div class="blueNav">
+        <b><a href="navList.html"><img src="style/images/practice_off.png" alt="退出图标"/></a></b>
+        <span>{{qnum}}/{{qallnum}}</span>
+        <p class="zhuan">00:00</p>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="topicContent">
+                <div class="topic-title" ng-bind-html="questiontitle">
+                    <!--{{questiontitle}}-->
+                </div>
+                <div class="topic-con">
+                    <ul>
+                        <li onclick="chooseAnswer(this)" ng-repeat="qslctarrT in qslctarr" data-answer="{{qslctarrT.name}}">
+                            <div class="col-xs-2 col-sm-2">
+                                <div class="options">{{qslctarrT.name}}</div>
+                            </div>
+                            <div class="col-xs-10 col-sm-10">
+                                <div class="answers">
+                                    <div class="triangle"></div>
+                                    <p>
+                                        {{qslctarrT.select}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="clearBox"></div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="confirm" ng-click="nextTest()">
+        <a href="javascript:void(0);">下一题</a>
+    </div>
+    <!--题目做完了显示-->
+    <!--<div class="confirm">-->
+    <!--<a href="#">点击提交</a>-->
+    <!--</div>-->
+</div>
+</body>
+</html>

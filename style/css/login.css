@@ -1,0 +1,72 @@
+body{
+    background: #ededed;
+}
+
+.loginGroup{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 47px;
+}
+.loginGroup ul li{
+    margin-bottom: 33px;
+}
+.loginGroup ul li .inputBg{
+    width: 100%;
+    height: 60px;
+    background: white;
+    border: 1px #d5d5d5 solid;
+    border-radius: 10px;
+}
+.loginGroup ul li .inputBg input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    font-size: 1em;
+}
+.loginGroup ul li:first-child .inputBg input{
+    background: url("../images/login_icon01.png") no-repeat 5% center;
+    padding-left: 15%;
+    background-size: 7% auto;
+}
+.loginGroup ul li:nth-child(2) .inputBg input{
+    background: url("../images/login_icon02.png") no-repeat 5% center;
+    background-size: 7% auto;
+    padding-left: 15%;
+}
+.loginGroup ul li:last-child input{
+    width: 100%;
+    height: 60px;
+    background: #0cbd61;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.3em;
+}
+.loginGroup ul li:last-child{
+    margin-bottom: 0;
+}
+.other-con{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 18px;
+    font-size: 1.2em;
+}
+.other-con a{
+    color: #1ab0fc;
+}
+.other-con a:last-child{
+    float: right;
+}
+.other-login{
+    width: 100%;
+    padding: 10px 0;
+    background: white;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.other-login span{
+    color: #676767;
+    margin-right: 5%;
+    font-size: 1.3em;
+}

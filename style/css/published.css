@@ -1,0 +1,35 @@
+.blueNav a.send{
+    position: absolute;
+    right: 2%;
+    top: 2%;
+    font-size: 0.8em;
+}
+.titleD{
+    width: 100%;
+    height: 82px;
+    margin-top: 26px;
+    border-bottom: 1px #e4e4e4 solid;
+}
+.titleD input{
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    border: none;
+    padding-left: 5%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.contentD{
+    width: 100%;
+    padding-top: 32px;
+}
+.contentD textarea{
+    width: 100%;
+    height: 300px;
+    border: none;
+    padding-left: 5%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}

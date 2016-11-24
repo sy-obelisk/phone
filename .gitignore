@@ -1,0 +1,8 @@
+/.idea
+/.data
+/files/attach/*
+/files/web/*
+/lib/config.inc.php
+/robots.txt
+/ErrorFiles
+/u.php

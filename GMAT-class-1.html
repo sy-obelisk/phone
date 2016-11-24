@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <!--阻止浏览器缓存-->
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <!-- Basic Page Needs
+     ================================================== -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="title" content="">
+    <meta name="author" content="">
+    <meta name="Copyright" content="">
+    <meta name="description" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- 让IE浏览器用最高级内核渲染页面 还有用 Chrome 框架的页面用webkit 内核
+    ================================================== -->
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge">
+    <!-- IOS6全屏 Chrome高版本全屏
+    ================================================== -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- 让360双核浏览器用webkit内核渲染页面
+    ================================================== -->
+    <meta name="renderer" content="webkit">
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <!-- !!!注意 minimal-ui 是IOS7.1的新属性，最小化浏览器UI -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="style/css/reset.css">
+    <link rel="stylesheet" href="style/css/common.css">
+    <link rel="stylesheet" href="style/css/swipebox.css">
+    <link rel="stylesheet" href="style/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style/css/swiper-3.3.1.min.css">
+    <script src="style/js/jquery-1.12.2.min.js"></script>
+    <script src="style/js/common.js"></script>
+    <script src="style/js/jquery.swipebox.js"></script>
+    <script src="style/js/swiper-3.3.1.jquery.min.js"></script>
+    <script src="style/js/index-2.js"></script>
+    <script src="style/js/public.js"></script>
+    <script type="text/javascript" src="style/js/angular1.3.1.js"></script>
+    <title>视频课</title>
+</head>
+<body ng-controller="PriceCtrl">
+<!--公共标题栏-->
+<section class="commonTit2 tm clearfix">
+    <a href="javascript:history.go(-1)"><i class="return fl icon-angle-left"></i></a>
+    <span class="Tit inb">视频课</span>
+</section>
+<!--banner-->
+<section class="wrap">
+    <div class="swiper-container">
+        <ul class="swiper-wrapper banner-wrap">
+            <li class="swiper-slide" ng-repeat="item1 in items1" ng-class="{'courseHide':$index>3}">
+                <a href="videoDetails.html?contentId={{item1.contentid}}"><img src="http://www.gmatonline.cn/{{item1.contentthumb}}" alt=""></a>
+                <div class="banner-tit-wrap clearfix">
+                    <span class="banner-tit fl">{{item1.contenttitle}}</span>
+                    <span class="banner-price fr"><em class="sign">￥</em><span>{{item1.price}}</span></span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+<section class="wrap">
+    <ul class="hot-list clearfix">
+        <li ng-repeat="item1 in items1" ng-class="{'courseHide':$index>3}">
+            <div class="hot-img"><a href="videoDetails.html?contentId={{item1.contentid}}"><img src="http://www.gmatonline.cn/{{item1.contentthumb}}" alt=""></a></div>
+            <div class="hot-wrap clearfix">
+                <div class="inb hot-info">
+                    <p class="hot-tit ellipsis">{{item1.contenttitle}}</p>
+                    <p><em class="sign">￥</em><span class="hot-price">{{item1.price}}</span></p>
+                </div>
+                <div class="fr">
+                    <a href="videoDetails.html?contentId={{item1.contentid}}"><img class="play-icon" src="style/images-4/play.png" alt=""></a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</section>
+
+<!--footer-->
+<footer>
+    <div class="row" style="margin: 0 auto">
+        <ul class="footer-list">
+            <li>
+                <a href="#">
+                    <div class="ft-list-wrap">
+                        <i><img src="style/images-4/icon-1A.png" style="width: 12px" alt=""></i>
+                        <p class="ft-name">做题模考</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="knowledge.html">
+                    <div class="ft-list-wrap">
+                        <i><img src="style/images-4/icon-2A.png" style="width: 17px" alt=""></i>
+                        <p class="ft-name">知识库</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="plan-test.html">
+                    <div class="ft-list-wrap">
+                        <i class="hint-wrap relative"><img src="style/images-4/icon-3A.png" style="width: 17px" alt=""><span class="ani hint">10</span></i>
+                        <p class="ft-name">备考八卦</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="GMAT-class.html">
+                    <div class="ft-list-wrap">
+                        <i><img src="style/images-4/icon-4A.png" style="width: 18px" alt=""></i>
+                        <p class="ft-name">GMAT课程</p>
+                    </div>
+                </a>
+            </li>
+            <li class="on">
+                <a href="user-center.html">
+                    <div class="ft-list-wrap">
+                        <i><img src="style/images-4/icon-5A.png" style="width: 13px" alt=""></i>
+                        <p class="ft-name">个人中心</p>
+                    </div>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</footer>
+</body>
+<script>
+    var mySwiper = new Swiper('.swiper-container', {
+        autoplay: 5000,//可选选项，自动滑动
+    })
+</script>
+</html>

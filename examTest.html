@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>雷哥GMAT模考_GMAT模考软件_GMATPREP模考_GMAT网络课程_GMAT培训_雷哥网</title>
+    <meta name="keywords" content="雷哥网，雷哥GMAT，GMAT模考，gmat模考软件,GMATPREP模考，GWD，GMAT语法解析，gmat逻辑，gmat阅读，gmat OG16，gmat PREP，gmat
+     GWD，gmat数学，gmat考试真题,gmat历年真题下载,gmat考试资料,GMAT在线题库，GMAT培训，GMAT网课，申友GMAT,gmat备考资料,考gmat,gmat数学机经">
+    <meta name="description" content="雷哥网GMAT在线(gmatonline),雷哥GMAT模考软件，GMAT考试真题,GMAT知识点,GMAT语法解析,GMAT逻辑,
+    GMAT数学,GMAT真题解析,雷哥GMAT网络培训课程,GMAT阅读,GMATPREP语法笔记,预见你想象的GMAT700">
+    <link rel="icon" href="/app/web_core/styles/images/index-title.png" type="image/x-icon" sizes="16x9"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <link rel="stylesheet" href="style/css/bootstrap.css"/>
+    <link rel="stylesheet" href="style/css/public.css"/>
+    <link rel="stylesheet" href="style/css/practice.css"/>
+    <link rel="stylesheet" href="style/css/optionalBreak.css"/>
+    <script type="text/javascript" src="style/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="style/js/public.js"></script>
+    <script type="text/javascript" src="style/js/bootstrap.js"></script>
+    <script type="text/javascript" src="style/js/jquery.SuperSlide.2.1.1.js"></script>
+    <script type="text/javascript" src="style/js/examTest.js"></script>
+    <script type="text/javascript" src="style/js/optionalBreak.js"></script>
+    <script type="text/javascript" src="style/js/angular1.3.1.js"></script>
+</head>
+<body>
+<div ng-controller="PriceCtrl">
+    <div id="testBox">
+    <input value="{{questionids}}" type="hidden" id="questionids"/>
+    <input value="{{twoobjecttypes}}" type="hidden" id="twoobjecttypes"/>
+    <input value="{{sectiontypes}}" type="hidden" id="sectiontypes"/>
+    <input value="{{oneobjecttypes}}" type="hidden" id="oneobjecttypes"/>
+    <input value="{{subjecttypes}}" type="hidden" id="subjecttypes"/>
+    <input value="{{steps}}" type="hidden" id="steps"/>
+    <input value="{{marks}}" type="hidden" id="marks"/>
+    <!--蓝色导航-->
+    <div class="blueNav">
+        <b><a href="library-wrap.html"><img src="style/images/practice_off.png" alt="退出图标"/></a></b>
+        <span>{{qnyesum}}/{{qallnum}}</span>
+        <p class="totalTime">00:00</p>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="topicContent">
+                <div class="readArticle">
+                   <!--{{questionarticle}}-->
+                    <div ng-bind-html="questionarticle" class="douText"></div>
+                    <img src="style/images/iconfont-zhankai.png" alt="展开图标" class="zhankai" onclick="slideUpD(this)"/>
+                    <span class="closeIcon" onclick="closeArt(this)">×</span>
+                </div>
+                <div class="topic-title"  ng-bind-html="question">
+                   <!--{{question}}-->
+                </div>
+                <div class="topic-con">
+                    <ul>
+                        <li onclick="chooseAnswer(this)" ng-repeat="qslctarrT in qslctarr" data-answer="{{qslctarrT.name}}">
+                            <div class="col-xs-2 col-sm-2">
+                                <div class="options">{{qslctarrT.name}}</div>
+                            </div>
+                            <div class="col-xs-10 col-sm-10">
+                                <div class="answers">
+                                    <div class="triangle"></div>
+                                    <p  ng-bind-html="qslctarrT.select">
+                                        <!--{{qslctarrT.select}}-->
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="clearBox"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="confirm">
+        <a href="javascript:;" onclick="ckanswer()">下一题</a>
+    </div>
+    <!--题目做完了显示-->
+    <!--<div class="confirm">-->
+    <!--<a href="#">点击提交</a>-->
+    <!--</div>-->
+    </div>
+<!--休息时间div-->
+<div id="breakBox">
+    <!--蓝色导航-->
+    <div class="blueNav">
+        <b><a href="library-wrap.html"><img src="style/images/practice_off.png" alt="退出图标"/></a></b>
+        <span>Optional Break</span>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="countDown">
+                <span id="minute">08</span>
+                <span id="second">00</span>
+            </div>
+            <div class="breakImg">
+                <img src="style/images/break_img.png" alt="休息图片"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="jumpTime" ng-click="jumpBreak()">
+        <a href="javascript:void(0);">跳过休息时间</a>
+    </div>
+</div>
+
+</div>
+</body>
+</html>

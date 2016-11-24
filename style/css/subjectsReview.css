@@ -1,0 +1,41 @@
+body{
+    background: #ededed;
+}
+.haveBG{
+    width: 100%;
+    background: url("../images/evaluation_allBG.png") no-repeat center;
+    padding: 30px 0 40px 0;
+    color: white;
+}
+.haveBG h1{
+    font-size: 2em;
+    margin-left: 5%;
+}
+.haveBG p{
+    margin-top: 16px;
+    margin-left: 5%;
+}
+.contList{
+    width: 100%;
+    margin-bottom: 100px;
+}
+.contList ul li{
+    width: 100%;
+    background: white;
+    padding: 15px 5% 20px 5%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border-top: 1px #dbdbdb solid;
+    border-bottom: 1px #dbdbdb solid;
+    margin-top: 20px;
+}
+.contList ul li h4{
+    color: #0facfc;
+    font-size: 1em;
+}
+.contList ul li p{
+    color: #3a3a3a;
+    font-size: 0.8em;
+    margin-top: 14px;
+}

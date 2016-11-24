@@ -1,0 +1,85 @@
+body{
+    background: #ececec;
+}
+
+.blueNav a.edit{
+    position: absolute;
+    right: 2%;
+    top: 2px;
+}
+.blueNav a.edit img{
+    width: 60%;
+}
+.bbsSlide{
+   width: 100%;
+}
+.bbsHd{
+    width: 100%;
+    background: white;
+    border-bottom: 1px #dedede solid;
+}
+.bbsHd ul li .col-xs-4{
+    text-align: center;
+    color: #747474;
+    font-size: 1em;
+    /*border-bottom: 1px #dedede solid;*/
+    padding: 10px 0!important;
+    background: white;
+}
+.bbsHd ul li.on .col-xs-4{
+    color: #55a2d9;
+    border-bottom: 1px #0facfd solid;
+}
+.invitation{
+    width: 100%;
+}
+.invitation>ul>li{
+    width: 100%;
+    padding: 10px 0 15px 5%;
+    background: white;
+    margin-bottom: 14px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.invitation>ul>li>a{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.invitaImg{
+    width: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.invitaImg img{
+    width: 100%;
+}
+.greenDiv{
+    font-size: 1em;
+    color: #1db16b;
+    margin-top: 6%;
+    margin-left: 10px;
+}
+.artInfo{
+    width: 100%;
+    font-size: 0.8em;
+}
+.artInfo p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.artInfo span{
+    color: #a5a5a5;
+}
+.artInfo ul{
+    float: right;
+    color: #a5a5a5;
+}
+.artInfo ul li{
+    float: left;
+}
+.artInfo ul li img{
+    width: 25%;
+    vertical-align: middle;
+}

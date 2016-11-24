@@ -1,0 +1,255 @@
+.topicContent{
+    width: 90%;
+    margin: 0 auto;
+    color: #474644;
+    font-size: 1em;
+    /*line-height: 26px;*/
+    font-family: 'Tahoma';
+}
+.readArticle{
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    margin-top:20px;
+    padding: 20px 0;
+    font-weight: bold;
+    display: none;
+    position: relative;
+}
+.zhankai{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: rotate(90deg);
+}
+.closeIcon{
+   font-size: 30px;
+    color: #a8a8a8;
+    position: absolute;
+    right: 0;
+    top: -10px;
+    display: none;
+}
+.topic-title{
+   margin-top:20px;
+    font-size: 0.8em;
+}
+.topic-title p{
+    /*text-indent: 2em;*/
+}
+.topic-con{
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+.topic-con ul li{
+    margin-bottom: 20px;
+}
+.topic-con ul li.grey .options{
+    background: #cdcdcd;
+}
+.topic-con ul li.grey .answers{
+    border: 1px #cdcdcd solid;
+    color: #a5a5a5;
+}
+.topic-con ul li.grey .triangle{
+    border-bottom: 1px #cdcdcd solid;
+    border-left: 1px #cdcdcd solid;
+}
+.topic-con ul li.blue .options{
+    background: #1b80ee;
+}
+.topic-con ul li.blue .answers{
+    border: 1px #2384f0 solid;
+}
+.topic-con ul li.blue .triangle{
+    border-bottom: 1px #2384f0 solid;
+    border-left: 1px #2384f0 solid;
+}
+.topic-con ul li.red .options{
+    background: #f13234;
+}
+.topic-con ul li.red .answers{
+    border: 1px #f13234 solid;
+}
+.topic-con ul li.red .triangle{
+    border-bottom: 1px #f13234 solid;
+    border-left: 1px #f13234 solid;
+}
+.topic-con ul li.green .options{
+    background: #0cbd62;
+}
+.topic-con ul li.green .answers{
+    border: 1px #0cbd62 solid;
+}
+.topic-con ul li.green .triangle{
+    border-bottom: 1px #0cbd62 solid;
+    border-left: 1px #0cbd62 solid;
+}
+.topic-con ul li.green02 .options{
+    background: #0cbd62;
+}
+.topic-con ul li.green02 .answers{
+    border: 1px #0cbd62 solid;
+}
+.topic-con ul li.green02 .triangle{
+    border-bottom: 1px #0cbd62 solid;
+    border-left: 1px #0cbd62 solid;
+}
+.options{
+    width: 60%;
+    /*margin: 0 auto;*/
+    color: white;
+    background: #9b9b9b;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 1.3em;
+    margin-top: 10px;
+}
+.answers {
+    width: 100%;
+    position: relative;
+    border: 1px solid #cdcdcd;
+    padding: 10px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-size: 0.8em;
+}
+.triangle{
+    width: 10px;
+    height: 10px;
+    border-bottom: 1px solid #cdcdcd;
+    border-left: 1px solid #cdcdcd;
+    transform:rotate(45deg) ;
+    -moz-transform:rotate(45deg);
+    position: absolute;
+    left: -5px;
+    background: white;
+    top: 20px;
+}
+
+.confirm{
+    width: 100%;
+    /*height: 105px;*/
+    /*line-height: 105px;*/
+    padding: 10px 0;
+    font-size: 1em;
+    color: #343434;
+    text-align: center;
+    border-bottom: 1px #cfcfcf solid;
+    border-top: 1px #cfcfcf solid;
+    background: #ededed;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+.confirm a{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.CheckParsing{
+    width: 100%;
+    /*height: 105px;*/
+    /*line-height: 105px;*/
+    padding: 10px 0;
+    font-size: 1em;
+    color: #333333;
+    position: fixed;
+    background: #ededed;
+    bottom: 0;
+    left: 0;
+    z-index: 11;
+
+}
+.CheckParsing>a{
+    float: right;
+    margin-right: 5%;
+}
+.CheckParsing>span{
+    margin-left: 5%;
+}
+.CheckParsing>span.on{
+    color: #0eacfc;
+}
+.parsing{
+    width: 100%;
+    border-top: 5px #cdcdcd solid;
+    border-bottom: 5px #cdcdcd solid;
+    padding: 15px 0 20px 0;
+    background: white;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 12;
+    display: none;
+}
+.parsing p{
+    line-height: 25px;
+    font-size: 0.8em;
+    color: #343434;
+    background: none;
+    width: 90%;
+    margin: 0 auto;
+}
+.parsing h2{
+    width: 90%;
+    margin: 0 auto;
+    color: #f33232;
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+/*做题结果页不同样式*/
+.selection{
+    width: 100%;
+    padding: 12px 0;
+    background: #ededed;
+    position: relative;
+}
+.selectionHd a{
+    position: absolute;
+    top: 20px;
+    color: rosybrown;
+    font-size: 1.2em;
+    z-index: 11;
+}
+.selectionHd a.prev{
+    left: 0;
+}
+.selectionHd a.next{
+    right: 0;
+}
+.selection ul:after{
+    display:block;clear:both;content:"";visibility:hidden;height:0;
+}
+.selection ul li{
+    width: 14.2%;
+    float: left;
+    text-align: center;
+    font-size: 1.2em;
+}
+.selection ul li a{
+    width: 80%;
+    display: block;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+.selection ul li a.red{
+    color: #f23030;
+}
+.selection ul li a.green{
+    color: #0abd60;
+}
+.selection ul li.onRed a{
+    background: #f23030;
+    color: white;
+}
+.selection ul li.onGreen a{
+    background: #0abd60;
+    color: white;
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--阻止浏览器缓存-->
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <!-- Basic Page Needs
+     ================================================== -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="title" content="">
+    <meta name="author" content="">
+    <meta name="Copyright" content="">
+    <meta name="description" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- 让IE浏览器用最高级内核渲染页面 还有用 Chrome 框架的页面用webkit 内核
+    ================================================== -->
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge">
+    <!-- IOS6全屏 Chrome高版本全屏
+    ================================================== -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- 让360双核浏览器用webkit内核渲染页面
+    ================================================== -->
+    <meta name="renderer" content="webkit">
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <!-- !!!注意 minimal-ui 是IOS7.1的新属性，最小化浏览器UI -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="style/css/reset.css">
+    <link rel="stylesheet" href="style/css/common.css">
+    <link rel="stylesheet" href="style/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style/css/swiper-3.3.1.min.css">
+    <script src="style/js/jquery-1.12.2.min.js"></script>
+    <script src="style/js/common.js"></script>
+    <script src="style/js/swiper-3.3.1.jquery.min.js"></script>
+    <title>新消息</title>
+    <style>
+        .msg-list{
+            padding: 0 0.5rem;
+        }
+        .msg-list li{
+            overflow: hidden;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #cccccc;
+        }
+        .head-portrait{
+            /*width: 20%;*/
+            width: 3rem;
+            height: 2.2rem;
+            text-align: center;
+            line-height: 2.2rem;
+            overflow: hidden;
+            margin-right: 0.4rem;
+        }
+        .publish-content{
+            /*width: 15%;*/
+            width: 2.2rem;
+            height: 2.2rem;
+            line-height: 2.2rem;
+            overflow: hidden;
+        }
+        .msg-user{
+            font-size: 0.7rem;
+            /*margin-bottom: 0.1rem;*/
+            color: #1a1a1a;
+        }
+        .msg-text{
+            /*outline: 1px solid red;*/
+            width: 11.7rem;
+            text-align: justify;
+            line-height: 0.7rem;
+            font-size: 0.6rem;
+            color: #666666;
+        }
+        .pub-text{
+            padding:0 0.1rem;
+           text-align: justify;
+            font-size: 0.45rem;
+            line-height: 0.56rem;
+            color: #ffffff;
+            background: #197fee;
+        }
+        .show-more{
+            padding: 1rem 0.5rem;
+            font-size: 0.7rem;
+            color: #1a1a1a;
+        }
+    </style>
+</head>
+<body>
+<!--公共标题栏-->
+<section class="commonTit tm clearfix">
+    <a href="javascript:history.go(-1)"><i class="return fl icon-angle-left"></i></a>
+    <span class="Tit inb">新消息</span>
+</section>
+<!--消息列表-->
+<section>
+    <ul class="msg-list">
+        <li>
+            <div class="head-portrait fl"><img src="style/images-4/1.jpg" alt=""></div>
+            <div class="msg-wrap fl">
+                <p class="msg-user">Trouble-Z</p>
+                <p class="msg-text ellipsis-3">
+                    你真的认识”平行“吗？你懂SC的省略原则吗？你能在句子表达正确的情况下还保证句子美观吗？
+                    雷哥GMAT SC公开课一元钱一小时带你深剖SC的平行结构搞定GMAT
+                </p>
+            </div>
+            <div class="publish-content fr"><img src="style/images-4/2.jpg" alt=""></div>
+        </li>
+        <li>
+            <div class="head-portrait fl"><img src="style/images-4/1.jpg" alt=""></div>
+            <div class="msg-wrap fl">
+                <p class="msg-user">Trouble-Z</p>
+                <p class="msg-text ellipsis-3">
+                    你真的认识”平行“吗？你懂SC的省略原则吗？你能在句子表达正确的情况下还保证句子美观吗？
+                    雷哥GMAT SC公开课一元钱一小时带你深剖SC的平行结构搞定GMAT
+                </p>
+            </div>
+            <div class="publish-content fr">
+                <p class="pub-text ellipsis-4">你真的认识”平行“吗？你懂SC的省略原则吗？</p>
+            </div>
+        </li>
+
+
+    </ul>
+    <div class="show-more tm"><span>查看更多......</span></div>
+</section>
+
+</body>
+</html>

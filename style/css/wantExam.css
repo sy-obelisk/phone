@@ -1,0 +1,41 @@
+
+.mockDe{
+    width: 90%;
+    margin: 0 auto;
+}
+.commonCircle{
+    width: 100%;
+    color: white;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 1.2em;
+}
+.mockDe ul{
+    /*margin-top: 17px;*/
+}
+
+.mockDe ul li{
+    border-bottom: 1px #e8ebf0 solid;
+    padding: 10px 0;
+}
+.diffCo01{
+    background: #97a8fa;
+}
+.diffCo02{
+    background: #f3b368;
+}
+.diffCo03{
+    background: #59dba3;
+}
+.mock-center{
+    margin-top: 1.5%;
+    display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.mock-center p{
+    margin-left: 8px;
+    font-size: 0.8em;
+}
+.mock-right{
+    color: #c7ccd2;
+    font-size: 1.25em;
+}

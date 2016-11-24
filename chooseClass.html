@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>GMAT模考_GMAT网络课程_GMAT培训_GMAT机经_雷哥网</title>
+    <meta name="keywords" content="雷哥网，雷哥GMAT，雷哥网GMAT在线，GMAT时间，GMAT备考，雷哥GMAT课程，GMAT培训，GMAT在线课程，GMAT网络课程,GMAT网课,GMAT课程，gmat是什么，gmat备考，gmat资料，GMAT视频课程,gmat考试真题,gmat历年真题下载,
+    gmat在线课程,gmat网络课程,gmat暑期班,申友GMAT,备考gmat,gmat备考资料,gmat考试资料,考gmat,gmat,gmat数学机经,gmat模考软件,gmat论坛">
+    <meta name="description" content="雷哥网GMAT在线(gmatonline),雷哥网GMAT在线培训课程，GMAT培训,GMAT在线课程,GMAT网络课程,GMAT课程,GMAT网课,
+    GMAT视频课程,预见你想象的700,大中华区权威一站式GMAT学习生态系统">
+    <link rel="icon" href="/app/web_core/styles/images/index-title.png" type="image/x-icon" sizes="16x9"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <link rel="stylesheet" href="style/css/bootstrap.css"/>
+    <link rel="stylesheet" href="style/css/chooseClass.css"/>
+    <link rel="stylesheet" href="style/css/public.css"/>
+    <script type="text/javascript" src="style/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="style/js/bootstrap.js"></script>
+    <script type="text/javascript" src="style/js/jquery.SuperSlide.2.1.1.js"></script>
+    <script type="text/javascript" src="style/js/public.js"></script>
+    <script type="text/javascript" src="style/js/chooseClass.js"></script>
+    <script type="text/javascript" src="style/js/angular1.3.1.js"></script>
+</head>
+<body>
+<div ng-controller="PriceCtrl">
+    <!-------------------蓝色导航--------------------->
+    <div class="blueNav">
+        <b><a href="javascript:history.go(-1);"> <img src="style/images/index_jiantou.png" alt="白色箭头图标"/></a></b>
+        <span>我要选课</span>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="classSlide">
+                <div class="classHd">
+                    <ul>
+                        <li>
+                            <div class="col-xs-4 col-sm-4">公开课</div>
+                        </li>
+                        <li>
+                            <div class="col-xs-4 col-sm-4">直播课</div>
+                        </li>
+                        <li>
+                            <div class="col-xs-4 col-sm-4">视频课</div>
+                        </li>
+                    </ul>
+                    <div class="clearBox"></div>
+                </div>
+                <div class="classBd">
+                    <ul>
+                        <li>
+                            <div class="classInfo">
+                                <ul>
+                                    <li ng-repeat="publicClassT in publicClass">
+                                        <div class="col-xs-8 col-sm-8">
+                                            <h4>{{publicClassT.contenttitle}}</h4>
+                                            <p>主讲：{{publicClassT.teacher}}</p>
+                                            <span>日期：{{publicClassT.time}}</span>
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4">
+                                            <a target=blank href="mqqwpa://im/chat?chat_type=wpa&uin=1746295647&version=1&src_type=web&web_src=http://m.haishiit.com/">点击咨询</a>
+                                        </div>
+                                        <div class="clearBox"></div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="classInfo">
+                                <ul>
+                                    <li ng-repeat="zhiboT in zhibo">
+                                        <div class="col-xs-8 col-sm-8">
+                                            <h4>{{zhiboT.contenttitle}}</h4>
+                                            <p>主讲：{{zhiboT.result.teacher}}</p>
+                                            <span>日期：{{zhiboT.result.time}}</span>
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4">
+                                            <a target=blank href="mqqwpa://im/chat?chat_type=wpa&uin=1746295647&version=1&src_type=web&web_src=http://m.haishiit.com/">点击咨询</a>
+                                        </div>
+                                        <div class="clearBox"></div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="classInfo">
+                                <ul>
+                                    <li ng-repeat="videoT in video">
+                                        <div class="col-xs-8 col-sm-8">
+                                            <h4>{{videoT.contenttitle}}</h4>
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4">
+                                            <a target=blank href="mqqwpa://im/chat?chat_type=wpa&uin=1746295647&version=1&src_type=web&web_src=http://m.haishiit.com/">点击咨询</a>
+                                        </div>
+                                        <div class="clearBox"></div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <script type="text/javascript">
+                jQuery(".classSlide").slide({titCell:".classHd li",mainCell:".classBd"});
+            </script>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

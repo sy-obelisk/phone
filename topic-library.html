@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <!--阻止浏览器缓存-->
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <!-- Basic Page Needs
+     ================================================== -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="title" content="">
+    <meta name="author" content="">
+    <meta name="Copyright" content="">
+    <meta name="description" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- 让IE浏览器用最高级内核渲染页面 还有用 Chrome 框架的页面用webkit 内核
+    ================================================== -->
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge">
+    <!-- IOS6全屏 Chrome高版本全屏
+    ================================================== -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- 让360双核浏览器用webkit内核渲染页面
+    ================================================== -->
+    <meta name="renderer" content="webkit">
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <!-- !!!注意 minimal-ui 是IOS7.1的新属性，最小化浏览器UI -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="style/css/reset.css">
+    <link rel="stylesheet" href="style/css/common.css">
+    <link rel="stylesheet" href="style/css/swipebox.css">
+    <link rel="stylesheet" href="style/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style/css/swiper-3.3.1.min.css">
+    <script src="style/js/jquery-1.12.2.min.js"></script>
+    <script src="style/js/common.js"></script>
+    <script src="style/js/jquery.swipebox.js"></script>
+    <script src="style/js/swiper-3.3.1.jquery.min.js"></script>
+    <script src="style/js/index-2.js"></script>
+    <script src="style/js/public.js"></script>
+    <script type="text/javascript" src="style/js/angular1.3.1.js"></script>
+    <title>题库/模考/考点冲刺</title>
+    <style>
+        .sort-nav{
+            text-align: center;
+            background: #373737;
+            font-size: 0;
+            padding: 0.35rem 0;
+        }
+        .sort-nav span{
+            font-size: 1rem;
+
+            color: #ffffff;
+            margin: 0 3%;
+            width: 14%;
+            border-radius: 3px;
+            line-height: 1.5rem;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .sort-nav span.on{
+            background: #1f1f1f;
+        }
+        .sort-nav2{
+            text-align: center;
+            background: #999999;
+            font-size: 0;
+        }
+        .sort-nav2 span{
+            color: #ffffff;
+            width: 25%;
+            line-height: 2rem;
+            font-size: 0.8rem;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .sort-nav2 span.on{
+            color: #197fee;
+            background: #eeeeee;
+        }
+        .doing{
+            color: #00b351;
+        }
+        .topic-list{
+            padding-bottom: 3.5rem;
+        }
+        .topic-list li{
+            width: 85%;
+            overflow: hidden;
+            position: relative;
+            padding: 0.5rem 0.6rem;
+            margin: 0.6rem auto 0;
+            background: #FEFEFE;
+            box-shadow: 0px 1px 5px 0px #cccccc;
+        }
+        .topic-list .topic-name{
+            font-size: 0.8rem;
+            color: #252525;
+            margin-bottom: 0.5rem;
+        }
+        .topic-list .topic-data{
+            font-size: 0.5rem;
+            color: #8C9399;
+        }
+        .do-btn{
+            width: 30%;
+        }
+        .do-btn a{
+            width: 100%;
+            margin-top: 0.4rem;
+            text-align: center;
+            display: inline-block;
+            vertical-align: middle;
+            background: #197FEE;
+            font-size: 0.7rem;
+            color: #ffffff;
+            line-height: 1.7rem;
+            border-radius: 3px;
+            box-shadow: 0px 1px 5px 0px #cccccc;
+        }
+        .topic-left{
+            width: 69%;
+        }
+    </style>
+</head>
+<body ng-controller="PriceCtrl">
+<!--公共标题栏-->
+<section class="commonTit tm clearfix">
+    <a href="javascript:history.go(-1)"><i class="return fl icon-angle-left"></i></a>
+    <span class="Tit inb">题库</span>
+</section>
+<!--题库分类-->
+<section>
+    <div class="sort-nav">
+        <span class="on" onclick="changeLowerOne(this)" data-id="6">SC</span>
+        <span onclick="changeLowerOne(this)" data-id="8">CR</span>
+        <span onclick="changeLowerOne(this)" data-id="7">RC</span>
+        <span onclick="changeLowerOne(this)" data-id="4">PS</span>
+        <span onclick="changeLowerOne(this)" data-id="5">DS</span>
+    </div>
+    <div class="sort-nav2">
+        <span class="on" data-id="12" onclick="changeLowerTwo(this)">讲义</span>
+        <span data-id="1,15" onclick="changeLowerTwo(this)">OG</span>
+        <span data-id="8,10,11" onclick="changeLowerTwo(this)">PREP</span>
+        <span data-id="2" onclick="changeLowerTwo(this)">GWD</span>
+    </div>
+</section>
+<!--题目列表-->
+<section class="topic-list-wrap">
+    <ul class="topic-list clearfix">
+        <li ng-repeat="item4 in items4">
+            <div class="fl topic-left">
+                <p class="topic-name ellipsis">讲义-{{item4.stname}}</p>
+                <p class="topic-data">题目总数：20&nbsp;&nbsp;<em class="doing">2020</em>人已做</p>
+            </div>
+            <div class="do-btn fr">
+                <a href="#" onclick="locaPrac(this,'1')" data-stid="{{item4.stid}}">开始做题</a>
+            </div>
+        </li>
+
+    </ul>
+</section>
+<!--footer-->
+<footer>
+    <div class="row" style="margin: 0 auto">
+        <ul class="footer-list">
+            <li class="on">
+                <a href="library-wrap.html">
+                    <div class="ft-list-wrap">
+                        <i><img src="style/images-4/icon-1B.png" style="width: 12px" alt=""></i>
+                        <p class="ft-name">做题模考</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="knowledge.html">
+                    <div class="ft-list-wrap">
+                        <i><img src="style/images-4/icon-2A.png" style="width: 17px" alt=""></i>
+                        <p class="ft-name">知识库</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="plan-test.html">
+                    <div class="ft-list-wrap">
+                        <i class="hint-wrap relative"><img src="style/images-4/icon-3A.png" style="width: 17px" alt=""><span class="ani hint">10</span></i>
+                        <p class="ft-name">备考八卦</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="GMAT-class.html">
+                    <div class="ft-list-wrap">
+                        <i><img src="style/images-4/icon-4A.png" style="width: 18px" alt=""></i>
+                        <p class="ft-name">GMAT课程</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="user-center.html">
+                    <div class="ft-list-wrap">
+                        <i><img src="style/images-4/icon-5A.png" style="width: 13px" alt=""></i>
+                        <p class="ft-name">个人中心</p>
+                    </div>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</footer>
+</body>
+</html>

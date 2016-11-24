@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>雷哥GMAT模考_GMAT模考软件_GMATPREP模考_GMAT网络课程_GMAT培训_雷哥网</title>
+    <meta name="keywords" content="雷哥网，雷哥GMAT，GMAT模考，gmat模考软件,GMATPREP模考，GWD，GMAT语法解析，gmat逻辑，gmat阅读，gmat OG16，gmat PREP，gmat
+     GWD，gmat数学，gmat考试真题,gmat历年真题下载,gmat考试资料,GMAT在线题库，GMAT培训，GMAT网课，申友GMAT,gmat备考资料,考gmat,gmat数学机经">
+    <meta name="description" content="雷哥网GMAT在线(gmatonline),雷哥GMAT模考软件，GMAT考试真题,GMAT知识点,GMAT语法解析,GMAT逻辑,
+    GMAT数学,GMAT真题解析,雷哥GMAT网络培训课程,GMAT阅读,GMATPREP语法笔记,预见你想象的GMAT700">
+    <link rel="icon" href="/app/web_core/styles/images/index-title.png" type="image/x-icon" sizes="16x9"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <link rel="stylesheet" href="style/css/bootstrap.css"/>
+    <link rel="stylesheet" href="style/css/public.css"/>
+    <link rel="stylesheet" href="style/css/wantExam.css"/>
+    <script type="text/javascript" src="style/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="style/js/bootstrap.js"></script>
+    <script type="text/javascript" src="style/js/public.js"></script>
+    <script type="text/javascript" src="style/js/jquery.SuperSlide.2.1.1.js"></script>
+    <script type="text/javascript" src="style/js/wantExam.js"></script>
+    <script type="text/javascript" src="style/js/angular1.3.1.js"></script>
+</head>
+<body>
+<div ng-controller="PriceCtrl">
+    <!-------------------头部搜索--------------------->
+    <div class="headGroup">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 leftLogo">
+                    <a href="index.html"><img src="style/images/index_gmatLogo.png" alt="logo"></a>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="inputGroup">
+                        <span onclick="searchClick(this)" id="iconS"></span>
+                        <input type="text" placeholder="搜索GMAT题目" onkeydown="javascript:searchEn(event)"/>
+                    </div>
+                </div>
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 personRight">
+                    <img src="style/images/index_person.png" alt="个人中心图标" onclick="personNav(event)" id="personIcon"/>
+                </div>
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 navRight">
+                    <a href="navList.html"><img src="style/images/index_listIcon.png" alt="侧边导航图标"/></a>
+                </div>
+                <div class="clearBox"></div>
+            </div>
+        </div>
+        <!--个人中心导航栏-->
+        <div class="personNav">
+            <div class="topUser">
+                <div class="col-xs-6 col-sm-6">
+                    <div class="userImg">
+                        <img src="http://www.gmatonline.cn/{{photo}}" alt="用户头像" id="userImg02"/>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6">
+                    <p>{{nickname}}</p>
+                </div>
+                <div class="clearBox"></div>
+            </div>
+            <div class="bottom-list">
+                <ul>
+                    <li><a href="myCourse.html?status=2">我的课程</a></li>
+                    <li><a href="mistakeRecord.html">错题记录</a></li>
+                    <li><a href="recordProblem.html?section=6">做题记录</a></li>
+                    <li><a href="examRecord.html?type=verbal">模考记录</a></li>
+                    <li><a href="vip.html">VIP会员</a></li>
+                    <li><a href="javascript:loginOut();">退出登录</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="blueNav">
+        <b><a href="javascript:history.go(-1);"> <img src="style/images/index_jiantou.png" alt="白色箭头图标"/></a></b>
+        <span>我要模考</span>
+    </div>
+    <div class="mockDe">
+        <ul>
+            <li>
+                <a href="examDetails.html?code=79f9c100300bd8b920ae31d58f33c02c&mark=verbal&name=Verbal-prep07/08/12">
+                    <div class="col-xs-1 col-sm-1">
+                        <div class="commonCircle diffCo01">V</div>
+                    </div>
+                    <div class="col-xs-10 col-sm-10 mock-center">
+                        <p>Verbal-prep07/08/12</p>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 mock-right">&gt;</div>
+                    <div style="clear: both"></div>
+                </a>
+            </li>
+            <li>
+                <a href="examDetails.html?code=4a0e59b6b65313da54f48cbf6f409b01&mark=verbal&name=Verbal-GWD">
+                    <div class="col-xs-1 col-sm-1">
+                        <div class="commonCircle diffCo01">V</div>
+                    </div>
+                    <div class="col-xs-10 col-sm-10 mock-center">
+                        <p>Verbal-GWD</p>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 mock-right">&gt;</div>
+                    <div style="clear: both"></div>
+                </a>
+            </li>
+            <li>
+                <a href="examDetails.html?code=a4aec335e1ea12f3e2010ce04556dd2a&mark=verbal&name=Verbal-sift">
+                    <div class="col-xs-1 col-sm-1">
+                        <div class="commonCircle diffCo01">V</div>
+                    </div>
+                    <div class="col-xs-10 col-sm-10 mock-center">
+                        <p>Verbal-精选题库</p>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 mock-right">&gt;</div>
+                    <div style="clear: both"></div>
+                </a>
+            </li>
+            <li>
+                <a href="examDetails.html?code=f7b0378cceea79b157abc7b403afdc2d&mark=quant&name=Quant-prep07/08/12">
+                    <div class="col-xs-1 col-sm-1">
+                        <div class="commonCircle diffCo02">Q</div>
+                    </div>
+                    <div class="col-xs-10 col-sm-10 mock-center">
+                        <p>Quant-prep07/08/12</p>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 mock-right">&gt;</div>
+                    <div style="clear: both"></div>
+                </a>
+            </li>
+            <li>
+                <a href="examDetails.html?code=01bed40e7d7bb61905c6c720a3bc2683&mark=quant&name=Quant-GWD">
+                    <div class="col-xs-1 col-sm-1">
+                        <div class="commonCircle diffCo02">Q</div>
+                    </div>
+                    <div class="col-xs-10 col-sm-10 mock-center">
+                        <p>Quant-GWD</p>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 mock-right">&gt;</div>
+                    <div style="clear: both"></div>
+                </a>
+            </li>
+            <li>
+                <a href="examDetails.html?code=7686a2c6e92fb6fbb8fb0fdbf49a4f7f&mark=quant&name=Quant-sift">
+                    <div class="col-xs-1 col-sm-1">
+                        <div class="commonCircle diffCo02">Q</div>
+                    </div>
+                    <div class="col-xs-10 col-sm-10 mock-center">
+                        <p>Quant-精选题库</p>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 mock-right">&gt;</div>
+                    <div style="clear: both"></div>
+                </a>
+            </li>
+            <li>
+                <a href="examDetails.html?code=ab5ab50ae22bf5665060d8d1a1abcdc0&mark=all&name=ALL-prep07/08/12">
+                    <div class="col-xs-1 col-sm-1">
+                        <div class="commonCircle diffCo03">A</div>
+                    </div>
+                    <div class="col-xs-10 col-sm-10 mock-center">
+                        <p>ALL-prep07/08/12</p>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 mock-right">&gt;</div>
+                    <div style="clear: both"></div>
+                </a>
+            </li>
+            <li>
+                <a href="examDetails.html?code=946e277b5cd26d9655459909d311b912&mark=all&name=ALL-GWD">
+                    <div class="col-xs-1 col-sm-1">
+                        <div class="commonCircle diffCo03">A</div>
+                    </div>
+                    <div class="col-xs-10 col-sm-10 mock-center">
+                        <p>ALL-GWD</p>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 mock-right">&gt;</div>
+                    <div style="clear: both"></div>
+                </a>
+            </li>
+            <li>
+                <a href="examDetails.html?code=88546698f0d12a066de9f8ac9a71f0da&mark=all&name=ALL-sift">
+                    <div class="col-xs-1 col-sm-1">
+                        <div class="commonCircle diffCo03">A</div>
+                    </div>
+                    <div class="col-xs-10 col-sm-10 mock-center">
+                        <p>ALL-精选题库</p>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 mock-right">&gt;</div>
+                    <div style="clear: both"></div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+.teacherCon{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 36px;
+}
+.teacherImg{
+    width: 80%;
+}
+.teacherImg img{
+    width: 100%;
+}
+.rightInfo{
+    width: 100%;
+    margin-top: 16px;
+}
+.rightInfo h2{
+    color: #0db0f2;
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+.rightInfo ul li{
+    float: left;
+    margin-right: 5px;
+    padding: 2px 5px;
+    color: white;
+    font-size: 0.8em;
+}
+.rightInfo ul:after{
+    display:block;clear:both;content:"";visibility:hidden;height:0;
+}
+.rightInfo ul li:first-child{
+    background: #f29ec7;
+}
+.rightInfo ul li:nth-child(2){
+    background: #33cc99;
+}
+.rightInfo p{
+    font-size: 0.8em;
+    margin-top: 20px;
+}
+.bootInfo{
+    width: 90%;
+    margin: 0 auto;
+    font-size: 0.8em;
+    border-top: 1px #dfdfdf solid;
+    margin-top: 20px;
+    padding-top: 20px;
+    margin-bottom: 50px;
+}

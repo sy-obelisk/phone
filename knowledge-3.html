@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <!--阻止浏览器缓存-->
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <!-- Basic Page Needs
+     ================================================== -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="title" content="">
+    <meta name="author" content="">
+    <meta name="Copyright" content="">
+    <meta name="description" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- 让IE浏览器用最高级内核渲染页面 还有用 Chrome 框架的页面用webkit 内核
+    ================================================== -->
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge">
+    <!-- IOS6全屏 Chrome高版本全屏
+    ================================================== -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- 让360双核浏览器用webkit内核渲染页面
+    ================================================== -->
+    <meta name="renderer" content="webkit">
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <!-- !!!注意 minimal-ui 是IOS7.1的新属性，最小化浏览器UI -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="style/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style/css/reset.css">
+    <link rel="stylesheet" href="style/css/common.css">
+    <link rel="stylesheet" href="style/css/swiper-3.3.1.min.css">
+    <script src="style/js/jquery-1.12.2.min.js"></script>
+    <script src="style/js/common.js"></script>
+    <script src="style/js/swiper-3.3.1.jquery.min.js"></script>
+    <script src="style/js/public.js"></script>
+    <script type="text/javascript" src="style/js/index-2.js"></script>
+    <script type="text/javascript" src="style/js/angular1.3.1.js"></script>
+    <title>知识库-阅读RC</title>
+    <style>
+
+        .knowledge-list li {
+            overflow: hidden;
+            padding: 0.5rem 1.4rem 0.5rem 0.5rem;
+            background: rgba(103, 107, 175, 0.8);
+        }
+
+        .knowledge-list li:nth-child(2) {
+            background: rgba(103, 107, 175, 0.7);
+        }
+        .knowledge-list li:nth-child(3) {
+            background: rgba(103, 107, 175, 0.5);
+        }
+        .knowledge-list li:nth-child(4) {
+            background: rgba(103, 107, 175, 0.3);
+        }
+
+
+    </style>
+</head>
+<body class="knowledge-wrap" ng-controller="PriceCtrl">
+<!--公共标题栏-->
+<section class="commonTit2 tm clearfix">
+    <a href="javascript:history.go(-1)"><i class="return fl icon-angle-left"></i></a>
+    <span class="Tit inb">阅读RC</span>
+</section>
+<!--知识库列表-->
+<section>
+    <ul class="knowledge-list">
+        <li ng-repeat="item54 in items54">
+            <a href="knowBase.html?id={{item54.catid}}&name={{item53.catname}}">
+                <span class="know-name">{{item54.catname}}</span>
+                <i class="enter icon-angle-right"></i>
+            </a>
+        </li>
+
+    </ul>
+</section>
+</body>
+</html>

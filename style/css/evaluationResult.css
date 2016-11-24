@@ -1,0 +1,76 @@
+.resultCircle{
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 30px;
+    background: url("../images/evaluation_colorBg.png") no-repeat;
+    background-size: 100% 100%;
+    /*padding: 30px 0;*/
+    text-align: center;
+    display: table;
+}
+.inre{
+    display: table-cell;
+    vertical-align: middle;
+}
+.resultCircle h2{
+    font-size: 3em;
+}
+.resultCircle p{
+    color: #818181;
+    font-size: 1.5em;
+}
+.centerFont{
+    width: 100%;
+    text-align: center;
+    margin-top: 18px;
+    margin-bottom: 24px;
+    color: #1ab0fd;
+    font-size: 1.2em;
+}
+.resultBot{
+    width: 100%;
+    border-bottom: 1px #e9e9e9 solid;
+}
+.hasB{
+    padding: 38px 0 58px 0!important;
+    border-right: 2px #0facfc solid;
+}
+.mtT{
+    margin-top: 80px;
+}
+.mtT02{
+    margin-top: 120px;
+}
+.greyBox{
+    width: 80%;
+    margin: 0 auto;
+}
+.greyBox img{
+    width: 100%;
+}
+.greyBlue p{
+    font-size: 1.5em;
+}
+.greyBlue p span{
+    color: #0facfc;
+}
+.greyBlue p b{
+    font-weight: normal;
+    color: #b3b3b3;
+}
+.suggest{
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.suggest a{
+    width: 80%;
+    padding: 10px 0;
+    background: #34cc67;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+    font-size: 1.2em;
+    margin: 0 auto;
+    display: block;
+}

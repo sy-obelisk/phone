@@ -1,0 +1,41 @@
+.questionList{
+    width: 100%;
+}
+
+.questionList ul li{
+    padding: 10px 0;
+    border-bottom: 1px #cdcdcd solid;
+}
+.questionList ul li a{
+    width: 90%;
+    margin: 0 auto;
+    height: 100%;
+    display: block;
+}
+.ques-center p{
+    margin-top: 1.5%;
+    margin-left: 8px;
+    font-size: 0.8em;
+    display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.ques-right{
+    margin-top: 1.5%;
+    color: #b3b3b3;
+    text-align: right;
+    padding-right: 10px!important;
+    font-size: 0.8em;
+    display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.ques-right img{
+    width: 30%;
+}
+.dis{
+    display: none;
+}
+.little{
+    width: 100%;
+    background: #e8ebf0;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 0.8em;
+}

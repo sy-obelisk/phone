@@ -1,0 +1,202 @@
+RewriteEngine on
+
+RewriteCond %{HTTP_HOST} ^gmatonline\.cn$ [NC]
+RewriteRule ^(.*)$ http://www.gmatonline.cn/$1 [L,R=301]
+#以下为伪静态
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{QUERY_STRING} ^(.*)$
+#RewriteRule ^(.*)$ t.php?%1 [PT,QSA]
+#RewriteRule ^(.*)wap\/(.*)$ wap/$2 [PT]
+
+#index.php前面有很多多余路径的情况处理
+RewriteRule ^(.*)index\.php(.*)$ index.php/$2 [PT]
+#解决前台插件和相关静态文件访问地址
+RewriteRule ^(.*)\/app\/web_core\/(.*)$ /app/web_core/$2 [PT]
+#首页优化
+RewriteRule ^index.html$|^index\/(.*)$ index.php?web/index/$1 [PT]
+RewriteRule ^$|^index.html$|^index\.php$ index.php [PT]
+#RewriteRule ^index-back.html$ index.php?web/index/$1 [PT]
+#RewriteRule ^index\/(.*)$ index.php?web/index/$1 [PT]
+
+#后台访问地址
+RewriteRule ^admin.html$ /index.php?core/master/ [PT]
+
+#知识点
+RewriteRule ^learn\/(\d+)-(\d+)\.html$ index.php?web/learn/learn/&contentid=$1&knowsid=$2 [PT]
+RewriteRule ^learn\/(\d+)\.html$ index.php?web/learn/&knowid=$1 [PT]
+RewriteRule ^learn\/index\.html$|^learn\/(.*)$ index.php?web/learn/$1 [PT]
+#资讯
+RewriteRule ^beikao\/(\d+)\.html$ index.php?web/beikao/beikao/&contentid=$1 [PT]
+RewriteRule ^guide\/(\d+)\.html$ index.php?web/beikao/fingerpost/&id=$1 [PT]
+RewriteRule ^beikao\/(.*)$|^beikao\/index\.html$ index.php?web/beikao/$1 [PT]
+#雷豆换购
+RewriteRule ^shop\/(.*)$ index.php?web/shop/$1 [PT]
+#在线做题：http://www.gmatonline.cn/practise
+
+RewriteRule ^practise\/j-(\d+)-(\d+)-(\d+)-(\d+)-(\d+)-(\d+)-(\d+)-(\d+)-(.*)\.html$ index.php?web/practise/zuoti&subjectid=$1&sectionid=$2&oneobjecttype=$3&originid=$4&questiontype=$5&questionlevel=$6&knowsid=$7&stid=$8&quit=$9 [PT]
+RewriteRule ^practise\/c-(.*)-(\d+)-(\d+)-(\d+)-(\d+)-(\d+)-(\d+)-(\d+)-(\d+)\.html$ index.php?web/practise/zuoti&step=$1&subjectid=$2&sectionid=$3&oneobjecttype=$4&originid=$5&questiontype=$6&questionlevel=$7&knowsid=$8&stid=$9 [PT]
+RewriteRule ^practise\/(\d+)-(\d+)-(\d+)-(\d+)-(\d+)-(\d+)-(\d+)-(\d+)\.html$ index.php?web/practise/zuoti&subjectid=$1&sectionid=$2&oneobjecttype=$3&originid=$4&questiontype=$5&questionlevel=$6&knowsid=$7&stid=$8 [PT]
+RewriteRule ^practise\/jx-(\d+)-(\d+)-(\d+)-(.*)\.html$ index.php?web/practise/zuoti&stid=$1&sectionid=$2&originid=$3&quit=$4 [PT]
+RewriteRule ^practise\/c-(.*)-(\d+)-(\d+)-(\d+)\.html$ index.php?web/practise/zuoti&step=$1&stid=$2&sectionid=$3&originid=$4 [PT]
+RewriteRule ^practise\/(\d+)_(\d+)_(\d+)_(.*)\.html$ index.php?web/practise/tiku_list&stid=$1&sectionid=$2&originid=$3&name=$4 [PT]
+RewriteRule ^practise\/(\d+)_(\d+)_(.*)_(\d+)\.html$ index.php?web/practise/tiku_list&stid=$1&sectionid=$2&name=$3&page=$4 [PT]
+RewriteRule ^practise\/(\d+)_(\d+)_(.*)\.html$ index.php?web/practise/tiku_list&stid=$1&sectionid=$2&name=$3 [PT]
+RewriteRule ^practise\/(\d+)-(\d+)-(\d+)\.html$ index.php?web/practise/zuoti&stid=$1&sectionid=$2&originid=$3 [PT]
+RewriteRule ^practise\/n-(\d+)-(.*)-(.*)\.html$ index.php?web/practise/zuoti&next=$1&step=$2&checke=$3 [PT]
+RewriteRule ^practise\/m-(\d+)-(.*)-(\d+)\.html$ index.php?web/practise/zuoti&kzid=$1&kzmark=$2&cptime=$3 [PT]
+RewriteRule ^practise\/next-(\d+)-(.*)\.html$ index.php?web/practise/zuoti&next=$1&step=$2 [PT]
+RewriteRule ^practise\/(\d+)-(.*)-(\d+)\.html$ index.php?web/practise/tiku_list&knowsid=$1&name=$2&page=$3 [PT]
+RewriteRule ^practise\/(\d+)-(.*)\.html$ index.php?web/practise/tiku_list&knowsid=$1&name=$2 [PT]
+RewriteRule ^practise\/z-(\d+)\.html$ index.php?web/practise/zuoti&ndzn=$1 [PT]
+RewriteRule ^practise\/t-(\d+)\.html$ index.php?web/practise/tiku_list&tikuid=$1 [PT]
+RewriteRule ^practise\/n-(\d+)\.html$ index.php?web/practise/zuoti&next=$1 [PT]
+RewriteRule ^practise\/index\.html$|^practise\/(.*)$ index.php?web/practise/$1 [PT]
+#题目列表页：http://www.gmatonline.cn/question
+RewriteRule ^question\/st(\d*)og(\d*)le(\d*)et(.*)key(.*)pg(\d*)\.html$ index.php?web/question/index&section=$1&origin=$2&levelid=$3&exte=$4&page=$6&keywords=$5 [PT]
+RewriteRule ^question\/st(\d*)og(\d*)le(\d*)et(.*)key(.*)\.html$ index.php?web/question/index&section=$1&origin=$2&levelid=$3&exte=$4&keywords=$5 [PT]
+RewriteRule ^question\/(\d+)-(\d+)-(\d+)\.html$ index.php?web/question/tiku_meidaoti&questionid=$1&originid=$2&sectionid=$3 [PT]
+RewriteRule ^question\/next-(\d+)-(\d+)-(\d+)\.html$ index.php?web/question/tiku_meidaoti&next=$1&subjectid=$2&sectionid=$3 [PT]
+RewriteRule ^question\/arign-(\d+)-(\d+)-(\d+)\.html$ index.php?web/question/tiku_meidaoti&next=$1&originid=$2&sectionid=$3 [PT]
+RewriteRule ^question\/(\d+)-(\d+)\.html$ index.php?web/question/tiku_meidaoti&questionid=$1&sectionid=$2 [PT]
+RewriteRule ^question\/(\d+)-(.*)\.html$ index.php?web/question/tiku_meidaoti&questionid=$1&section=$2 [PT]
+RewriteRule ^question\/next-(\d+)-(\d+)\.html$ index.php?web/question/tiku_meidaoti&next=$1&questionid=$2 [PT]
+RewriteRule ^question\/(\d+)\.html$ index.php?web/question/tiku_meidaoti&questionid=$1 [PT]
+RewriteRule ^question\/l-(\d+)\.html$ index.php?web/question/&levelid=$1 [PT]
+RewriteRule ^question\/s-(\d+)\.html$ index.php?web/question/&section=$1 [PT]
+RewriteRule ^question\/k-(.*)\.html$ index.php?web/question/&keywords=$1 [PT]
+RewriteRule ^question\/index\.html$|^question\/(.*)$ index.php?web/question/$1 [PT]
+#在线模考：http://www.gmatonline.cn/exam
+RewriteRule ^modeltest\/(\d+)\.html$ index.php?web/modeltest/mk_tishi&step=redo&id=$1[PT]
+RewriteRule ^modeltest\/index\.html$|^modeltest\/(.*)$ index.php?web/modeltest/$1 [PT]
+#模考
+RewriteRule ^exam\/v(\w?)q(\w?)a(\w?)\.html$ index.php?web/exam/index&v=$1&q=$2&a=$3 [PT]
+RewriteRule ^exam\/(\d+)_(.*)_(.*)\.html$ index.php?web/exam/mk_tishi&id=$1&name=$2&mark=$3 [PT]
+RewriteRule ^exam\/result-(\d+)-(\d+)\.html$ index.php?web/exam/result/&mkid=$1&mkscoreid=$2 [PT]
+RewriteRule ^exam\/redo-(\d+)\.html$ index.php?web/exam/mk_tishi&step=redo&id=$1[PT]
+RewriteRule ^exam\/index\.html$|^exam\/(.*)$ index.php?web/exam/$1 [PT]
+#在线测评：http://www.gmatonline.cn/test
+RewriteRule ^test\/(\d+)-(\d+)\.html$ index.php?web/practise/cepingtishi&kzid=$1&cptime=$2 [PT]
+#RewriteRule ^test\/j-(\d+)-(\d+)\.html$ index.php?web/test/jieguo_score&kzid=$1&SysSecond=$2 [PT]
+RewriteRule ^test\/index\.html$|^test\/(.*)$ index.php?web/test/$1 [PT]
+#关于我们
+RewriteRule ^aboutUs\/(\d+)\.html(.*)$ index.php?web/aboutUs/index&ulNum=$1$2 [PT]
+RewriteRule ^aboutUs\/nianhui\.html$ index.php?web/aboutUs/nianhui/ [PT]
+RewriteRule ^aboutUs\/(.*)$|^aboutUs\/index\.html$ index.php?web/aboutUs/$1 [PT]
+
+#完善资料
+RewriteRule ^information\/(.*)$|^information\.html$ index.php?web/information/$1 [PT]
+#接口 这个接口影响到了联动登陆必须做特别的处理 （如果入口文件做了去掉“index.php?web”的处理，就必须要考虑两个api接口相同的处理方式）
+#RewriteRule ^api\/(.*)$ index.php?web/api/$1 [PT]
+RewriteRule ^webapi\/(.*)$ index.php?web/webapi/$1 [PT]
+#直播课
+RewriteRule ^livelesson\/i-(\d+)-(\d+)\.html$ /index.php?web/livelesson/index&catid=$1&teach_catid=$2 [PT]
+RewriteRule ^livelesson\/(\d+)\.html$ /index.php?web/livelesson/xiangqing&contentid=$1 [PT]
+RewriteRule ^livelesson\/index\.html$|^livelesson\/(.*)$ index.php?web/livelesson/$1 [PT]
+
+
+#支付页面
+RewriteRule ^pay\/(\d+)-(\d+)-(\d+)-(\d+)\.html$ index.php?web/pay/pay_online&contentid=$1&catid=$2&commodity_type=$3&again=$4 [PT]
+RewriteRule ^pay\/(\d+)-(\d+)-(\d+)\.html$ index.php?web/pay/pay_online&contentid=$1&catid=$2&commodity_type=$3 [PT]
+RewriteRule ^pay\/(\d+)-(\d+)\.html$ index.php?web/pay/pay_online&contentid=$1&commodity_type=$2 [PT]
+RewriteRule ^pay\/pay-(.*)\.html$ index.php?web/pay/pay_Details&orderid=$1 [PT]
+RewriteRule ^pay\/show-(.*)\.html$ index.php?web/pay/showorder&orderid=$1 [PT]
+RewriteRule ^pay\/(.*)$|^pay\/index\.html$ index.php?web/pay/$1 [PT]
+#公开课
+RewriteRule ^publicclass\/(.*)$ index.php?web/publicclass/$1 [PT]
+#GMAT名师
+RewriteRule ^teachers\/(\d+)\.html$ index.php?web/teachers/teachers/&contentid=$1 [PT]
+RewriteRule ^teachers\/catid-(\d+)\.html$ index.php?web/teachers/&catid=3 [PT]
+RewriteRule ^teachers\/index\.html$|^teachers\/(.*)$ index.php?web/teachers/$1 [PT]
+#用户中心
+RewriteRule ^user\/(.*)$ index.php?web/user/$1 [PT]
+#在线视频
+RewriteRule ^video.html$ index.php?web/video/videoPlay&catid=11 [PT]
+RewriteRule ^video\/(\d+)\.html$ index.php?web/video/videoPlay&catid=$1 [PT]
+RewriteRule ^videocourse\/(\d+)-(\d+)\.html$ /index.php?web/livelesson/videocourse&contentid=$1&catid=$2 [PT]
+
+#GMAT培训课程
+RewriteRule ^gmatcourses\/(\d+)\.html$ index.php?web/gmatcourses/gmatcourses/&contentid=$1 [PT]
+RewriteRule ^gmatcourses\/(.*)$|^gmatcourses\/index\.html$ index.php?web/gmatcourses/$1 [PT]
+#在线视频
+RewriteRule ^liveclass\/(.*)\.html$ index.php?web/liveclass/&order_id=$1 [PT]
+RewriteRule ^liveclass\/(.*)$|^liveclass\/(.*)\.html$ index.php?web/liveclass/$1 [PT]
+RewriteRule ^livevideo\/(.*)-(.*)\.html$ index.php?web/liveclass/livevideo/&order_id=$1&token=$2 [PT]
+RewriteRule ^livevideo\/(.*)\.html$ index.php?web/liveclass/livevideo/&order_id=$1 [PT]
+RewriteRule ^livevideo\/(.*)$|^livevideo\/index\.html$ index.php?web/liveclass/livevideo/$1 [PT]
+RewriteRule ^live\/(.*)$|^live\/index\.html$ index.php?web/live/$1 [PT]
+#问答中心
+RewriteRule ^askleige\/index\.html$|^askleige\/(.*)$ index.php?web/askleige/$1 [PT]
+#报名
+RewriteRule ^internship\/index\.html$|^internship\/(.*)$ index.php?web/internship/$1 [PT]
+#下载APP
+RewriteRule ^DownloadApp\.html$ index.php?web/index/uploadApp/ [PT]
+
+#GMAT-wap
+#RewriteRule ^wap\/aboutUs\.html$ /wap/aboutUs.php [PT] #关于我们
+#RewriteRule ^wap\/jiaocheng\.html$ /wap/computerSecurity.php [PT] #新手教程
+#RewriteRule ^wap\/contact\.html$ /wap/contactUs.php [PT] #联系我们
+#RewriteRule ^wap\/banquan\.html$ /wap/Copyright.php [PT] #版权说明
+#
+#RewriteRule ^wap\/studyRecord\.html$ wap/studyRecord.php [PT] #学习记录
+#RewriteRule ^wap\/zuotijilu\.html$ wap/DoproblemRecord.php [PT] #做题记录
+#RewriteRule ^wap\/course\.html$ /wap/BuyCourseRecord.php [PT] #购课记录
+#RewriteRule ^wap\/collect\.html$ /wap/collectRecord.php [PT] #收藏记录
+#RewriteRule ^wap\/cuotijilu\.html$ wap/falseRecord.php [PT] #错题记录
+#RewriteRule ^wap\/messages\.html$ wap/messages.php [PT] #消息中心
+#RewriteRule ^wap\/examRecord\.html$ wap/modelRecord.php [PT] #模考记录
+#
+#RewriteRule ^wap\/setting\.html$ wap/setting.php [PT] #设置
+#RewriteRule ^wap\/Email\.html$ wap/editEmail.php [PT] #修改邮箱
+#RewriteRule ^wap\/name\.html$ wap/editNickname.php [PT] #修改昵称
+#RewriteRule ^wap\/Phone\.html$ wap/editPhone.php [PT] #修改手机
+#RewriteRule ^wap\/mima\.html$ wap/foundModifyPwd.php [PT] #找回密码
+#RewriteRule ^wap\/register\.html$ wap/register.php [PT] #注册
+#RewriteRule ^wap\/login\.html$ wap/login.php [PT] #登陆
+#
+#RewriteRule ^wap\/personCenter\.html$ wap/personCenter.php [PT] #个人中心
+#RewriteRule ^wap\/dxzuoti\.html$ wap/singleProblem.php [PT] #单项做题
+#RewriteRule ^wap\/practises\.html$ wap/intelligence.php [PT] #智能做题
+#RewriteRule ^wap\/zhishizuoti\.html$ wap/knowledge.php [PT] #知识点做题
+#RewriteRule ^wap\/zhishiku\.html$ wap/knows.php [PT] #知识库
+#RewriteRule ^wap\/examTest\.html$ wap/modelTest.php [PT] #模考列表
+#RewriteRule ^wap\/MyCourse\.html$ wap/MyCourse.php [PT] #我的课程
+#
+#RewriteRule ^wap\/courses-(\d+)-(\d+)\.html$ /wap/courseDelis.php?catid=$1&content=$2 [PT] #课程详情
+#RewriteRule ^wap\/PayOrder-(\d+)-(\d+)\.html$ /wap/PayOrderApp.php?catid=$1&contentid=$2 [PT] #订单
+#
+#RewriteRule ^wap\/practise-l-(\d+)-(.*)-(\d+)-(\d+)\.html$ /wap/Doproblem.php?ndzn=$1&setp=$2&questionlevel=$3&type=$4 [PT] #做题-智能做题-难度做题
+#RewriteRule ^wap\/practise-zc-(\d+)-(\d+)-(.*)-(\d+)\.html$ /wap/Doproblem.php?knowsid=$1&sectionid=$2&step=$3&type=$4 [PT] #做题-知识点做题-知识点重做
+#RewriteRule ^wap\/practise-s-(\d+)-(.*)-(\d+)\.html$ /wap/Doproblem.php?ndzn=$1&step=$2&type=$3 [PT] #做题-智能做题-随机做题
+#RewriteRule ^wap\/practise-z-(\d+)-(\d+)-(\d+)\.html$ /wap/Doproblem.php?knowsid=$1&sectionid=$2&type=$3 [PT] #做题-知识点做题
+#RewriteRule ^wap\/practise-dc-(\d+)-(.*)-(\d+)\.html$ /wap/Doproblem.php?stid=$1&step=$&type=$3 [PT] #做题-单项做题-单项重做
+#RewriteRule ^wap\/practise-n-(\d+)-(\d+)-(\d+)\.html$ /wap/Doproblem.php?next=$1&type=$2&num=$3 [PT] #做题-下一题
+#RewriteRule ^wap\/practise-(\d+)-(\d+)\.html$ /wap/Doproblem.php?stid=$1&type=$2 [PT] #做题-单项做题
+#
+#RewriteRule ^wap\/zuotijieguo\.html$ wap/DoproblemResult.php [PT] #做题结果
+#
+#RewriteRule ^wap\/exam-(\d+)-(.*)-(.*)-(.*)-(\d+)\.html$ /wap/DoModelproblem.php?mkid=$1&mark=$2&starttime=$3&step=$4&mkscoreid=$5 [PT] #模考做题-重做模考题
+#RewriteRule ^wap\/exam-(\d+)-(.*)-(.*)\.html$ /wap/DoModelproblem.php?mkid=$1&mark=$2&starttime=$3 [PT] #模考做题-开始做题
+#RewriteRule ^wap\/exam-(\d+)\.html$ /wap/DoModelproblem.php?next=$1 [PT] #模考做题-下一题
+#
+#RewriteRule ^wap\/examResult-(\d+)-(\d+)\.html$ /wap/ModelResult.php?mkid=$1&mkscoreid=$2 [PT] #模考结果
+#
+#RewriteRule ^wap\/zhishiku2-(\d+)-(.*)\.html$ /wap/knowsCategory.php?catid=$1&catname=$2 [PT] #知识库2级
+#RewriteRule ^wap\/zhishiku3-(\d+)\.html$ /wap/knowsDetails.php?contentid=$1 [PT] #知识库详情
+#
+#RewriteRule ^wap\/messagesdata-(\d+)\.html$ /wap/messagesdata.php?id=$1 [PT] #消息详情
+#
+#RewriteRule ^wap\/zuoti-(\d+)-(\d+)-(\d+)-(\d+)-(\d+)-(\d+)\.html$ /wap/SoloProblem.php?questionid=$1&sectionid=$2&originid=$3&type=$4&mkid=$5&mkscoreid=$6 [PT] #单独一道题-模考做题
+#RewriteRule ^wap\/zuoti-(\d+)-(\d+)-(\d+)-(\d+)\.html$ /wap/SoloProblem.php?questionid=$1&sectionid=$2&originid=$3&type=$4 [PT] #单独一道题-收藏做题
+
+RewriteRule ^analyze$ index.php?/analyze/index [PT]   #全科分析报告
+RewriteRule ^analyze\/sc_only\.html$ index.php?/analyze/sc_only [PT]   #sc单科分析报告
+RewriteRule ^analyze\/rc_only\.html$ index.php?/analyze/rc_only [PT]   #rc单科分析报告
+RewriteRule ^analyze\/cr_only\.html$ index.php?/analyze/cr_only [PT]   #cr单科分析报告
+RewriteRule ^analyze\/quant_only\.html$ index.php?/analyze/question_only [PT]   #question单科分析报告
+RewriteRule ^analyze\/center\.html$ index.php?/analyze/center [PT]   #question单科分析报告
+
+RewriteRule ^([a-z]=.*)  index.php?$1  [L,NE]
+
+#RewriteRule ^(.*)$ index.php/$1 [L]
+

@@ -1,0 +1,48 @@
+#breakBox{
+    display: none;
+}
+.countDown{
+    width: 80%;
+    background: url("../images/break_bg.png") no-repeat;
+    background-size: 100% 100%;
+    color: white;
+    font-size: 4em;
+    margin: 0 auto;
+    margin-top: 30px;
+    position: relative;
+    letter-spacing: 25px;
+}
+.countDown #minute{
+    position: relative;
+    left: 6%;
+}
+.countDown #second{
+    position: relative;
+    right: -5%;
+}
+.breakImg{
+    width: 80%;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+.breakImg img{
+    width: 100%;
+}
+.jumpTime{
+    width: 100%;
+    /*height: 100px;*/
+    /*line-height: 100px;*/
+    padding: 10px 0;
+    background: #ededed;
+    border-top: 1px #d8d8d8 solid;
+    text-align: center;
+    font-size: 1em;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+.jumpTime a{
+    width: 100%;
+    height: 100%;
+    display: block;
+}

@@ -1,0 +1,78 @@
+
+.knowContent{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-bottom: 50px;
+    word-wrap: break-word;
+    font-size: 0.8em;
+}
+.knowBtn{
+    border-top: 1px #cdcdcd solid;
+    padding: 36px 0;
+}
+.knBtn{
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+.knBtn a{
+    width: 100%;
+    height: 100%;
+    padding: 10px 0;
+    display: block;
+    color: white;
+    border-radius: 5px;
+}
+.knBtn a img{
+    width: 15%;
+    vertical-align: middle;
+}
+.knBtn.green{
+    background: #34cc67;
+}
+.knBtn.orange{
+    background: #ff9a34;
+}
+
+/*分享css*/
+.shareMask{
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+.shareDiv{
+    width: 100%;
+    background: #e6e6e6;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+.shareDiv ul li{
+    border-bottom: 1px #bebebe solid;
+}
+.shareDiv ul li a{
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 20px 0 20px 10%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.shareDiv ul li:last-child{
+    border-bottom: none;
+}
+.shareDiv ul li a img{
+    width: 15%;
+    vertical-align: middle;
+}
+.shareDiv ul li a span{
+    font-size: 1em;
+    position: relative;
+    top: 5px;
+}

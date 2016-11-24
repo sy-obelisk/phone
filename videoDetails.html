@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>GMAT模考_GMAT网络课程_GMAT培训_GMAT机经_雷哥网</title>
+    <meta name="keywords" content="雷哥网，雷哥GMAT，雷哥网GMAT在线，GMAT时间，GMAT备考，雷哥GMAT课程，GMAT培训，GMAT在线课程，GMAT网络课程,GMAT网课,GMAT课程，gmat是什么，gmat备考，gmat资料，GMAT视频课程,gmat考试真题,gmat历年真题下载,
+    gmat在线课程,gmat网络课程,gmat暑期班,申友GMAT,备考gmat,gmat备考资料,gmat考试资料,考gmat,gmat,gmat数学机经,gmat模考软件,gmat论坛">
+    <meta name="description" content="雷哥网GMAT在线(gmatonline),雷哥网GMAT在线培训课程，GMAT培训,GMAT在线课程,GMAT网络课程,GMAT课程,GMAT网课,
+    GMAT视频课程,预见你想象的700,大中华区权威一站式GMAT学习生态系统">
+    <link rel="icon" href="/app/web_core/styles/images/index-title.png" type="image/x-icon" sizes="16x9"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <link rel="stylesheet" href="style/css/bootstrap.css"/>
+    <link rel="stylesheet" href="style/css/courseDetails.css"/>
+    <link rel="stylesheet" href="style/css/public.css"/>
+    <script type="text/javascript" src="style/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="style/js/bootstrap.js"></script>
+    <script type="text/javascript" src="style/js/jquery.SuperSlide.2.1.1.js"></script>
+    <script type="text/javascript" src="style/js/public.js"></script>
+    <script type="text/javascript" src="style/js/videoDetails.js"></script>
+    <script type="text/javascript" src="style/js/angular1.3.1.js"></script>
+</head>
+<body>
+<div ng-controller="PriceCtrl">
+    <!-------------------头部搜索--------------------->
+    <div class="headGroup">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 leftLogo">
+                    <a href="index.html"><img src="style/images/index_gmatLogo.png" alt="logo"></a>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="inputGroup">
+                        <span onclick="searchClick(this)" id="iconS"></span>
+                        <input type="text" placeholder="搜索GMAT题目" onkeydown="javascript:searchEn(event)"/>
+                    </div>
+                </div>
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 personRight">
+                    <img src="style/images/index_person.png" alt="个人中心图标" onclick="personNav(event)" id="personIcon"/>
+                </div>
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 navRight">
+                    <a href="navList.html"><img src="style/images/index_listIcon.png" alt="侧边导航图标"/></a>
+                </div>
+                <div class="clearBox"></div>
+            </div>
+        </div>
+        <!--个人中心导航栏-->
+        <div class="personNav">
+            <div class="topUser">
+                <div class="col-xs-6 col-sm-6">
+                    <div class="userImg">
+                        <img src="http://www.gmatonline.cn/{{photo}}" alt="用户头像" id="userImg02"/>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6">
+                    <p>{{nickname}}</p>
+                </div>
+                <div class="clearBox"></div>
+            </div>
+            <div class="bottom-list">
+                <ul>
+                    <li><a href="myCourse.html?status=2">我的课程</a></li>
+                    <li><a href="mistakeRecord.html">错题记录</a></li>
+                    <li><a href="recordProblem.html?section=6">做题记录</a></li>
+                    <li><a href="examRecord.html?type=verbal">模考记录</a></li>
+                    <li><a href="vip.html">VIP会员</a></li>
+                    <li><a href="javascript:loginOut();">退出登录</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-------------------蓝色导航--------------------->
+    <div class="blueNav">
+        <b><a href="javascript:history.go(-1);"> <img src="style/images/index_jiantou.png" alt="白色箭头图标"/></a></b>
+        <span>{{contenttitle}}</span>
+    </div>
+<div class="container">
+    <div class="row">
+        <div class="autoWidth">
+        <div class="col-xs-5 col-sm-5">
+            <div class="courseImg">
+                <img src="http://www.gmatonline.cn/{{contentthumb}}" alt="课程图片"/>
+            </div>
+        </div>
+        <div class="col-xs-7 col-sm-7">
+           <div class="rightInfo">
+               <ul>
+                   <li>￥{{price}}</li>
+                   <li>价格￥{{oldprice}}</li>
+                   <li>课程时长：{{keshi}}</li>
+                   <li>授课老师：{{teacher}}</li>
+                   <!--<li>开课日期：6月24、27日</li>-->
+                   <li>性价比：{{xingjiabi}}</li>
+               </ul>
+           </div>
+        </div>
+        <div class="clearBox"></div>
+        <!--课程介绍-->
+        <div class="courseIntroduce">
+            <div ng-bind-html="contenttext"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="buy"><a href="javascript:void(0);">立即购买</a></div>
+    <form name=alipayment action="http://www.gmatonline.cn/alipay/alipayapi.php" method=post id="orderQ">
+        <!--    商户订单号：-->
+        <input id="WIDout_trade_no" name="WIDout_trade_no" value="" type="hidden"/>
+        <!--    订单名称：-->
+        <input id="WIDsubject" name="WIDsubject" value="" type="hidden"/>
+        <!--    付款金额：-->
+        <input id="WIDtotal_fee" name="WIDtotal_fee" value="" type="hidden"/>
+        <!--    商品展示地址：-->
+        <input id="WIDshow_url" name="WIDshow_url" value="" type="hidden"/>
+        <!--    订单描述：-->
+        <input id="WIDbody" name="WIDbody" value="" type="hidden"/>
+        <!--    支付类型-->
+        <input id="service" name="service" value="WAP" type="hidden" />
+    </form>
+    <!--{*数量*}-->
+    <!--<input type="hidden" value="1" name="args[num]" id="p_num">-->
+    <!--{*价格*}-->
+    <input type="hidden" value="{{data01}}" name="args[price]" id="py_price">
+    <!--{*使用雷豆*}-->
+    <!--<input type="hidden" value="{x2;$goods['pay_integral']}" name="args[integral]" id="p_integral">-->
+    <!--{*<input type="hidden" value="{x2;$goods['pay_price']}" name="args[account]" id="p_account">*}-->
+    <input type="hidden" value="{{id}}" name="args[id]" id="commodity_id">
+    <input type="hidden" value="" name="args[commodity_type]" id="commodity_t">
+    <input type="hidden" value="{{title}}" name="args[title]" id="commodity_title">
+    <!--<input type="hidden" value="0" name="args[check]" id="leidou_check">-->
+    <!--{*用户名*}-->
+    <input type="hidden" value="{{username}}" name="args[consignee]" id="consignee">
+    <!--{*用户电话*}-->
+    <input type="hidden" value="{{phone}}" name="args[conphone]" id="conphone">
+    <!--<input type="hidden" value="{{url}}" name="args[url]" id="url">-->
+    <input type="hidden" value="{{img}}" name="args[image]" id="image">
+</div>
+</body>
+</html>

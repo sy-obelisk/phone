@@ -1,0 +1,114 @@
+body{
+    background: #ededed;
+}
+.topImg{
+    width: 100%;
+}
+.topImg img{
+    width: 100%;
+}
+.whiteDiv{
+    width: 90%;
+    margin: 0 auto;
+    background: white;
+    border-radius: 5px;
+    padding: 17px 0 20px 0;
+    text-align: center;
+    margin-top: 28px;
+}
+.whiteDiv img{
+    width: 60%;
+}
+.whiteDiv p{
+    margin-top: 20px;
+    font-size: 1.3em;
+}
+.whiteDiv a{
+    width: 90%;
+    margin: 0 auto;
+    background: #f23131;
+    border-radius: 5px;
+    display: block;
+    padding: 5px 0;
+    color: white;
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: 20px;
+}
+.privilege{
+    width: 100%;
+    background: white;
+    margin-top: 24px;
+    padding: 48px 0 34px 0;
+}
+.privilege h2{
+    text-align: center;
+    font-size: 1.3em;
+}
+.greyDiv{
+    width: 80%;
+    height: 156px;
+    margin: 0 auto;
+    background: #ededed;
+    padding: 0 5%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    margin-top: 46px;
+    position: relative;
+}
+.greyDiv p{
+    color: #6b6b6b;
+    font-size: 0.8em;
+    margin-top: 10px;
+}
+.numWhite{
+    width: 50%;
+    background: white;
+    border-radius: 50%;
+    border: 1px #ff9a34 solid;
+    text-align: center;
+    color: #ff9a34;
+    font-size: 1.5em;
+    position: absolute;
+}
+.gmatVip{
+    width: 100%;
+    margin-top: 26px;
+    background: white;
+    padding: 42px 0 50px 0;
+}
+.gmatVip h2{
+    font-size: 1.3em;
+    text-align: center;
+}
+.gmatVip ul{
+    margin-top: 35px;
+}
+.gmatVip ul li{
+    width: 90%;
+    margin: 0 auto;
+    color: white;
+    padding: 15px 0;
+}
+.gmatVip ul li:first-child{
+    background: url("../images/vip_bg01.png") no-repeat;
+    background-size: 100% 100%;
+}
+.gmatVip ul li:last-child{
+    background: url("../images/vip_bg02.png") no-repeat;
+    background-size: 100% 100%;
+    margin-top: 15px;
+}
+.gmatVip ul li h4{
+    font-weight: bold;
+    font-size: 1em;
+}
+.gmatVip ul li p{
+    font-size: 0.8em;
+}
+.textR{
+    display: inline-block;
+    float: right;
+    margin-right: 2%;
+}

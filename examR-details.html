@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>雷哥GMAT模考_GMAT模考软件_GMATPREP模考_GMAT网络课程_GMAT培训_雷哥网</title>
+    <meta name="keywords" content="雷哥网，雷哥GMAT，GMAT模考，gmat模考软件,GMATPREP模考，GWD，GMAT语法解析，gmat逻辑，gmat阅读，gmat OG16，gmat PREP，gmat
+     GWD，gmat数学，gmat考试真题,gmat历年真题下载,gmat考试资料,GMAT在线题库，GMAT培训，GMAT网课，申友GMAT,gmat备考资料,考gmat,gmat数学机经">
+    <meta name="description" content="雷哥网GMAT在线(gmatonline),雷哥GMAT模考软件，GMAT考试真题,GMAT知识点,GMAT语法解析,GMAT逻辑,
+    GMAT数学,GMAT真题解析,雷哥GMAT网络培训课程,GMAT阅读,GMATPREP语法笔记,预见你想象的GMAT700">
+    <link rel="icon" href="/app/web_core/styles/images/index-title.png" type="image/x-icon" sizes="16x9"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <link rel="stylesheet" href="style/css/bootstrap.css"/>
+    <link rel="stylesheet" href="style/css/public.css"/>
+    <link rel="stylesheet" href="style/css/examR-details.css"/>
+    <script type="text/javascript" src="style/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="style/js/public.js"></script>
+    <script type="text/javascript" src="style/js/bootstrap.js"></script>
+    <script type="text/javascript" src="style/js/jquery.SuperSlide.2.1.1.js"></script>
+    <script type="text/javascript" src="style/js/examR-details.js"></script>
+    <script type="text/javascript" src="style/js/angular1.3.1.js"></script>
+</head>
+<body>
+<div ng-controller="PriceCtrl">
+<div class="blueNav">
+    <b><a href="javascript:history.go(-1);"> <img src="style/images/index_jiantou.png" alt="白色箭头图标"/></a></b>
+    <span>{{name}}{{id}}</span>
+</div>
+<div class="greyNav">
+    <ul>
+        <li class="{{disV}} {{onV01}}"><a href="examR-details.html?mkid={{mkid}}&mark={{mark}}&subject=5">Verbal</a></li>
+        <li class="{{disV}} {{onV02}}"><a href="examR-details.html?mkid={{mkid}}&mark={{mark}}&section=6">SC</a></li>
+        <li class="{{disV}} {{onV03}}"><a href="examR-details.html?mkid={{mkid}}&mark={{mark}}&section=8">CR</a></li>
+        <li class="{{disV}} {{onV04}}"><a href="examR-details.html?mkid={{mkid}}&mark={{mark}}&section=7">RC</a></li>
+        <li class="{{disQ}} {{onQ01}}"><a href="examR-details.html?mkid={{mkid}}&mark={{mark}}&subject=6">Quant</a></li>
+        <li class="{{disQ}} {{onQ02}}"><a href="examR-details.html?mkid={{mkid}}&mark={{mark}}&section=5">DS</a></li>
+        <li class="{{disQ}} {{onQ03}}"><a href="examR-details.html?mkid={{mkid}}&mark={{mark}}&section=4">PS</a></li>
+    </ul>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="twoNav">
+            <div class="col-xs-3 col-sm-3">
+                <div class="borderDiv {{twoLC}}">
+                    <a href="examR-details.html?mkid={{mkid}}&section={{section}}&subject={{subject}}&mark=all">全部题目</a>
+                </div>
+            </div>
+            <div class="col-xs-3 col-sm-3">
+                <div class="borderDiv {{twoLC02}}">
+                    <a href="examR-details.html?mkid={{mkid}}&section={{section}}&subject={{subject}}&mark=yesfalse">只看错题</a>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-6">
+                <div class="borderDiv {{twoLC03}}">
+                    <a href="examR-details.html?mkid={{mkid}}&section={{section}}&subject={{subject}}&mark=long_time">用时较长的题目</a>
+                </div>
+            </div>
+            <div class="clearBox"></div>
+        </div>
+        <!-----------列表部分------------>
+        <div class="examList">
+            <ul>
+                <li ng-repeat="questionrecordT in questionrecord">
+                    <a href="examDetail-twoL.html?id={{questionrecordT.questionid}}&mkid={{mkid}}&tureAnswer={{questionrecordT.questionanswer}}&userAnswer={{questionrecordT.useranswer}}">
+                        <div class="col-xs-10 col-sm-10">
+                            <h4 ng-bind-html="questionrecordT.questiontitle"></h4>
+                            <!--<h4>{{questionrecordT.questiontitle}}</h4>-->
+                            <span>{{questionrecordT.totaluser}}人做过此题/平均正确率为{{questionrecordT.correct}}</span>
+                        </div>
+                        <div class="col-xs-2 col-sm-2">
+                            <span><b ng-class="{'green':'{{questionrecordT.useranswer}}'=='{{questionrecordT.questionanswer}}',
+                            'red':'{{questionrecordT.useranswer}}'!='{{questionrecordT.questionanswer}}'}">
+                                {{questionrecordT.useranswer}}
+                            </b>/{{questionrecordT.questionanswer}}</span>
+                        </div>
+                        <div class="clearBox"></div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

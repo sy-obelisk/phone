@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <!--阻止浏览器缓存-->
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <!-- Basic Page Needs
+     ================================================== -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="title" content="">
+    <meta name="author" content="">
+    <meta name="Copyright" content="">
+    <meta name="description" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- 让IE浏览器用最高级内核渲染页面 还有用 Chrome 框架的页面用webkit 内核
+    ================================================== -->
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge">
+    <!-- IOS6全屏 Chrome高版本全屏
+    ================================================== -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- 让360双核浏览器用webkit内核渲染页面
+    ================================================== -->
+    <meta name="renderer" content="webkit">
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <!-- !!!注意 minimal-ui 是IOS7.1的新属性，最小化浏览器UI -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="style/css/reset.css">
+    <link rel="stylesheet" href="style/css/common.css">
+    <link rel="stylesheet" href="style/css/swipebox.css">
+    <link rel="stylesheet" href="style/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style/css/swiper-3.3.1.min.css">
+    <script src="style/js/jquery-1.12.2.min.js"></script>
+    <script src="style/js/common.js"></script>
+    <script src="style/js/jquery.swipebox.js"></script>
+    <script src="style/js/swiper-3.3.1.jquery.min.js"></script>
+    <script src="style/js/News.js"></script>
+    <script src="style/js/public.js"></script>
+    <script type="text/javascript" src="style/js/angular1.3.1.js"></script>
+    <title>最新资讯</title>
+    <style>
+        .news-tab{
+            text-align: center;
+            padding: 0.6rem;
+        }
+        .news-tab span{
+            width: 30.9%;
+            margin-left: 0.82%;
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 2.8rem;
+            font-size: 0.7rem;
+            border-radius: 3px;
+            border: 1px solid #197FEE;
+            color: #197FEE;
+        }
+        .news-tab span.on{
+            color: #ffffff;
+            background: #197fee;
+        }
+        .news-tab span:first-child{
+            margin-left: 0;
+        }
+        .news-list{
+            display: none;
+        }
+        .news-list li{
+            padding: 0.3rem 0.6rem;
+            background: #ffffff;
+            text-align: justify;
+            margin-bottom: 0.3rem;
+            font-size: 0.6rem;
+            line-height: 0.8rem;
+            color: #666666;
+        }
+        .news-list li p{
+            color: #666666;
+          margin: 0.2rem 0;
+        }
+        .news-tit{
+            font-size: 0.7rem;
+            line-height: 1.2rem;
+          color: #1a1a1a;
+            border-bottom: 1px solid #cccccc;
+        }
+    </style>
+</head>
+<body ng-controller="PriceCtrl">
+<!--公共标题栏-->
+<section class="commonTit tm clearfix">
+    <a href="index.html"><i class="return fl icon-angle-left"></i></a>
+    <span class="Tit inb">最新资讯</span>
+</section>
+<!--资讯选项-->
+<section>
+    <div class="news-tab">
+        <span class="on">考试资讯</span>
+        <span>活动资讯</span>
+        <span>商学院头条</span>
+    </div>
+</section>
+<!--资讯列表-->
+<section>
+    <ul class="news-list" style="display: block;">
+        <li ng-repeat="item61 in items61">
+            <a href="infoDetails-threeL.html?contentid={{item61.contentid}}">
+            <h1 class="news-tit">{{item61.contenttitle}}</h1>
+            <p class="ellipsis-3">
+                {{item61.abstract}}
+            </p>
+            <p>{{item61.contentinputtime * 1000 | date:'yyyy-MM-dd'}}</p>
+            </a>
+        </li>
+
+    </ul>
+    <ul class="news-list">
+        <li ng-repeat="item62 in items62">
+            <a href="infoDetails-threeL.html?contentid={{item62.contentid}}">
+                <h1 class="news-tit">{{item62.contenttitle}}</h1>
+                <p class="ellipsis-3">
+                    {{item62.abstract}}
+                </p>
+                <p>{{item62.contentinputtime * 1000 | date:'yyyy-MM-dd'}}</p>
+            </a>
+        </li>
+
+    </ul>
+    <ul class="news-list">
+        <li ng-repeat="item63 in items63">
+            <a href="infoDetails-threeL.html?contentid={{item63.contentid}}">
+                <h1 class="news-tit">{{item63.contenttitle}}</h1>
+                <p class="ellipsis-3">
+                    {{item63.abstract}}
+                </p>
+                <p>{{item63.contentinputtime * 1000 | date:'yyyy-MM-dd'}}</p>
+            </a>
+        </li>
+
+    </ul>
+</section>
+</body>
+<script>
+    $(function(){
+        $(".news-tab span").click(function(){
+            var num=$(this).index();
+            $(this).addClass("on").siblings("span").removeClass("on");
+            $(".news-list").eq(num).fadeIn().siblings("ul.news-list").hide();
+        })
+    })
+</script>
+</html>

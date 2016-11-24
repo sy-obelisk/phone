@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        <title>GMAT模考_GMAT网络课程_GMAT培训_GMAT机经_雷哥网</title>
+        <meta name="keywords" content="雷哥网，雷哥GMAT，雷哥网GMAT在线，GMAT时间，GMAT备考，雷哥GMAT课程，GMAT培训，GMAT在线课程，GMAT网络课程,GMAT网课,GMAT课程，gmat是什么，gmat备考，gmat资料，GMAT视频课程,gmat考试真题,gmat历年真题下载,
+        gmat在线课程,gmat网络课程,gmat暑期班,申友GMAT,备考gmat,gmat备考资料,gmat考试资料,考gmat,gmat,gmat数学机经,gmat模考软件,gmat论坛">
+        <meta name="description" content="雷哥网GMAT在线(gmatonline),雷哥网GMAT在线培训课程，GMAT培训,GMAT在线课程,GMAT网络课程,GMAT课程,GMAT网课,
+        GMAT视频课程,预见你想象的700,大中华区权威一站式GMAT学习生态系统">
+        <link rel="icon" href="/app/web_core/styles/images/index-title.png" type="image/x-icon" sizes="16x9"/>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+        <link rel="stylesheet" href="style/css/bootstrap.css"/>
+        <link rel="stylesheet" href="style/css/index.css"/>
+        <link rel="stylesheet" href="style/css/public.css"/>
+        <script type="text/javascript" src="style/js/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="style/js/bootstrap.js"></script>
+        <script type="text/javascript" src="style/js/jquery.SuperSlide.2.1.1.js"></script>
+        <script type="text/javascript" src="style/js/TouchSlide.1.1.js"></script>
+        <script type="text/javascript" src="style/js/public.js"></script>
+        <script type="text/javascript" src="style/js/index.js"></script>
+        <script type="text/javascript" src="style/js/angular1.3.1.js"></script>
+    </head>
+    <body>
+        <div class="bigControl" ng-controller="PriceCtrl">
+            <div ng-bind-html="uc"></div>
+            <!--<input value="{{userCode}}" type="hidden" id="loginOr"/>-->
+            <!----------------头部下载app------------>
+            <div class="download">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 app-left">
+                            <img src="style/images/index_closeIcon.png" alt="叉叉图标" onclick="closeApp()"/>
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 app-center">
+                            <img src="style/images/index_appLogo.png" alt="app logo图片">
+                        </div>
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 app-right">
+                            <p>
+                                雷哥GMAT APP
+                            </p>
+                            <a href="https://itunes.apple.com/cn/app/lei-gegmat/id1067751179?mt=8" target="_blank">官方下载</a>
+                        </div>
+                        <div class="clearBox"></div>
+                    </div>
+                </div>
+            </div>
+            <!-------------------头部搜索--------------------->
+            <div class="headGroup">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 leftLogo">
+                            <a href="index-back.html"><img src="style/images/index_gmatLogo.png" alt="logo"></a>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <div class="inputGroup">
+                                <span onclick="searchClick(this)" id="iconS"></span>
+                                <input type="text" placeholder="搜索GMAT题目" onkeydown="javascript:searchEn(event)"/>
+                            </div>
+                        </div>
+                        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 personRight">
+                            <img src="style/images/index_person.png" alt="个人中心图标" onclick="personNav(event)" id="personIcon"/>
+                        </div>
+                        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 navRight">
+                            <a href="navList.html"><img src="style/images/index_listIcon.png" alt="侧边导航图标"/></a>
+                        </div>
+                        <div class="clearBox"></div>
+                    </div>
+                </div>
+                <!--个人中心导航栏-->
+                <div class="personNav">
+                    <div class="topUser">
+                        <div class="col-xs-6 col-sm-6">
+                            <div class="userImg">
+                                <img src="http://gmat.cc/{{photo}}" alt="用户头像" id="userImg02"/>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6">
+                            <p>
+                                {{nickname}}
+                            </p>
+                        </div>
+                        <div class="clearBox"></div>
+                    </div>
+                    <div class="bottom-list">
+                        <ul>
+                            <li>
+                                <a href="myCourse.html?status=2">我的课程</a>
+                            </li>
+                            <li>
+                                <a href="testRecord.html">测评记录</a>
+                            </li>
+                            <li>
+                                <a href="recordProblem.html?section=6">做题记录</a>
+                            </li>
+                            <li>
+                                <a href="examRecord.html?type=verbal">模考记录</a>
+                            </li>
+                            <li>
+                                <a href="vip.html">VIP会员</a>
+                            </li>
+                            <li>
+                                <a href="javascript:loginOut();">退出登录</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-----------------------幻灯片------------------------>
+            <div class="pop-slide" id="slidePop">
+                <div class="slideHd hd">
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <div class="slideBd bd">
+                    <ul>
+                        <li>
+                            <a href="#"> <img src="style/images/index_banner04.jpg" alt="轮播图"/> </a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a href="http://www.liuxueonline.cn/"> <img src="style/images/index_banner02.jpg" alt="轮播图"/> </a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a href="courseDetails.html?contentId=284"> <img src="style/images/index_banner03.jpg" alt="轮播图"/> </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            <!--<div class="pop-slide" id="slidePop">-->
+            <!--<div class="slideHd hd">-->
+            <!--<ul>-->
+            <!--<li ng-repeat="item7 in items7"></li>-->
+            <!--</ul>-->
+            <!--</div>-->
+            <!--<div class="slideBd bd">-->
+            <!--<ul ng-repeat="item7 in items7" is-over="toggle.now">-->
+            <!--<li>-->
+            <!--<a href="{{item7.contentlink}}">-->
+            <!--<img src="{{item7.contentthumb}}" alt="轮播图"/>-->
+            <!--</a>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!-----------------------幻灯片 end------------------------>
+            <!------近期公开课预告------>
+            <div id="myCarousel" class="carousel slide">
+                <h2>近期公开课预告</h2>
+                <!-- 轮播（Carousel）项目 -->
+                <div class="carousel-inner">
+                    <div class="item"  ng-repeat="item2 in items2"  is-over="toggle.now">
+                        <div class="col-xs-4 col-sm-4">
+                            <div class="teaHimg">
+                                <img src="http://www.gmatonline.cn/{{item2.contentthumb}}" alt="图片"/>
+                            </div>
+                        </div>
+                        <div class="col-xs-8 col-sm-8 teaInfo">
+                            <h4>{{item2.contenttitle}}</h4>
+                            <!--<p>主讲：{{item2.teacher}}</p>-->
+                            <p>
+                                {{item2.contentdescribe}}
+                            </p>
+                            <a href="courseDetails.html?contentId={{item2.contentid}}">立即预约</a>
+                        </div>
+                        <div class="clearBox"></div>
+                    </div>
+                </div>
+                <!-- 轮播（Carousel）导航 -->
+                <a class="carousel-control left" href="#myCarousel"
+                data-slide="prev"><img src="style/images/index_classLeft.png" alt="左边箭头图标"/></a>
+                <a class="carousel-control right" href="#myCarousel"
+                data-slide="next"><img src="style/images/index_classRight.png" alt="右边箭头图标"/></a>
+            </div>
+            <!--近期公开课预告 end-->
+            <div class="container">
+                <div class="row">
+                    <!------我要做题------>
+                    <div class="myWant">
+                        <div class="col-xs-8 col-sm-8">
+                            <div class="allLink">
+                                <div class="col-xs-6 col-sm-6 commonFour mb">
+                                    <a href="myTest.html" class="diffBac01"> <img src="style/images/index_whiteIcon01.png" alt="白色图标"/> <span>我要做题</span> </a>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 commonFour mb">
+                                    <a href="wantExam.html" class="diffBac02"> <img src="style/images/index_whiteIcon02.png" alt="白色图标"/> <span>我要模考</span> </a>
+                                </div>
+                                <div class="clearBox"></div>
+                                <div class="col-xs-4 col-sm-4 commonThree">
+                                    <a href="testSprint.html" class="diffBac03"> <img src="style/images/index_whiteIcon03.png" alt="白色图标"/>
+                                    <p>
+                                        考点冲刺
+                                    </p> </a>
+                                </div>
+                                <div class="col-xs-4 col-sm-4 commonThree">
+                                    <a href="chooseClass.html" class="diffBac04"> <img src="style/images/index_whiteIcon04.png" alt="白色图标"/>
+                                    <p>
+                                        我要选课
+                                    </p> </a>
+                                </div>
+                                <div class="col-xs-4 col-sm-4 commonThree">
+                                    <a href="videoDetails.html?contentId=358" class="diffBac05"> <img src="style/images/index_whiteIcon05.png" alt="白色图标"/>
+                                    <p>
+                                        我要试听
+                                    </p> </a>
+                                </div>
+                                <div class="clearBox"></div>
+                                <div class="col-xs-6 col-sm-6 commonFour">
+                                    <a href="studyPlan.html" class="diffBac06"> <img src="style/images/index_whiteIcon06.png" alt="白色图标"/> <span>留学评估</span> </a>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 commonFour">
+                                    <a href="http://schools.smartapply.cn/schools.html" class="diffBac07"> <img src="style/images/index_whiteIcon07.png" alt="白色图标"/> <span>院校库</span> </a>
+                                </div>
+                                <div class="clearBox"></div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 col-sm-4">
+                            <!------------------登录之前展示--------------------->
+                            <div class="loginR">
+                                <div class="userHead">
+                                    <img src="style/images/index_defaultImg.png" alt="用户头像"/>
+                                </div>
+                                <div class="loginBtn">
+                                    <a href="login.html">登陆</a>
+                                </div>
+                                <div class="regBtn">
+                                    <a href="register.html">注册</a>
+                                </div>
+                            </div>
+                            <!----------------登录之后展示------------------->
+                            <div class="loginAfter">
+                                <div class="userHead">
+                                    <img src="http://www.gmatonline.cn/{{photo}}" alt="用户头像" id="userImg"/>
+                                    <!--默认头像style/images/index_defaultImg.png-->
+                                </div>
+                                <div class="userName">
+                                    {{nickname}}
+                                </div>
+                                <div class="jobTitle">
+                                    <span>V1</span>
+                                    <b>{{rank}}</b>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearBox"></div>
+                    </div>
+
+                    <div class="haveGrey"></div>
+                    <!------------------------课程（直播课、视频课、公开课）--------------------->
+                    <div class="courseAll">
+                        <div class="courseHd">
+                            <ul>
+                                <li>
+                                    <div class="col-xs-4 col-sm-4">
+                                        <div class="autoDiv">
+                                            <div class="col-xs-4 col-sm-4 leftImg">
+                                                <span></span>
+                                                <img src="style/images/index_courseIcon01.png" alt="课程图标"/>
+                                            </div>
+                                            <div class="col-xs-8 col-sm-8 rightName">
+                                                <span>直播课</span>
+                                            </div>
+                                            <div class="clearBox"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="col-xs-4 col-sm-4">
+                                        <div class="autoDiv">
+                                            <div class="col-xs-4 col-sm-4 leftImg">
+                                                <span></span>
+                                                <img src="style/images/index_courseIcon02.png" alt="课程图标"/>
+                                            </div>
+                                            <div class="col-xs-8 col-sm-8 rightName">
+                                                <span>视频课</span>
+                                            </div>
+                                            <div class="clearBox"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="col-xs-4 col-sm-4">
+                                        <div class="autoDiv">
+                                            <div class="col-xs-4 col-sm-4 leftImg">
+                                                <span></span>
+                                                <img src="style/images/index_courseIcon03.png" alt="课程图标"/>
+                                            </div>
+                                            <div class="col-xs-8 col-sm-8 rightName">
+                                                <span>公开课</span>
+                                            </div>
+                                            <div class="clearBox"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="clearBox"></div>
+                        </div>
+                        <div class="courseBd">
+                            <ul>
+                                <li ng-repeat="item in items" ng-class="{'courseHide':$index>3}">
+                                    <div class="col-xs-6 col-sm-6 courseList">
+                                        <div class="col-xs-4 col-sm-4">
+                                            <div>
+                                                <img src="http://www.gmatonline.cn/{{item.contentthumb}}" alt="课程图片"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-8 col-sm-8">
+                                            <h2>{{item.contenttitle}}</h2>
+                                            <a href="courseDetails.html?contentId={{item.result.contentid}}">预约</a>
+                                        </div>
+                                        <div class="clearBox"></div>
+                                    </div>
+                                </li>
+                                <div class="clearBox"></div>
+                                <!--<div class="courseMore"><a href="chooseClass.html">More</a></div>-->
+                            </ul>
+                            <ul>
+                                <li ng-repeat="item1 in items1" ng-class="{'courseHide':$index>3}">
+                                    <div class="col-xs-6 col-sm-6 courseList">
+                                        <div class="col-xs-4 col-sm-4">
+                                            <div>
+                                                <img src="http://www.gmatonline.cn/{{item1.contentthumb}}" alt="课程图片"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-8 col-sm-8">
+                                            <h2>{{item1.contenttitle}}</h2>
+                                            <a href="videoDetails.html?contentId={{item1.contentid}}">预约</a>
+                                        </div>
+                                        <div class="clearBox"></div>
+                                    </div>
+                                </li>
+                                <div class="clearBox"></div>
+                                <!--<div class="courseMore"><a href="chooseClass.html">More</a></div>-->
+                            </ul>
+                            <ul>
+                                <li  ng-repeat="item2 in items2" ng-class="{'courseHide':$index>3}">
+                                    <div class="col-xs-6 col-sm-6 courseList">
+                                        <div class="col-xs-4 col-sm-4">
+                                            <div>
+                                                <img src="http://www.gmatonline.cn/{{item2.contentthumb}}" alt="课程图片"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-8 col-sm-8">
+                                            <!--<h2>{{item2.contenttitle}}</h2>-->
+                                            <h2 ng-bind-html="item2.contenttitle"></h2>
+                                            <a href="courseDetails.html?contentId={{item2.contentid}}">预约</a>
+                                        </div>
+                                        <div class="clearBox"></div>
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class="clearBox"></div>
+                        <div class="courseMore class">
+                            <a href="javascript:classMore();">More</a>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        jQuery(".courseAll").slide({
+                            titCell : ".courseHd li",
+                            mainCell : ".courseBd"
+                        });
+                    </script>
+                    <div class="clearBox"></div>
+                    <div class="haveGrey"></div>
+                    <!------------------考点冲刺----------------------->
+                    <div class="sprint">
+                        <h2 class="titles">考点冲刺</h2>
+                        <div class="sprintSlide">
+                            <div class="sprintHd">
+                                <ul>
+                                    <li>
+                                        <div class="col-xs-2 col-sm-2">
+                                            <div class="blueD">
+                                                SC
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="col-xs-2 col-sm-2">
+                                            <div class="blueD">
+                                                CR
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="col-xs-2 col-sm-2">
+                                            <div class="blueD">
+                                                RC
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="col-xs-2 col-sm-2">
+                                            <div class="blueD">
+                                                PS
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="col-xs-2 col-sm-2">
+                                            <div class="blueD">
+                                                DS
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="clearBox"></div>
+                            </div>
+                            <div class="sprintBd">
+                                <ul>
+                                    <li  ng-repeat="item31 in items31" ng-class="{'courseHide':$index>4}">
+                                        <a href="sprintDetails.html?knowsId={{item31.knowsid}}">
+                                        <div class="col-xs-1 col-sm-1">
+                                            <div class="little">
+                                                点
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-10 col-sm-10 centerName">
+                                            <span>{{item31.knows}}</span>
+                                            <b>共{{item31.totalnum}}题 {{item31.num}}人已做</b>
+                                        </div>
+                                        <div class="col-xs-1 col-sm-1 rightJ">
+                                            <span>&gt;</span>
+                                        </div> <div class="clearBox"></div> </a>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li  ng-repeat="item32 in items32" ng-class="{'courseHide':$index>4}">
+                                        <a href="sprintDetails.html?knowsId={{item32.knowsid}}">
+                                        <div class="col-xs-1 col-sm-1">
+                                            <div class="little">
+                                                点
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-10 col-sm-10 centerName">
+                                            <span>{{item32.knows}}</span>
+                                            <b>共{{item32.totalnum}}题 {{item32.num}}人已做</b>
+                                        </div>
+                                        <div class="col-xs-1 col-sm-1 rightJ">
+                                            <span>&gt;</span>
+                                        </div> <div class="clearBox"></div> </a>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li  ng-repeat="item33 in items33" ng-class="{'courseHide':$index>4}">
+                                        <a href="sprintDetails.html?knowsId={{item33.knowsid}}">
+                                        <div class="col-xs-1 col-sm-1">
+                                            <div class="little">
+                                                点
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-10 col-sm-10 centerName">
+                                            <span>{{item33.knows}}</span>
+                                            <b>共{{item33.totalnum}}题 {{item33.num}}人已做</b>
+                                        </div>
+                                        <div class="col-xs-1 col-sm-1 rightJ">
+                                            <span>&gt;</span>
+                                        </div> <div class="clearBox"></div> </a>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li  ng-repeat="item34 in items34" ng-class="{'courseHide':$index>4}">
+                                        <a href="sprintDetails.html?knowsId={{item34.knowsid}}">
+                                        <div class="col-xs-1 col-sm-1">
+                                            <div class="little">
+                                                点
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-10 col-sm-10 centerName">
+                                            <span>{{item34.knows}}</span>
+                                            <b>共{{item34.totalnum}}题 {{item34.num}}人已做</b>
+                                        </div>
+                                        <div class="col-xs-1 col-sm-1 rightJ">
+                                            <span>&gt;</span>
+                                        </div> <div class="clearBox"></div> </a>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li  ng-repeat="item35 in items35" ng-class="{'courseHide':$index>4}">
+                                        <a href="sprintDetails.html?knowsId={{item35.knowsid}}">
+                                        <div class="col-xs-1 col-sm-1">
+                                            <div class="little">
+                                                点
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-10 col-sm-10 centerName">
+                                            <span>{{item35.knows}}</span>
+                                            <b>共{{item35.totalnum}}题 {{item35.num}}人已做</b>
+                                        </div>
+                                        <div class="col-xs-1 col-sm-1 rightJ">
+                                            <span>&gt;</span>
+                                        </div> <div class="clearBox"></div> </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            jQuery(".sprintSlide").slide({
+                                titCell : ".sprintHd li",
+                                mainCell : ".sprintBd"
+                            });
+                        </script>
+                    </div>
+                    <div class="clearBox"></div>
+                    <div class="courseMore kaodian">
+                        <a href="javascript:kaodianMore();">More</a>
+                    </div>
+                    <div class="haveGrey"></div>
+                    <!------------------------题库---------------------------->
+                    <div class="questionBank">
+                        <h2 class="titles mlTitle">题库</h2>
+                        <div class="blueTitle">
+                            <div class="col-xs-2 col-sm-2 on" onclick="changeLowerOne(this)" data-id="6">
+                                SC
+                            </div>
+                            <div class="col-xs-2 col-sm-2" onclick="changeLowerOne(this)" data-id="8">
+                                CR
+                            </div>
+                            <div class="col-xs-2 col-sm-2" onclick="changeLowerOne(this)" data-id="7">
+                                RC
+                            </div>
+                            <div class="col-xs-2 col-sm-2" onclick="changeLowerOne(this)" data-id="4">
+                                PS
+                            </div>
+                            <div class="col-xs-2 col-sm-2" onclick="changeLowerOne(this)" data-id="5">
+                                DS
+                            </div>
+                            <div class="clearBox"></div>
+                        </div>
+                        <div class="greyTitle">
+                            <div class="col-xs-2 col-sm-2 on" data-id="12" onclick="changeLowerTwo(this)">
+                                讲义
+                            </div>
+                            <div class="col-xs-2 col-sm-2" data-id="1,15" onclick="changeLowerTwo(this)">
+                                OG
+                            </div>
+                            <div class="col-xs-2 col-sm-2" data-id="8,10,11" onclick="changeLowerTwo(this)">
+                                PREP
+                            </div>
+                            <div class="col-xs-2 col-sm-2" data-id="2" onclick="changeLowerTwo(this)">
+                                GWD
+                            </div>
+                            <div class="clearBox"></div>
+                        </div>
+                        <!--下面数据展示-->
+                        <div class="questionList">
+                            <ul>
+                                <li ng-repeat="item4 in items4">
+                                    <a href="javascript:void(0);" onclick="locaPrac(this,'1')" data-stid="{{item4.stid}}">
+                                    <div class="col-xs-1">
+                                        <div class="little">
+                                            题
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-8 ques-center">
+                                        <p>
+                                            [讲义]-{{item4.stname}}
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-3 ques-right">
+                                        352人已做
+                                    </div> <div class="clearBox"></div> </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="haveGrey"></div>
+                    <!------------------------模考---------------------------->
+                    <div class="mockDe">
+                        <h2 class="titles">模考</h2>
+                        <ul>
+                            <li>
+                                <a href="examDetails.html?code=79f9c100300bd8b920ae31d58f33c02c&mark=verbal&name=Verbal-prep07/08/12">
+                                <div class="col-xs-1 col-sm-1">
+                                    <div class="commonCircle diffCo01">
+                                        V
+                                    </div>
+                                </div>
+                                <div class="col-xs-10 col-sm-10 mock-center">
+                                    <p>
+                                        Verbal-prep07/08/12
+                                    </p>
+                                </div>
+                                <div class="col-xs-1 col-sm-1 mock-right">
+                                    &gt;
+                                </div> <div style="clear: both"></div> </a>
+                            </li>
+                            <li>
+                                <a href="examDetails.html?code=4a0e59b6b65313da54f48cbf6f409b01&mark=verbal&name=Verbal-GWD">
+                                <div class="col-xs-1 col-sm-1">
+                                    <div class="commonCircle diffCo01">
+                                        V
+                                    </div>
+                                </div>
+                                <div class="col-xs-10 col-sm-10 mock-center">
+                                    <p>
+                                        Verbal-GWD
+                                    </p>
+                                </div>
+                                <div class="col-xs-1 col-sm-1 mock-right">
+                                    &gt;
+                                </div> <div style="clear: both"></div> </a>
+                            </li>
+                            <li>
+                                <a href="examDetails.html?code=a4aec335e1ea12f3e2010ce04556dd2a&mark=verbal&name=Verbal-sift">
+                                <div class="col-xs-1 col-sm-1">
+                                    <div class="commonCircle diffCo01">
+                                        V
+                                    </div>
+                                </div>
+                                <div class="col-xs-10 col-sm-10 mock-center">
+                                    <p>
+                                        Verbal-精选题库
+                                    </p>
+                                </div>
+                                <div class="col-xs-1 col-sm-1 mock-right">
+                                    &gt;
+                                </div> <div style="clear: both"></div> </a>
+                            </li>
+                            <li>
+                                <a href="examDetails.html?code=f7b0378cceea79b157abc7b403afdc2d&mark=quant&name=Quant-prep07/08/12">
+                                <div class="col-xs-1 col-sm-1">
+                                    <div class="commonCircle diffCo02">
+                                        Q
+                                    </div>
+                                </div>
+                                <div class="col-xs-10 col-sm-10 mock-center">
+                                    <p>
+                                        Quant-prep07/08/12
+                                    </p>
+                                </div>
+                                <div class="col-xs-1 col-sm-1 mock-right">
+                                    &gt;
+                                </div> <div style="clear: both"></div> </a>
+                            </li>
+                            <li>
+                                <a href="examDetails.html?code=01bed40e7d7bb61905c6c720a3bc2683&mark=quant&name=Quant-GWD">
+                                <div class="col-xs-1 col-sm-1">
+                                    <div class="commonCircle diffCo02">
+                                        Q
+                                    </div>
+                                </div>
+                                <div class="col-xs-10 col-sm-10 mock-center">
+                                    <p>
+                                        Quant-GWD
+                                    </p>
+                                </div>
+                                <div class="col-xs-1 col-sm-1 mock-right">
+                                    &gt;
+                                </div> <div style="clear: both"></div> </a>
+                            </li>
+                            <li>
+                                <a href="examDetails.html?code=7686a2c6e92fb6fbb8fb0fdbf49a4f7f&mark=quant&name=Quant-sift">
+                                <div class="col-xs-1 col-sm-1">
+                                    <div class="commonCircle diffCo02">
+                                        Q
+                                    </div>
+                                </div>
+                                <div class="col-xs-10 col-sm-10 mock-center">
+                                    <p>
+                                        Quant-精选题库
+                                    </p>
+                                </div>
+                                <div class="col-xs-1 col-sm-1 mock-right">
+                                    &gt;
+                                </div> <div style="clear: both"></div> </a>
+                            </li>
+                            <li>
+                                <a href="examDetails.html?code=ab5ab50ae22bf5665060d8d1a1abcdc0&mark=all&name=ALL-prep07/08/12">
+                                <div class="col-xs-1 col-sm-1">
+                                    <div class="commonCircle diffCo03">
+                                        A
+                                    </div>
+                                </div>
+                                <div class="col-xs-10 col-sm-10 mock-center">
+                                    <p>
+                                        ALL-prep07/08/12
+                                    </p>
+                                </div>
+                                <div class="col-xs-1 col-sm-1 mock-right">
+                                    &gt;
+                                </div> <div style="clear: both"></div> </a>
+                            </li>
+                            <li>
+                                <a href="examDetails.html?code=946e277b5cd26d9655459909d311b912&mark=all&name=ALL-GWD">
+                                <div class="col-xs-1 col-sm-1">
+                                    <div class="commonCircle diffCo03">
+                                        A
+                                    </div>
+                                </div>
+                                <div class="col-xs-10 col-sm-10 mock-center">
+                                    <p>
+                                        ALL-GWD
+                                    </p>
+                                </div>
+                                <div class="col-xs-1 col-sm-1 mock-right">
+                                    &gt;
+                                </div> <div style="clear: both"></div> </a>
+                            </li>
+                            <li>
+                                <a href="examDetails.html?code=88546698f0d12a066de9f8ac9a71f0da&mark=all&name=ALL-sift">
+                                <div class="col-xs-1 col-sm-1">
+                                    <div class="commonCircle diffCo03">
+                                        A
+                                    </div>
+                                </div>
+                                <div class="col-xs-10 col-sm-10 mock-center">
+                                    <p>
+                                        ALL-精选题库
+                                    </p>
+                                </div>
+                                <div class="col-xs-1 col-sm-1 mock-right">
+                                    &gt;
+                                </div> <div style="clear: both"></div> </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="haveGrey"></div>
+                    <!------------------------知识库---------------------------->
+                    <div class="repository">
+                        <h2 class="titles mlTitle">知识库</h2>
+                        <div class="reposSlide">
+                            <div class="reposHd">
+                                <ul>
+                                    <li>
+                                        <div class="col-xs-3 col-sm-3">
+                                            <div class="topCircle">
+                                                <img src="style/images/index_reposIcon01.png" alt="白色图标"/>
+                                            </div>
+                                            <p>
+                                                逻辑CR
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="col-xs-3 col-sm-3">
+                                            <div class="topCircle">
+                                                <img src="style/images/index_reposIcon02.png" alt="白色图标"/>
+                                            </div>
+                                            <p>
+                                                语法SC
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="col-xs-3 col-sm-3">
+                                            <div class="topCircle">
+                                                <img src="style/images/index_reposIcon03.png" alt="白色图标"/>
+                                            </div>
+                                            <p>
+                                                数学Q
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="col-xs-3 col-sm-3">
+                                            <div class="topCircle">
+                                                <img src="style/images/index_reposIcon04.png" alt="白色图标"/>
+                                            </div>
+                                            <p>
+                                                阅读RC
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="clearBox"></div>
+                            </div>
+                            <div class="reposBd">
+                                <ul>
+                                    <li  ng-repeat="item51 in items51">
+                                        <div class="col-xs-6 col-sm-6">
+                                            <a href="knowBase.html?id={{item51.catid}}&name={{item51.catname}}">● {{item51.catname}}</a>
+                                        </div>
+                                    </li>
+                                    <div class="clearBox"></div>
+                                </ul>
+                                <ul>
+                                    <li  ng-repeat="item52 in items52">
+                                        <div class="col-xs-6 col-sm-6">
+                                            <a href="knowBase.html?id={{item52.catid}}&name={{item52.catname}}">● {{item52.catname}}</a>
+                                        </div>
+                                    </li>
+                                    <div class="clearBox"></div>
+                                </ul>
+                                <ul>
+                                    <li  ng-repeat="item53 in items53">
+                                        <div class="col-xs-6 col-sm-6">
+                                            <a href="knowBase.html?id={{item53.catid}}&name={{item53.catname}}">● {{item53.catname}}</a>
+                                        </div>
+                                    </li>
+                                    <div class="clearBox"></div>
+                                </ul>
+                                <ul>
+                                    <li  ng-repeat="item54 in items54">
+                                        <div class="col-xs-6 col-sm-6">
+                                            <a href="knowBase.html?id={{item54.catid}}&name={{item54.catname}}">● {{item54.catname}}</a>
+                                        </div>
+                                    </li>
+                                    <div class="clearBox"></div>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        jQuery(".reposSlide").slide({
+                            titCell : ".reposHd li",
+                            mainCell : ".reposBd"
+                        });
+                    </script>
+                    <div class="haveGrey"></div>
+
+                    <!------------------------测评---------------------------->
+                    <div class="appraisal">
+                        <h2 class="titles">测评</h2>
+                        <div class="appraisal-con">
+                            <div class="col-xs-4 col-sm-4">
+                                <div class="appraThree color01">
+                                    <a href="evaluationHint.html?kzid=68&cptime=50"> <img src="style/images/index_appraIcon01.png" alt="测评图标"/>
+                                    <p>
+                                        考过GMAT
+                                        <br>
+                                        600以下
+                                    </p> </a>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 col-sm-4">
+                                <div class="appraThree color02">
+                                    <a href="evaluationHint.html?kzid=70&cptime=55"> <img src="style/images/index_appraIcon02.png" alt="测评图标"/>
+                                    <p>
+                                        考过GMAT
+                                        <br>
+                                        700以下
+                                    </p> </a>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 col-sm-4">
+                                <div class="appraThree color03">
+                                    <a href="evaluationHint.html?kzid=69&cptime=55"> <img src="style/images/index_appraIcon03.png" alt="测评图标"/>
+                                    <p>
+                                        考过GMAT
+                                        <br>
+                                        650以下
+                                    </p> </a>
+                                </div>
+                            </div>
+                            <div class="clearBox"></div>
+                            <div class="col-xs-6 col-sm-6">
+                                <div class="commonTwo color04">
+                                    <a href="evaluationHint.html?kzid=66&cptime=45"> <img src="style/images/index_appraIcon04.png" alt="测评图标"/>
+                                    <p>
+                                        未考过GMAT
+                                        <br>
+                                        无IBT/IELTS成绩
+                                    </p> </a>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6">
+                                <div class="commonTwo color05">
+                                    <a href="evaluationHint.html?kzid=67&cptime=45"> <img src="style/images/index_appraIcon05.png" alt="测评图标"/>
+                                    <p>
+                                        未考过GMAT
+                                        <br>
+                                        有IBT/IELTS成绩
+                                    </p> </a>
+                                </div>
+                            </div>
+                            <div class="clearBox"></div>
+                        </div>
+                    </div>
+                    <div class="haveGrey"></div>
+                    <!------------------------社区---------------------------->
+                    <div class="community">
+                        <h2 class="titles">社区</h2>
+
+                        <div class="col-xs-6 col-sm-6" ng-repeat="item8 in items8">
+                            <a href="bbsDetails.html?id={{item8.id}}&nameT={{item8.fulltitle}}"> <img src="{{item8.icon}}" alt="社区图标"/> <span>{{item8.fulltitle}}</span> </a>
+                        </div>
+                        <div class="clearBox"></div>
+                    </div>
+                    <div class="haveGrey"></div>
+                    <!------------------------名师介绍---------------------------->
+                    <div class="Specialties">
+                        <h2 class="titles">名师介绍</h2>
+                        <div class="SpecialSlide">
+                            <div class="SpecialHd">
+                                <ul>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                            <div class="SpecialBd">
+                                <ul>
+                                    <li>
+                                        <div class="col-xs-6 col-sm-6">
+                                            <div class="SpecialIn">
+                                                <div class="theHead">
+                                                    <a href="teacherInfo.html?contentid=4"><img src="http://www.gmatonline.cn/app/web_core/styles/images/kevin.jpg" alt="老师头像"></a>
+                                                </div>
+                                                <h2>雷哥Kevin</h2>
+                                                <p>
+                                                    GMAT新派宗师
+                                                    <br/>
+                                                    留学规划与英语教育名家
+                                                </p>
+                                                <a href="teacherInfo.html?contentid=4">查看详情</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6 col-sm-6">
+                                            <div class="SpecialIn">
+                                                <div class="theHead">
+                                                    <a href="teacherInfo.html?contentid=2"> <img src="http://www.gmatonline.cn/app/web_core/styles/images/amanda.jpg" alt="老师头像"></a>
+                                                </div>
+                                                <h2>Amanda</h2>
+                                                <p>
+                                                    GMAT行业名师 新TOEFL名师 学员最喜爱的名师
+                                                </p>
+                                                <a href="teacherInfo.html?contentid=2">查看详情</a>
+                                            </div>
+                                        </div>
+                                        <div class="clearBox"></div>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <div class="col-xs-6 col-sm-6">
+                                            <div class="SpecialIn">
+                                                <div class="theHead">
+                                                    <a href="teacherInfo.html?contentid=6"><img src="http://www.gmatonline.cn/app/web_core/styles/images/eve.jpg" alt="老师头像"></a>
+                                                </div>
+                                                <h2>Eve</h2>
+                                                <p>
+                                                    法国高等商学院ESSCA双硕士 GMAT逻辑达人
+                                                </p>
+                                                <a href="teacherInfo.html?contentid=6">查看详情</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6 col-sm-6">
+                                            <div class="SpecialIn">
+                                                <div class="theHead">
+                                                    <a href="teacherInfo.html?contentid=5"><img src="http://www.gmatonline.cn/app/web_core/styles/images/julie.jpg" alt="老师头像"></a>
+                                                </div>
+                                                <h2>Julie</h2>
+                                                <p>
+                                                    GMAT行业名师 美国工学博士  学员评价“睿智的老师”
+                                                </p>
+                                                <a href="teacherInfo.html?contentid=5">查看详情</a>
+                                            </div>
+                                        </div>
+                                        <div class="clearBox"></div>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <div class="col-xs-6 col-sm-6">
+                                            <div class="SpecialIn">
+                                                <div class="theHead">
+                                                    <a href="teacherInfo.html?contentid=57"><img src="http://www.gmatonline.cn/app/web_core/styles/images/jenny.png" alt="老师头像"></a>
+                                                </div>
+                                                <h2>Jenny</h2>
+                                                <p>
+                                                    GMAT专家讲师 学员评价为“超负责任老师”
+                                                </p>
+                                                <a href="teacherInfo.html?contentid=57">查看详情</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6 col-sm-6">
+                                            <div class="SpecialIn">
+                                                <div class="theHead">
+                                                    <a href="teacherInfo.html?contentid=258"><img src="http://www.gmatonline.cn/app/web_core/styles/images/Shirley.jpg" alt="老师头像"></a>
+                                                </div>
+                                                <h2>Shirley</h2>
+                                                <p>
+                                                    多年GMAT教学经验 学生的亲切大姐姐
+                                                </p>
+                                                <a href="teacherInfo.html?contentid=258">查看详情</a>
+                                            </div>
+                                        </div>
+                                        <div class="clearBox"></div>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <div class="col-xs-6 col-sm-6">
+                                            <div class="SpecialIn">
+                                                <div class="theHead">
+                                                    <a href="teacherInfo.html?contentid=55"><img src="http://www.gmatonline.cn/app/web_core/styles/images/phoebe.jpg" alt="老师头像"></a>
+                                                </div>
+                                                <h2>Phoebe</h2>
+                                                <p>
+                                                    多年GMAT培训行业经验 英语培训丰富教学经验
+                                                </p>
+                                                <a href="teacherInfo.html?contentid=55">查看详情</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6 col-sm-6">
+                                            <div class="SpecialIn">
+                                                <div class="theHead">
+                                                    <a href="teacherInfo.html?contentid=28"><img src="http://www.gmatonline.cn/app/web_core/styles/images/eva.jpg" alt="老师头像"></a>
+                                                </div>
+                                                <h2>Eva</h2>
+                                                <p>
+                                                    GMAT专家讲师 BFA博鳌亚洲论坛会议联络官
+                                                </p>
+                                                <a href="teacherInfo.html?contentid=28">查看详情</a>
+                                            </div>
+                                        </div>
+                                        <div class="clearBox"></div>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <div class="col-xs-6 col-sm-6">
+                                            <div class="SpecialIn">
+                                                <div class="theHead">
+                                                    <a href="teacherInfo.html?contentid=8"><img src="http://www.gmatonline.cn/app/web_core/styles/images/donz.jpg" alt="老师头像"></a>
+                                                </div>
+                                                <h2>Donz</h2>
+                                                <p>
+                                                    在台湾的GMAT教学领域享有很高的知名度
+                                                </p>
+                                                <a href="teacherInfo.html?contentid=8">查看详情</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6 col-sm-6">
+                                            <div class="SpecialIn">
+                                                <div class="theHead">
+                                                    <a href="teacherInfo.html?contentid=27"><img src="http://www.gmatonline.cn/app/web_core/styles/images/james.jpg" alt="老师头像"></a>
+                                                </div>
+                                                <h2>James</h2>
+                                                <p>
+                                                    美国名校计算机硕士
+                                                    <br/>
+                                                    熟谙北美GT考试
+                                                </p>
+                                                <a href="teacherInfo.html?contentid=27">查看详情</a>
+                                            </div>
+                                        </div>
+                                        <div class="clearBox"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            jQuery(".SpecialSlide").slide({
+                                titCell : ".SpecialHd li",
+                                mainCell : ".SpecialBd",
+                                autoPlay : true
+                            });
+                        </script>
+                    </div>
+                    <div class="haveGrey"></div>
+                    <!------------------------最新资讯---------------------------->
+                    <div class="latestNews">
+                        <h2 class="titles">最新资讯</h2>
+                        <div class="latestSlide">
+                            <div class="latestHd">
+                                <ul>
+                                    <li>
+                                        <div class="col-xs-4 col-sm-4">
+                                            <div class="lateCommon">
+                                                考试资讯
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="col-xs-4 col-sm-4">
+                                            <div class="lateCommon">
+                                                活动资讯
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="col-xs-4 col-sm-4">
+                                            <div class="lateCommon">
+                                                商学院头条
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="clearBox"></div>
+                            </div>
+                            <div class="latestBd">
+                                <ul>
+                                    <li ng-repeat="item61 in items61" ng-class="{'lateHide':$index>4}">
+                                        <div class="latestList">
+                                            <ul>
+                                                <li>
+                                                    <a href="infoDetails-threeL.html?contentid={{item61.contentid}}">{{item61.contenttitle}}</a>
+                                                    <p>
+                                                        {{item61.abstract}}
+                                                    </p>
+                                                    <!--<span>{{ item61.contentinputtime | date:'yyyy-MM-dd'}}</span>-->
+                                                    <span>{{item61.contentinputtime * 1000 | date:'yyyy-MM-dd'}}</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li ng-repeat="item62 in items62" ng-class="{'lateHide':$index>4}">
+                                        <div class="latestList">
+                                            <ul>
+                                                <li>
+                                                    <a href="infoDetails-threeL.html?contentid={{item62.contentid}}">{{item62.contenttitle}}</a>
+                                                    <p>
+                                                        {{item62.abstract}}
+                                                    </p>
+                                                    <span>{{ item62.contentinputtime * 1000  | date:'yyyy-MM-dd' }}</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li ng-repeat="item63 in items63" ng-class="{'lateHide':$index>4}">
+                                        <div class="latestList">
+                                            <ul>
+                                                <li>
+                                                    <a href="infoDetails-threeL.html?contentid={{item63.contentid}}">{{item63.contenttitle}}</a>
+                                                    <p>
+                                                        {{item63.abstract}}
+                                                    </p>
+                                                    <span>{{ item63.contentinputtime * 1000  | date:'yyyy-MM-dd' }}</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            jQuery(".latestSlide").slide({
+                                titCell : ".latestHd li",
+                                mainCell : ".latestBd"
+                            });
+                        </script>
+                        <div class="enterInto">
+                            <a href="infoDetails.html">进入资讯中心&gt;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!------------------------尾部----------------------------->
+            <div class="footer">
+                <p>
+                    <a href="http://www.gmatonline.cn/index.html" target="_blank">电脑版</a> | <a target=blank href="mqqwpa://im/chat?chat_type=wpa&uin=1746295647&version=1&src_type=web&web_src=http://m.haishiit.com/"> 客服中心 </a>
+                </p>
+                <p>
+                    &copy;2016 gmatonline.cn All Rights Reserved
+                </p>
+                <p>
+                    京ICP备15001182号-11010802017681
+                </p>
+                <p>
+                    北京慧申教育科技有限公司旗下雷哥GMAT，是互联网GMAT一站式在线学习平台。
+                    提供包含GMAT在线做题、 在线模考等一系列在线GMAT学习服务。
+                </p>
+            </div>
+            <!------------------------右边咨询----------------------------->
+            <div class="rightFixed">
+                <ul>
+                    <li>
+                        <a target=blank href="mqqwpa://im/chat?chat_type=wpa&uin=1746295647&version=1&src_type=web&web_src=http://m.haishiit.com/">
+                        <div class="topImg">
+                            <img src="style/images/index_pointer.png" alt="白色图标"/>
+                        </div> <span>在线咨询</span> </a>
+                    </li>
+                    <li>
+                        <a target=blank href="tel:4001816180">
+                        <div class="topImg">
+                            <img src="style/images/index_phone.png" alt="白色图标"/>
+                        </div> <span>免费电话</span> </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </body>
+</html>

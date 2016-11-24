@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <!--阻止浏览器缓存-->
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <!-- Basic Page Needs
+     ================================================== -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="title" content="">
+    <meta name="author" content="">
+    <meta name="Copyright" content="">
+    <meta name="description" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- 让IE浏览器用最高级内核渲染页面 还有用 Chrome 框架的页面用webkit 内核
+    ================================================== -->
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge">
+    <!-- IOS6全屏 Chrome高版本全屏
+    ================================================== -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- 让360双核浏览器用webkit内核渲染页面
+    ================================================== -->
+    <meta name="renderer" content="webkit">
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <!-- !!!注意 minimal-ui 是IOS7.1的新属性，最小化浏览器UI -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="style/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style/css/common.css">
+    <link rel="stylesheet" href="style/css/reset.css">
+    <link rel="stylesheet" href="style/css/swiper-3.3.1.min.css">
+    <script src="style/js/jquery-1.12.2.min.js"></script>
+    <script src="style/js/common.js"></script>
+    <script src="style/js/swiper-3.3.1.jquery.min.js"></script>
+    <script src="style/js/index-2.js"></script>
+    <script src="style/js/public.js"></script>
+    <script type="text/javascript" src="style/js/angular1.3.1.js"></script>
+    <title>用户中心</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .userCenter-header {
+            height: 49%;
+            overflow: hidden;
+            background: url("style/images-4/bg-3.jpg") no-repeat 0 0;
+            /*background-size: 100% 100%;*/
+            background-size: cover;
+        }
+
+        .test-hint {
+            margin-top: 0.5rem;
+            font-size: 0.5rem;
+        }
+
+        .userApply-wrap {
+            height: 41%;
+            padding-bottom: 4%;
+            background: #ffffff;
+        }
+
+        .userApply {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .userApply li {
+            text-align: center;
+            float: left;
+            width: 50%;
+            height: 33.3%;
+            margin-left: -1px;
+            border-bottom: 1px solid #e6e6e6;
+            border-right: 1px solid #e6e6e6;
+        }
+
+        .userApply li:nth-child(even) {
+            margin-left: 0;
+            border-right: none;
+        }
+
+        .userApply li a {
+            display: inline-block;
+            margin-top: 13%;
+        }
+
+        .userApply li a span {
+            font-size: 0.8rem;
+        }
+
+        .userApply li img {
+            width: 1.75rem;
+        }
+    </style>
+</head>
+<body ng-controller="PriceCtrl">
+<section class="userCenter-header">
+    <div class="clearfix tm" style="margin-top: 1rem">
+        <div class="header-text inb">
+            <span class="test-num">{{num}}</span>
+            <p>做题数量</p>
+        </div>
+        <!--<div class="user-header inb"><img src="style/images-4/loding-1.png" alt="未登录默认头像"></div>-->
+        <div class="user-header inb">
+            <div class="user-img-wrap">
+                <!--<img src="style/images-4/index-bg.png" alt="用户头像" id="userImg">-->
+                <img src="http://www.gmatonline.cn/{{photo}}"  alt="用户头像" id="userImg">
+            </div>
+        </div>
+        <div class="header-text inb">
+            <span class="test-percent">{{correct}}</span>
+            <p>正确率</p>
+        </div>
+    </div>
+    <div class="tm">
+        <div class="header-text inb" style="margin: 0.6rem 0 0 0.8rem;">
+            <span>{{nickname}}</span>
+            <p class="test-hint">你最近做到了【精选题库】SC-3-42</p>
+            <div class="user-btn">继续做题</div>
+        </div>
+    </div>
+</section>
+<section class="userApply-wrap">
+    <ul class="userApply">
+        <li>
+            <a href="myCourse.html?status=2">
+                <img src="style/images-4/center-1.png" alt="">
+                <span>我的课程</span>
+            </a>
+        </li>
+        <li>
+            <a href="mistakeRecord.html?section=6">
+                <img src="style/images-4/center-2.png" alt="">
+                <span>错题记录</span>
+            </a>
+        </li>
+        <li>
+            <a href="recordProblem.html?section=6">
+                <img src="style/images-4/center-3.png" alt="">
+                <span>做题记录</span>
+            </a>
+        </li>
+        <li>
+            <a href="examRecord.html?type=verbal">
+                <img src="style/images-4/center-4.png" alt="">
+                <span>模考记录</span>
+            </a>
+        </li>
+        <li>
+            <a href="vip.html">
+                <img src="style/images-4/center-5.png" alt="">
+                <span>VIP会员</span>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:loginOut();">
+                <img src="style/images-4/center-6.png" alt="">
+                <span>退出账号</span>
+            </a>
+        </li>
+
+
+    </ul>
+</section>
+<!--footer-->
+<footer>
+    <div class="row" style="margin: 0 auto">
+        <ul class="footer-list">
+            <li>
+                <a href="library-wrap.html">
+                    <div class="ft-list-wrap">
+                        <i><img src="style/images-4/icon-1A.png" style="width: 12px" alt=""></i>
+                        <p class="ft-name">做题模考</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="knowledge.html">
+                    <div class="ft-list-wrap">
+                            <i><img src="style/images-4/icon-2A.png" style="width: 17px" alt=""></i>
+                            <p class="ft-name">知识库</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="plan-test.html">
+                    <div class="ft-list-wrap">
+                        <i class="hint-wrap relative"><img src="style/images-4/icon-3A.png" style="width: 17px" alt=""><span class="ani hint">10</span></i>
+                        <p class="ft-name">备考八卦</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="GMAT-class.html">
+                    <div class="ft-list-wrap">
+                            <i><img src="style/images-4/icon-4A.png" style="width: 18px" alt=""></i>
+                            <p class="ft-name">GMAT课程</p>
+                    </div>
+                </a>
+            </li>
+            <li class="on">
+                <a href="user-center.html">
+                    <div class="ft-list-wrap">
+                            <i><img src="style/images-4/icon-5B.png" style="width: 13px" alt=""></i>
+                            <p class="ft-name">个人中心</p>
+                    </div>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</footer>
+</body>
+</html>
