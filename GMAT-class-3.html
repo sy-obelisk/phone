@@ -68,7 +68,7 @@
 </section>
 <section class="wrap">
     <ul class="hot-list clearfix">
-        <li ng-repeat="item2 in items2" ng-class="{'courseHide':$index>3}">
+        <li ng-repeat="item2 in items2">
             <div class="hot-img"><a href="courseDetails.html?contentId={{item2.contentid}}"><img src="http://www.gmatonline.cn/{{item2.contentthumb}}" alt=""></a></div>
             <div class="hot-wrap clearfix">
                 <div class="inb hot-info">
@@ -87,10 +87,10 @@
     <div class="row" style="margin: 0 auto">
         <ul class="footer-list">
             <li>
-                <a href="library-wrap.html">
+                <a href="index.html">
                     <div class="ft-list-wrap">
                         <i><img src="style/images-4/icon-1A.png" style="width: 12px" alt=""></i>
-                        <p class="ft-name">做题模考</p>
+                        <p class="ft-name">首页</p>
                     </div>
                 </a>
             </li>
@@ -133,7 +133,11 @@
 </body>
 <script>
     var mySwiper = new Swiper('.swiper-container', {
-        autoplay: 5000,//可选选项，自动滑动
+        loop: true,
+        observer: true,
+        autoplay:2000,
+        observeParents: true,
+        paginationClickable: true,
     })
 </script>
 </html>
