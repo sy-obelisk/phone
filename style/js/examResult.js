@@ -9,7 +9,7 @@ $(function(){
     var Request=GetRequests();
     var mkid=Request["mkid"];
     var mkscoreid=Request["mkscoreid"];
-    var userId=sessionStorage.getItem("userId");
+    var userId=localStorage.getItem("userId");
     //声明模块
     var myApp = angular.module("myApp",[]);
 //通过模块生成调用控制器

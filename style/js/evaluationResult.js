@@ -7,7 +7,7 @@ $(function(){
     //获取页面参数
     var Request=GetRequests();
     var kzids=Request['kzid'];
-    var userId=sessionStorage.getItem("userId");
+    var userId=localStorage.getItem("userId");
     var myApp = angular.module("myApp",[]);
 
 //通过模块生成调用控制器

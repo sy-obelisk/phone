@@ -1,7 +1,7 @@
 $(function(){
     var Request=GetRequests();
     var contentId=Request['contentId'];
-    var userId=sessionStorage.getItem("userId");
+    var userId=localStorage.getItem("userId");
     //声明模块
     var myApp = angular.module("myApp",[]);
 //通过模块生成调用控制器

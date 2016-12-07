@@ -3,7 +3,7 @@ $(function(){
     var Request=GetRequests();
     var ids=Request['id'];
     var knowids=Request['knowsid'];
-    var userId=sessionStorage.getItem("userId");
+    var userId=localStorage.getItem("userId");
     //声明模块
     var myApp = angular.module("myApp",[]);
 //通过模块生成调用控制器
@@ -20,8 +20,11 @@ $(function(){
                 knowid:knowids
             }
         }).success(function(data) {
+            console.log(data)
+            $scope.content=data.knowledge.contenttext.replace(/src=&quot;/g,'src="http://www.gmatonline.cn');
+            console.log($scope.content)
             $scope.contenttitle=data.knowledge.contenttitle;
-            $scope.contenttext=$sce.trustAsHtml(escape2Html(data.knowledge.contenttext));
+            $scope.contenttext=$sce.trustAsHtml(escape2Html(data.knowledge.contenttext.replace(/src=&quot;/g,"src=&quot;http://www.gmatonline.cn")));
             $scope.relevance=data.relevance;
             $scope.knowsid=data.knowsid;
             $scope.contentid=data.knowledge.contentid;

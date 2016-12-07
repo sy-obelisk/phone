@@ -2,7 +2,7 @@
 var Request=GetRequests();
 var kzid=Request['kzid'];
 var cptime=Request['cptime'];
-var userId=sessionStorage.getItem("userId");
+var userId=localStorage.getItem("userId");
 console.log(kzid,cptime);
 $(function(){
     $(".reminder").css('width',$(".reminder").css("height"));

@@ -3,7 +3,7 @@ $(function(){
     var myApp = angular.module("myApp",[]);
 //通过模块生成调用控制器
     myApp.controller("PriceCtrl",["$scope","$http",function($scope,$http){
-        var userId=sessionStorage.getItem("userId");
+        var userId=localStorage.getItem("userId");
         //题库
         $http({
             method: 'post',
@@ -17,7 +17,6 @@ $(function(){
                 secId:6
             }
         }).success(function(data) {
-            console.log(data)
             $scope.items4 = data.data;
             if(data.userData==false){
                 //头部个人中心图标未登陆点击跳转到登陆

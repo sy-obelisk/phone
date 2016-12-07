@@ -8,7 +8,7 @@ $(function(){
     var Request=GetRequests();
     var queId=Request['id'];
     var mkId=Request['mkid'];
-    var userId=sessionStorage.getItem("userId");
+    var userId=localStorage.getItem("userId");
     var userA=Request['userAnswer'];
     var tureA=Request['tureAnswer'];
 //通过模块生成调用控制器

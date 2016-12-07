@@ -4,7 +4,7 @@ $(function(){
     var contentId=Request['contentid'];
     var catid=Request['catid'];
     var commodity_type=Request['commodity_type'];
-    var userId=sessionStorage.getItem("userId");
+    var userId=localStorage.getItem("userId");
     //声明模块
     var myApp = angular.module("myApp",[]);
 //通过模块生成调用控制器
@@ -70,7 +70,7 @@ function totalP(){
 }
 
 function payComeOn(){
-    var userId=sessionStorage.getItem("userId");
+    var userId=localStorage.getItem("userId");
     console.log(userId)
     var userN=$("#userName").val();
     var phoneS=$("#phone").val();

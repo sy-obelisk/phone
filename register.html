@@ -30,10 +30,13 @@
         <div class="regInput reg">
             <ul>
                 <li>
-                    <input id="username" type="text" placeholder="请输入你的用户名"  datatype="s5-16" errormsg="昵称至少5个字符,最多16个字符!"/>
+                    <input id="phone" type="text" placeholder="请输入你的手机号" datatype="m" errormsg="请用11位手机号注册"/>
                 </li>
                 <li>
-                    <input id="phone" type="text" placeholder="请输入你的手机号" datatype="m" errormsg="手机号格式不正确(不能小于11位)!"/>
+                    <input id="username" type="text" placeholder="请输入你的用户名" datatype="s5-16" errormsg="用户名英文与数字组合且至少5个字符，最多16个字符"/>
+                </li>
+                <li>
+                    <input id="password" type="password" placeholder="请输入你的密码" datatype="*6-16" errormsg="密码范围在6~16位之间！"/>
                 </li>
                 <li>
                     <div class="col-xs-8 col-sm-8">
@@ -44,9 +47,7 @@
                     </div>
                     <div class="clearBox"></div>
                 </li>
-                <li>
-                    <input id="password" type="password" placeholder="请输入你的密码" datatype="*6-16" errormsg="密码范围在6~16位之间！"/>
-                </li>
+
                 <li>
                     <input type="button" value="注册" id="reg_btn" onclick="register()"/>
                 </li>

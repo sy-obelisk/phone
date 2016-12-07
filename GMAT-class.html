@@ -43,41 +43,54 @@
     <script src="style/js/swiper-3.3.1.jquery.min.js"></script>
     <title>GMAT课程</title>
     <style>
-        #class-list{
+        #class-list {
             height: 100%;
             overflow: hidden;
         }
-        .class-list-wrap{
+
+        .class-list-wrap {
             height: 93%;
         }
 
-        .class-list{
+        .class-list {
             height: 100%;
         }
-        .class-list li{
-            height: 33.3%;
+
+        .class-list li {
+            height: 23%;
             text-align: center;
-            background: url("style/images-4/class-1.png")no-repeat 0 0;
+            background: url("style/images-4/class-1.png") no-repeat 0 0;
             background-size: cover;
         }
-        .class-list li:nth-child(2){
-            background: url("style/images-4/class-2.png")no-repeat 0 0;
+
+        .class-list li:nth-child(4) {
+            background: url("style/images-4/class-3.png") no-repeat 0 0;
             background-size: cover;
         }
-        .class-list li:nth-child(3){
-            background: url("style/images-4/class-3.png")no-repeat 0 0;
+
+        .class-list li:nth-child(2) {
+            background: url("style/images-4/class-2.png") no-repeat 0 0;
             background-size: cover;
         }
-        .icon-wrap img{
+
+        .class-list li:nth-child(3) {
+            background: url("style/images-4/4.png") no-repeat 0 0;
+            background-size: cover;
+        }
+
+        .icon-wrap img {
             width: 40px;
         }
-        .class-name{
+
+        .class-name {
             margin-top: 0.3rem;
             font-size: 0.8rem;
             color: #ffffff;
         }
-        .name-wrap{
-            margin-top: 15%;
+
+        .name-wrap {
+            margin-top: 8%;
+            width: 100%;
             display: inline-block;
             vertical-align: middle;
             line-height: normal;
@@ -86,86 +99,99 @@
     </style>
 </head>
 <body id="class-list">
- <section class="class-list-wrap">
-     <ul class="class-list">
-         <li>
-             <div class="name-wrap tm">
-                 <a href="GMAT-class-1.html">
-                 <div class="icon-wrap"><img src="style/images-4/icon-7.png" alt=""></div>
-                 <p class="class-name">视频课</p>
-                 </a>
-             </div>
-         </li>
-         <li>
-             <div class="name-wrap tm">
-                 <a href="GMAT-class-3.html">
-                 <div class="icon-wrap"><img src="style/images-4/icon-8.png" alt=""></div>
-                 <p class="class-name">公开课</p>
-                     </a>
-             </div>
-         </li>
-         <li>
-             <div class="name-wrap tm">
-                 <a href="GMAT-class-2.html">
-                 <div class="icon-wrap"><img src="style/images-4/icon-9.png" alt=""></div>
-                 <p class="class-name">直播课 </p>
-                     </a>
-             </div>
-         </li>
-     </ul>
+<section class="commonTit tm clearfix">
+    <a href="javascript:history.go(-1)"><i class="return fl icon-angle-left"></i></a>
+    <span class="Tit inb">GMAT课程</span>
+</section>
+<section class="class-list-wrap">
+    <ul class="class-list">
+        <li>
+            <a href="audition.html">
+                <div class="name-wrap tm">
+                    <div class="icon-wrap"><img src="style/images-4/5.png" alt=""></div>
+                    <p class="class-name">试听课</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="GMAT-class-1.html">
+                <div class="name-wrap tm">
+                    <div class="icon-wrap"><img src="style/images-4/icon-7.png" alt=""></div>
+                    <p class="class-name">视频课</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="GMAT-class-3.html">
+                <div class="name-wrap tm">
+                    <div class="icon-wrap"><img src="style/images-4/icon-8.png" alt=""></div>
+                    <p class="class-name">公开课</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="GMAT-class-2.html">
+                <div class="name-wrap tm">
+                    <div class="icon-wrap"><img src="style/images-4/icon-9.png" alt=""></div>
+                    <p class="class-name">直播课 </p>
+                </div>
+            </a>
+        </li>
+    </ul>
 
- </section>
- <!--footer-->
- <footer>
-     <div class="row" style="margin: 0 auto">
-         <ul class="footer-list">
-             <li>
-                 <a href="library-wrap.html">
-                     <div class="ft-list-wrap">
-                         <i><img src="style/images-4/icon-1A.png" style="width: 12px" alt=""></i>
-                         <p class="ft-name">做题模考</p>
-                     </div>
-                 </a>
-             </li>
-             <li>
-                 <a href="knowledge.html">
-                     <div class="ft-list-wrap">
-                         <i><img src="style/images-4/icon-2A.png" style="width: 17px" alt=""></i>
-                         <p class="ft-name">知识库</p>
-                     </div>
-                 </a>
-             </li>
-             <li>
-                 <a href="plan-test.html">
-                     <div class="ft-list-wrap">
-                         <i class="hint-wrap relative"><img src="style/images-4/icon-3A.png" style="width: 17px" alt=""><span class="ani hint">10</span></i>
-                         <p class="ft-name">备考八卦</p>
-                     </div>
-                 </a>
-             </li>
-             <li class="on">
-                 <a href="GMAT-class.html">
-                     <div class="ft-list-wrap">
-                         <i><img src="style/images-4/icon-4B.png" style="width: 18px" alt=""></i>
-                         <p class="ft-name">GMAT课程</p>
-                     </div>
-                 </a>
-             </li>
-             <li>
-                 <a href="user-center.html">
-                     <div class="ft-list-wrap">
-                         <i><img src="style/images-4/icon-5A.png" style="width: 13px" alt=""></i>
-                         <p class="ft-name">个人中心</p>
-                     </div>
-                 </a>
-             </li>
+</section>
+<!--footer-->
+<footer>
+    <div class="row" style="margin: 0 auto">
+        <ul class="footer-list">
+            <li>
+                <a href="index.html">
+                    <div class="ft-list-wrap">
+                        <i><img src="style/images-4/icon-1A.png" style="width: 12px" alt=""></i>
+                        <p class="ft-name">首页</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="knowledge.html">
+                    <div class="ft-list-wrap">
+                        <i><img src="style/images-4/icon-2A.png" style="width: 17px" alt=""></i>
+                        <p class="ft-name">知识库</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="plan-test.html">
+                    <div class="ft-list-wrap">
+                        <i class="hint-wrap relative"><img src="style/images-4/icon-3A.png" style="width: 17px"
+                                                           alt=""><span class="ani hint">10</span></i>
+                        <p class="ft-name">备考八卦</p>
+                    </div>
+                </a>
+            </li>
+            <li class="on">
+                <a href="GMAT-class.html">
+                    <div class="ft-list-wrap">
+                        <i><img src="style/images-4/icon-4B.png" style="width: 18px" alt=""></i>
+                        <p class="ft-name">GMAT课程</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="user-center.html">
+                    <div class="ft-list-wrap">
+                        <i><img src="style/images-4/icon-5A.png" style="width: 13px" alt=""></i>
+                        <p class="ft-name">个人中心</p>
+                    </div>
+                </a>
+            </li>
 
-         </ul>
-     </div>
- </footer>
+        </ul>
+    </div>
+</footer>
 </body>
 <script>
-    $(function() {
+    $(function () {
         $(".footer-list li").click(function () {
             $(this).addClass("on").siblings("li").removeClass("on");
         })

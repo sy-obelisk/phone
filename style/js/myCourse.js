@@ -2,7 +2,7 @@
 $(function(){
     var Request=GetRequests();
     var sta=Request['status'];
-    var userId=sessionStorage.getItem("userId");
+    var userId=localStorage.getItem("userId");
     if(sta==2){
         $(".courseHd ul li").first().addClass("on");
     }else if(sta==1){
@@ -27,7 +27,6 @@ $(function(){
                 status:sta
             }
         }).success(function(data) {
-            console.log(data)
             if(data.userData==false){
                 //头部个人中心图标未登陆点击跳转到登陆
                 $("#personIcon").click(function(){location.href="login.html"});

@@ -5,7 +5,7 @@ $(function(){
     var Request=GetRequests();
     var queId=Request['queId'];
     var sectionid=Request["section"];
-    var userId=sessionStorage.getItem("userId");
+    var userId=localStorage.getItem("userId");
     var articletitle=Request['articletitle'];
     //声明模块
     var myApp = angular.module("myApp",[]);
@@ -59,7 +59,7 @@ function chooseAnswer(o){
 /**
  * 提交答案ima
  */
-var userId=sessionStorage.getItem("userId");
+var userId=localStorage.getItem("userId");
 var startTime = parseInt(new Date().getTime()/1000);
 function submitAnswer(){
     var Request=GetRequests();

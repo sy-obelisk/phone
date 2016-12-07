@@ -1,7 +1,7 @@
 $(function(){
     var Request=GetRequests();
     var keyW=Request['keyword'];
-    var userId=sessionStorage.getItem("userId");
+    var userId=localStorage.getItem("userId");
     //声明模块
     var myApp = angular.module("myApp",[]);
     myApp.directive('isOver',function(){

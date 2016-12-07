@@ -18,7 +18,7 @@ $(function(){
     });
 //通过模块生成调用控制器
     myApp.controller("PriceCtrl",["$scope","$http",function($scope,$http){
-        var userId=sessionStorage.getItem("userId");
+        var userId=localStorage.getItem("userId");
         $http({
             method: 'post',
             url: 'http://www.gmatonline.cn/index.php?web/appapi/knowtiku',
@@ -30,9 +30,12 @@ $(function(){
                 userid:userId
             }
         }).success(function(data) {
-            console.log(data)
+            console.log(data);
             $scope.knowName = data.data.knowName;
             $scope.datas = data.data.data;
+            if($scope.datas.length==0){
+               alert('暂无此类数据')
+            }
             if(data.userData==false){
                 //头部个人中心图标未登陆点击跳转到登陆
                 $("#personIcon").click(function(){location.href="login.html"});

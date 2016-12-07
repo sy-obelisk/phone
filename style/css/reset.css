@@ -9,7 +9,7 @@ body{
 strong{font-weight: normal;}
 img{border: none;vertical-align: middle;max-width: 100%;}
 html { height: 100%; width: 100%; font-family: 'Microsoft YaHei','Heiti SC';font-size: 20px;  outline: 0; -webkit-text-size-adjust:none;}
-body { -webkit-user-select: none;background: #F2F3EE;}
+body { background: #F2F3EE;}
 span,b,em{font-weight: normal;font-style: normal;}
 input{outline: none;}
 input[type=radio]{-webkit-appearance: radio;} input[type=checkbox]{-webkit-appearance: checkbox;}

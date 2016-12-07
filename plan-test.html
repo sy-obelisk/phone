@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
 <head>
     <meta charset="UTF-8">
     <!--阻止浏览器缓存-->
@@ -37,10 +37,17 @@
     <link rel="stylesheet" href="style/css/swipebox.css">
     <link rel="stylesheet" href="style/css/font-awesome.min.css">
     <link rel="stylesheet" href="style/css/swiper-3.3.1.min.css">
+    <link rel="stylesheet" href="style/css/emojione.min.css">
+    <link href="cdn.bootcss.com/emojione/2.2.2/assets/sprites/emojione.sprites.css" rel="stylesheet">
+    <!--<link href="style/css/emoji.css" rel="stylesheet">-->
+    <script src="style/js/emojione.js"></script>
     <script src="style/js/jquery-1.12.2.min.js"></script>
     <script src="style/js/common.js"></script>
     <script src="style/js/jquery.swipebox.js"></script>
+    <script src="style/js/plan-test.js"></script>
+    <script src="style/js/public.js"></script>
     <script src="style/js/swiper-3.3.1.jquery.min.js"></script>
+    <script type="text/javascript" src="style/js/angular1.3.1.js"></script>
     <title>备考八卦</title>
     <style>
         #plan-test {
@@ -52,371 +59,83 @@
             background: #ffffff;
             margin-bottom: 0.6rem;
         }
-        .all-text{
+        .msgHint{
+            border-radius: 6px;
+            display: inline-block;
+            padding: 0rem 0.6rem 0.22rem;
+            margin: 0 auto;
+            background: #197FEE;
+        }
+        .hintWrap{
             display: none;
+            padding:0.5rem 0 0;
+            background: #ffffff;
+        }
+        .msg{
+            padding-left: 0.5rem;
+            color: #ffffff;
+            font-size: 0.6rem;
         }
 
     </style>
 </head>
-<body id="plan-test">
+<body id="plan-test" ng-controller="PriceCtrl">
 <!--公共标题栏-->
 <section class="commonTit tm clearfix">
     <a href="javascript:history.go(-1)"><i class="return fl icon-angle-left"></i></a>
     <span class="Tit inb">备考八卦</span>
     <a class="fr" href="forum.html"><img src="style/images-4/icon-pen.png" style="height: 0.8rem" alt=""></a>
 </section>
+<!--消息提醒-->
+<section class="hintWrap tm">
+    <a href="message.html"><div class="msgHint"><img src="style/images-4/light-1.png" style="width: 1.3rem" alt=""><span class="msg">你有{{num}}条新消息</span></div></a>
+</section>
 <section>
     <ul class="publish-list">
 
-        <li>
+        <li ng-repeat="item1 in items1">
             <div class="user-wrap">
-                <div class="plan-userHeader inb"><img src="style/images-4/user-header2.png" alt=""></div>
+                <div class="plan-userHeader inb"><img src="http://www.gmatonline.cn/{{item1.icon}}" onerror="this.src='style/images/userDefault.png'" alt=""></div>
                 <div class="inb">
-                    <p class="user-name">Trouble-Z</p>
-                    <p class="publish-data">2016.10.13 11:42:32</p>
+                    <p class="user-name">{{item1.publisher}}</p>
+                    <p class="publish-data">{{item1.createTime*1000 | date:'yyyy-MM-dd HH:mm:ss'}}</p>
                 </div>
             </div>
             <div class="article-wrap">
-                <h1 class="article-tit">你真的认识”平行“吗？</h1>
-                <div>
-                    <div class="box">
-                        <p class="article-text">
-                            你真的认识”平行“吗？你懂SC的省略原则吗？你能在句子表达正确的情况下还保证句子美观吗？
-                            雷哥GMAT SC公开课一元钱一小时带你深剖SC的平行结构搞定GMAT雷哥GMAT SC公开课一元钱一小时带你深剖SC的平行结构搞定GMAT
-                            你真的认识”平行“吗？你懂SC的省略原则吗？你能在句子表达正确的情况下还保证句子美观吗？
-                            雷哥GMAT SC公开课一元钱一小时带你深剖SC的平行结构搞定GMAT雷哥GMAT SC公开课一元钱一小时带你深剖SC的平行结构搞定GMAT
-                            你真的认识”平行“吗？你懂SC的省略原则吗？你能在句子表达正确的情况下还保证句子美观吗？
-                            雷哥GMAT SC公开课一元钱一小时带你深剖SC的平行结构搞定GMAT雷哥GMAT SC公开课一元钱一小时带你深剖SC的平行结构搞定GMAT
+                <a href="show-article.html?id={{item1.id}}&publisher={{item1.uid}}&type=1">
+                    <h1 class="article-tit" ng-bind-html="item1.title"></h1>
+                    <div>
+                        <div class="box">
+                            <p class="article-text" ng-bind-html="item1.content"></p>
+                        </div>
+                        <div class="article-img">
+                            <div class="up-img" ng-repeat="item2 in item1.image">
+                                <a href="http://gossip.gmatonline.cn/{{item2}}" class="swipebox" title="My Caption"><img src="http://gossip.gmatonline.cn/{{item2}}" alt="image"></a>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="tr comment">
+                    <input class="gossipId" type="hidden" value="{{item1.id}}">
+                    <em class="likeWrap"><img src="style/images-4/icon-p2.png" alt=""><span class="likeNum">{{item1.likeNum}}</span></em>
+                    <em class="comment-icon"><img  class="on" src="style/images-4/icon-p1.png" alt=""><span>{{item1.count}}</span></em>
+
+                </div>
+                <div class="comment-list">
+                    <a href="show-article.html?id={{item1.id}}&publisher={{item1.uid}}&type=1">
+                        <p ng-repeat="item1 in item1.reply" ng-class="{'courseHide':$index>3}" class="comment-text">
+                            <strong class="replyer-name">{{item1.uName}}</strong><strong ng-show="item1.replyUserName!=''" class="replyer-name">{{" 回复 "+item1.replyUserName}}</strong>:<span ng-bind-html="item1.content"></span>
                         </p>
-                    </div>
-
-                    <div class="article-img">
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="tr comment">
-                    <img src="style/images-4/icon-p2.png" alt="">
-                    <span>2016</span>
-                    <img class="comment-icon" src="style/images-4/icon-p1.png" alt="">
-                    <span>2016</span>
-                </div>
-                <div class="comment-list">
-                    <p class="comment-text"><strong class="replyer-name">Trouble-Z</strong>: 公开课一元钱一小时带你深剖SC的平行结构搞</p>
-                    <p class="comment-text"><strong class="replyer-name">Trouble-Z</strong>: 公开课一元钱一小时带你深剖SC的平行结构搞</p>
-                    <p class="comment-text"><strong class="replyer-name">Trouble-Z</strong>: 公开课一元钱一小时带你深剖SC的平行结构搞</p>
-                    <p class="comment-text"><strong class="replyer-name">Trouble-Z</strong>: 公开课一元钱一小时带你深剖SC的平行结构搞</p>
-                    <p class="comment-text"><strong class="replyer-name">Trouble-Z</strong>: 公开课一元钱一小时带你深剖SC的平行结构搞</p>
-                    <a href="show-article.html"><div class="show-all-comment">查看全部2016条评论…</div></a>
+                    </a>
+                    <a href="show-article.html?id={{item1.id}}&publisher={{item1.uid}}&type=1">
+                        <div class="show-all-comment" ng-show="{{item1.count}}>4">查看全部{{item1.count}}条评论…</div>
+                        <div class="show-all-comment tm" ng-show="{{item1.count}}<=0">暂时没有评论！我要去评论....</div>
+                    </a>
                 </div>
             </div>
 
         </li>
 
-        <li>
-            <div class="user-wrap">
-                <div class="plan-userHeader inb"><img src="style/images-4/user-header2.png" alt=""></div>
-                <div class="inb">
-                    <p class="user-name">Trouble-Z</p>
-                    <p class="publish-data">2016.10.13 11:42:32</p>
-                </div>
-            </div>
-            <div class="article-wrap">
-                <h1 class="article-tit">你真的认识”平行“吗？</h1>
-                <div>
-                    <p class="article-text">
-                        你真的认识”平行“吗？你懂SC的省略原则吗？你能在句子表达正确的情况下还保证句子美观吗？
-                        雷哥GMAT SC公开课一元钱一小时带你深剖SC的平行结构搞定GMAT
-                        <span class="show-all"><全文></span>
-                    </p>
-                    <div class="article-img">
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="tr comment">
-                    <img src="style/images-4/icon-p2.png" alt="">
-                    <span>2016</span>
-                    <img class="comment-icon" src="style/images-4/icon-p1.png" alt="">
-                    <span>2016</span>
-                </div>
-                <div class="comment-list">
-                    <p class="comment-text"><strong class="replyer-name">Trouble-Z</strong>: 公开课一元钱一小时带你深剖SC的平行结构搞</p>
-                    <p class="comment-text"><strong class="replyer-name">Trouble-Z</strong>: 公开课一元钱一小时带你深剖SC的平行结构搞</p>
-                    <p class="comment-text"><strong class="replyer-name">Trouble-Z</strong>: 公开课一元钱一小时带你深剖SC的平行结构搞</p>
-                    <p class="comment-text"><strong class="replyer-name">Trouble-Z</strong>: 公开课一元钱一小时带你深剖SC的平行结构搞</p>
-                    <p class="comment-text"><strong class="replyer-name">Trouble-Z</strong>: 公开课一元钱一小时带你深剖SC的平行结构搞</p>
-                    <a href="show-article.html"><div class="show-all-comment">查看全部2016条评论…</div></a>
-                </div>
-            </div>
-
-        </li>
-        <li>
-            <div class="user-wrap">
-                <div class="plan-userHeader inb"><img src="style/images-4/user-header2.png" alt=""></div>
-                <div class="inb">
-                    <p class="user-name">Trouble-Z</p>
-                    <p class="publish-data">2016.10.13 11:42:32</p>
-                </div>
-            </div>
-            <div class="article-wrap">
-                <h1 class="article-tit">你真的认识”平行“吗？</h1>
-                <div>
-                    <p class="article-text">
-                        你真的认识”平行“吗？你懂SC的省略原则吗？你能在句子表达正确的情况下还保证句子美观吗？
-                        雷哥GMAT SC公开课一元钱一小时带你深剖SC的平行结构搞定GMAT
-                        <span class="show-all"><全文></span>
-                    </p>
-                    <div class="article-img">
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="tr comment">
-                    <img src="style/images-4/icon-p2.png" alt="">
-                    <span>2016</span>
-                    <img class="comment-icon" src="style/images-4/icon-p1.png" alt="">
-                    <span>2016</span>
-                </div>
-                <div class="comment-list">
-                    <p class="comment-text"><strong class="replyer-name">Trouble-Z</strong>: 公开课一元钱一小时带你深剖SC的平行结构搞</p>
-                    <p class="comment-text"><strong class="replyer-name">Trouble-Z</strong>: 公开课一元钱一小时带你深剖SC的平行结构搞</p>
-                    <p class="comment-text"><strong class="replyer-name">Trouble-Z</strong>: 公开课一元钱一小时带你深剖SC的平行结构搞</p>
-                    <p class="comment-text"><strong class="replyer-name">Trouble-Z</strong>: 公开课一元钱一小时带你深剖SC的平行结构搞</p>
-                    <p class="comment-text"><strong class="replyer-name">Trouble-Z</strong>: 公开课一元钱一小时带你深剖SC的平行结构搞</p>
-                    <a href="show-article.html"><div class="show-all-comment">查看全部2016条评论…</div></a>
-                </div>
-            </div>
-
-        </li>
-        <li>
-            <div class="user-wrap">
-                <div class="plan-userHeader inb"><img src="style/images-4/user-header2.png" alt=""></div>
-                <div class="inb">
-                    <p class="user-name">Trouble-Z</p>
-                    <p class="publish-data">2016.10.13 11:42:32</p>
-                </div>
-            </div>
-            <div class="article-wrap">
-                <h1 class="article-tit">你真的认识”平行“吗？</h1>
-                <div>
-                    <p class="article-text">
-                        你真的认识”平行“吗？你懂SC的省略原则吗？你能在句子表达正确的情况下还保证句子美观吗？
-                        雷哥GMAT SC公开课一元钱一小时带你深剖SC的平行结构搞定GMAT
-                        <span class="show-all"><全文></span>
-                    </p>
-                    <div class="article-img">
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="tr comment">
-                    <img src="style/images-4/icon-p2.png" alt="">
-                    <span>2016</span>
-                    <img class="comment-icon" src="style/images-4/icon-p1.png" alt="">
-                    <span>2016</span>
-                </div>
-                <div class="comment-list">
-                    <p class="comment-text"><strong class="replyer-name">Trouble-Z</strong>: 公开课一元钱一小时带你深剖SC的平行结构搞</p>
-                    <p class="comment-text"><strong class="replyer-name">Trouble-Z</strong>: 公开课一元钱一小时带你深剖SC的平行结构搞</p>
-                    <p class="comment-text"><strong class="replyer-name">Trouble-Z</strong>: 公开课一元钱一小时带你深剖SC的平行结构搞</p>
-                    <p class="comment-text"><strong class="replyer-name">Trouble-Z</strong>: 公开课一元钱一小时带你深剖SC的平行结构搞</p>
-                    <p class="comment-text"><strong class="replyer-name">Trouble-Z</strong>: 公开课一元钱一小时带你深剖SC的平行结构搞</p>
-                    <a href="show-article.html"><div class="show-all-comment">查看全部2016条评论…</div></a>
-                </div>
-            </div>
-
-        </li>
-        <li>
-            <div class="user-wrap">
-                <div class="plan-userHeader inb"><img src="style/images-4/user-header2.png" alt=""></div>
-                <div class="inb">
-                    <p class="user-name">Trouble-Z</p>
-                    <p class="publish-data">2016.10.13 11:42:32</p>
-                </div>
-            </div>
-            <div class="article-wrap">
-                <h1 class="article-tit">你真的认识”平行“吗？</h1>
-                <div>
-                    <p class="article-text">
-                        你真的认识”平行“吗？你懂SC的省略原则吗？你能在句子表达正确的情况下还保证句子美观吗？
-                        雷哥GMAT SC公开课一元钱一小时带你深剖SC的平行结构搞定GMAT
-                        <span class="show-all"><全文></span>
-                    </p>
-                    <div class="article-img">
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="tr comment">
-                    <img src="style/images-4/icon-p2.png" alt="">
-                    <span>2016</span>
-                    <img class="comment-icon" src="style/images-4/icon-p1.png" alt="">
-                    <span>2016</span>
-                </div>
-                <div class="comment-list">
-                    <p class="comment-text"><strong class="replyer-name">Trouble-Z</strong>: 公开课一元钱一小时带你深剖SC的平行结构搞</p>
-                    <p class="comment-text"><strong class="replyer-name">Trouble-Z</strong>: 公开课一元钱一小时带你深剖SC的平行结构搞</p>
-                    <p class="comment-text"><strong class="replyer-name">Trouble-Z</strong>: 公开课一元钱一小时带你深剖SC的平行结构搞</p>
-                    <p class="comment-text"><strong class="replyer-name">Trouble-Z</strong>: 公开课一元钱一小时带你深剖SC的平行结构搞</p>
-                    <p class="comment-text"><strong class="replyer-name">Trouble-Z</strong>: 公开课一元钱一小时带你深剖SC的平行结构搞</p>
-                    <a href="show-article.html"><div class="show-all-comment">查看全部2016条评论…</div></a>
-                </div>
-            </div>
-
-        </li>
-        <li>
-            <div class="user-wrap">
-                <div class="plan-userHeader inb"><img src="style/images-4/user-header2.png" alt=""></div>
-                <div class="inb">
-                    <p class="user-name">Trouble-Z</p>
-                    <p class="publish-data">2016.10.13 11:42:32</p>
-                </div>
-            </div>
-            <div class="article-wrap">
-                <h1 class="article-tit">你真的认识”平行“吗？</h1>
-                <div>
-                    <p class="article-text">
-                        你真的认识”平行“吗？你懂SC的省略原则吗？你能在句子表达正确的情况下还保证句子美观吗？
-                        雷哥GMAT SC公开课一元钱一小时带你深剖SC的平行结构搞定GMAT
-                        <span class="show-all"><全文></span>
-                    </p>
-                    <div class="article-img">
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                        <div class="up-img">
-                            <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="tr comment">
-                    <img src="style/images-4/icon-p2.png" alt="">
-                    <span>2016</span>
-                    <img class="comment-icon" src="style/images-4/icon-p1.png" alt="">
-                    <span>2016</span>
-                </div>
-                <div class="comment-list">
-                    <p class="comment-text"><strong class="replyer-name">Trouble-Z</strong>: 公开课一元钱一小时带你深剖SC的平行结构搞</p>
-                    <p class="comment-text"><strong class="replyer-name">Trouble-Z</strong>: 公开课一元钱一小时带你深剖SC的平行结构搞</p>
-                    <p class="comment-text"><strong class="replyer-name">Trouble-Z</strong>: 公开课一元钱一小时带你深剖SC的平行结构搞</p>
-                    <p class="comment-text"><strong class="replyer-name">Trouble-Z</strong>: 公开课一元钱一小时带你深剖SC的平行结构搞</p>
-                    <p class="comment-text"><strong class="replyer-name">Trouble-Z</strong>: 公开课一元钱一小时带你深剖SC的平行结构搞</p>
-                    <a href="show-article.html"><div class="show-all-comment">查看全部2016条评论…</div></a>
-                </div>
-            </div>
-
-        </li>
 
     </ul>
 </section>
@@ -425,10 +144,10 @@
     <div class="row" style="margin: 0 auto">
         <ul class="footer-list">
             <li>
-                <a href="library-wrap.html">
+                <a href="index.html">
                     <div class="ft-list-wrap">
                         <i><img src="style/images-4/icon-1A.png" style="width: 12px" alt=""></i>
-                        <p class="ft-name">做题模考</p>
+                        <p class="ft-name">首页</p>
                     </div>
                 </a>
             </li>
@@ -443,7 +162,8 @@
             <li class="on">
                 <a href="plan-test.html">
                     <div class="ft-list-wrap">
-                        <i class="hint-wrap relative"><img src="style/images-4/icon-3B.png" style="width: 17px" alt=""><span class="ani hint">10</span></i>
+                        <i class="hint-wrap relative"><img src="style/images-4/icon-3B.png" style="width: 17px"
+                                                           alt=""><span class="ani hint">10</span></i>
                         <p class="ft-name">备考八卦</p>
                     </div>
                 </a>
@@ -471,54 +191,46 @@
 </body>
 
 <script type="text/javascript">
-//    查看图片
-    jQuery(function($) {
+    //    查看图片
+    jQuery(function ($) {
         $(".swipebox").swipebox({
-            useCSS : true, // false will force the use of jQuery for animations
-            useSVG : true, // false to force the use of png for buttons
-            initialIndexOnArray : 0, // which image index to init when a array is passed
-            hideCloseButtonOnMobile : false, // true will hide the close button on mobile devices
-            removeBarsOnMobile : true, // false will show top bar on mobile devices
-            hideBarsDelay : 3000, // delay before hiding bars on desktop
-            beforeOpen: function() {}, // called before opening
+            useCSS: true, // false will force the use of jQuery for animations
+            useSVG: true, // false to force the use of png for buttons
+            initialIndexOnArray: 0, // which image index to init when a array is passed
+            hideCloseButtonOnMobile: false, // true will hide the close button on mobile devices
+            removeBarsOnMobile: true, // false will show top bar on mobile devices
+            hideBarsDelay: 3000, // delay before hiding bars on desktop
+            beforeOpen: function () {
+            }, // called before opening
             afterOpen: null, // called after opening
-            afterClose: function() {}, // called after closing
+            afterClose: function () {
+            }, // called after closing
             loopAtEnd: true // true will return to the first image after the last image is reached
         });
 //        显示全文
-        function show(){
+        function show() {
             var box = $(".box");
             var text = box.html();
             var newBox = document.createElement("div");
             var btn = document.createElement("span");
-            $(newBox).html(text.substring(0,200));
+            $(newBox).html(text.substring(0, 200));
             $(btn).html(text.length > 200 ? "全文" : "").addClass("show-all");
-            $(btn).on("click",function(){
-                if ($(this).html()=="全文"){
+            $(btn).on("click", function () {
+                if ($(this).html() == "全文") {
                     $(this).html("收起");
                     $(newBox).html(text);
-                }else{
+                } else {
                     $(this).html("全文");
-                    $(newBox).html(text.substring(0,200));
+                    $(newBox).html(text.substring(0, 200));
                 }
             });
             box.html("");
             $(box).append($(newBox));
             $(box).append($(btn));
         }
-        show();
-//        显示评论
-        $(".comment-icon").on("click",function(){
-            var _this=$(this).parent();
-            if(_this.hasClass("on")){
-                _this.removeClass("on");
-                _this.next().fadeOut(200);
-            }else {
-                _this.addClass("on");
-                _this.next().fadeIn();
-            }
 
-        })
+        show();
+
     });
 </script>
 

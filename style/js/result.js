@@ -8,7 +8,7 @@ $(function(){
 
     //声明模块
     var myApp = angular.module("myApp",[]);
-    var userId = sessionStorage.getItem("userId");
+    var userId = localStorage.getItem("userId");
     var tikuid = sessionStorage.getItem("tikuid");
     var countNum = sessionStorage.getItem("countNum");
 //通过模块生成调用控制器

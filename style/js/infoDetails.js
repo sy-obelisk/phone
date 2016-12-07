@@ -1,11 +1,10 @@
 $(function(){
     //声明模块
     var myApp = angular.module("myApp",[]);
-    var userId=sessionStorage.getItem("userId");
+    var userId=localStorage.getItem("userId");
 
 //通过模块生成调用控制器
     myApp.controller("PriceCtrl",["$scope","$http",function($scope,$http){
-
         //资讯
         $http({
             method: 'post',

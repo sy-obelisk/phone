@@ -3,7 +3,7 @@ $(function(){
     var myApp = angular.module("myApp",[]);
 //通过模块生成调用控制器
     myApp.controller("PriceCtrl",["$scope","$http",function($scope,$http){
-        var userId=sessionStorage.getItem("userId");
+        var userId=localStorage.getItem("userId");
         //考点冲刺
         $http({
             method: 'post',

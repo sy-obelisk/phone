@@ -12,7 +12,7 @@ $(function(){
     var kzid=Request['kzid'];
     var cptime=Request['cptime'];
     var kzmark=Request['kzmark'];
-    var userId=sessionStorage.getItem("userId");
+    var userId=localStorage.getItem("userId");
 
     var myApp = angular.module("myApp",[]);
 //通过模块生成调用控制器

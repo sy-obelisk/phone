@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
 <head>
     <meta charset="UTF-8">
     <!--阻止浏览器缓存-->
@@ -37,10 +37,18 @@
     <link rel="stylesheet" href="style/css/swipebox.css">
     <link rel="stylesheet" href="style/css/font-awesome.min.css">
     <link rel="stylesheet" href="style/css/swiper-3.3.1.min.css">
+    <link rel="stylesheet" href="style/css/emojione.min.css">
+    <link href="cdn.bootcss.com/emojione/2.2.2/assets/sprites/emojione.sprites.css" rel="stylesheet">
+    <!--<link href="style/css/emoji.css" rel="stylesheet">-->
     <script src="style/js/jquery-1.12.2.min.js"></script>
+    <script src="style/js/emojione.js"></script>
     <script src="style/js/common.js"></script>
-    <script src="style/js/jquery.swipebox.js"></script>
     <script src="style/js/swiper-3.3.1.jquery.min.js"></script>
+    <script src="style/js/jquery.swipebox.js"></script>
+    <script src="style/js/public.js"></script>
+    <script src="style/js/show-article.js"></script>
+    <script type="text/javascript" src="style/js/angular1.3.1.js"></script>
+
     <title>你真的认识”平行“吗？</title>
     <style>
         #show-article {
@@ -119,10 +127,16 @@
         .article-details .comment {
             margin: 0 0 0.8rem 0;
         }
+        .xx ul{
+            overflow: hidden;
+        }
+        .xx ul li{
+            float: left;
+        }
 
     </style>
 </head>
-<body id="show-article">
+<body id="show-article" ng-controller="PriceCtrl">
 <!--公共标题栏-->
 <section class="commonTit tm clearfix">
     <a href="javascript:history.go(-1)"><i class="return fl icon-angle-left"></i></a>
@@ -132,59 +146,29 @@
 <section>
     <div class="article-details">
         <div class="user-wrap">
-            <div class="plan-userHeader inb"><img src="style/images-4/user-header2.png" alt=""></div>
+            <div class="plan-userHeader inb"><img src="http://www.gmatonline.cn/{{data.icon}}" onerror="this.src='style/images/userDefault.png'" alt=""></div>
             <div class="inb">
-                <p class="user-name">Trouble-Z</p>
-                <p class="publish-data">2016.10.13 11:42:32</p>
+                <p class="user-name">{{data.publisher}}</p>
+                <p class="publish-data">{{data.createTime*1000 | date:'yyyy-MM-dd HH:mm:ss'}}</p>
             </div>
         </div>
         <div class="article-wrap">
-            <h1 class="article-tit">你真的认识”平行“吗？</h1>
+            <h1 class="article-tit" ng-bind-html="title"></h1>
             <div>
-                <p class="article-text">
-                    你真的认识”平行“吗？你懂SC的省略原则吗？你能在句子表达正确的情况下还保证句子美观吗？<br>
-                    雷哥GMAT SC公开课一元钱一小时带你深剖SC的平行结构搞定GMAT
-                    你真的认识”平行“吗？你懂SC的省略原则吗？你能在句子表达正确的情况下还保证句子美观吗？<br>
-                    雷哥GMAT SC公开课一元钱一小时带你深剖SC的平行结构搞定GMAT
-                    你真的认识”平行“吗？你懂SC的省略原则吗？你能在句子表达正确的情况下还保证句子美观吗？<br>
-                    雷哥GMAT SC公开课一元钱一小时带你深剖SC的平行结构搞定GMAT
-                    你真的认识”平行“吗？你懂SC的省略原则吗？你能在句子表达正确的情况下还保证句子美观吗？<br>
-                    雷哥GMAT SC公开课一元钱一小时带你深剖SC的平行结构搞定GMAT
-                    你真的认识”平行“吗？你懂SC的省略原则吗？你能在句子表达正确的情况下还保证句子美观吗？<br>
-                    雷哥GMAT SC公开课一元钱一小时带你深剖SC的平行结构搞定GMAT
-                </p>
+                <p class="article-text" ng-bind-html="content"></p>
             </div>
             <div class="article-img">
-                <div class="up-img">
-                    <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png"
-                                                                                          alt="image"></a>
-                </div>
-                <div class="up-img">
-                    <a href="style/images-4/index-bg.png" class="swipebox" title="My Caption"><img src="style/images-4/index-bg.png"
-                                                                                             alt="image"></a>
-                </div>
-                <div class="up-img">
-                    <a href="style/images-4/bg-5.png" class="swipebox" title="My Caption"><img src="style/images-4/bg-5.png"
-                                                                                         alt="image"></a>
-                </div>
-                <div class="up-img">
-                    <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png"
-                                                                                          alt="image"></a>
-                </div>
-                <div class="up-img">
-                    <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png"
-                                                                                          alt="image"></a>
-                </div>
-                <div class="up-img">
-                    <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png"
-                                                                                          alt="image"></a>
+                <div class="up-img" ng-repeat="item in data.image">
+                    <a href="http://gossip.gmatonline.cn/{{item}}" class="swipebox" title="My Caption"><img src="http://gossip.gmatonline.cn/{{item}}" alt="image"></a>
                 </div>
             </div>
             <div class="tr comment">
-                <img src="style/images-4/icon-p2.png" alt="">
-                <span>2016</span>
-                <img class="comment-icon" src="style/images-4/icon-p1.png" alt="">
-                <span>2016</span>
+                <em class="likeWrap"><img src="style/images-4/icon-p2.png" alt=""><span class="likeNum">{{data.likeNum}}</span></em>
+                <em class="comment-icon"><img  class="on" src="style/images-4/icon-p1.png" alt=""><span>{{count}}</span></em>
+                <!--<img src="style/images-4/icon-p2.png" alt="">-->
+                <!--<span>{{data.likeNum}}</span>-->
+                <!--<img class="comment-icon" src="style/images-4/icon-p1.png" alt="">-->
+                <!--<span>{{data.viewCount}}</span>-->
             </div>
         </div>
     </div>
@@ -192,65 +176,26 @@
 <!--用户评论-->
 <section>
     <ul class="show-user-commment">
-        <li>
+        <li ng-repeat="item2 in data.reply" ng-click="replyer(item2.uName,item2.uid,item2.uName)">
             <div class="user-wrap">
-                <div class="plan-userHeader inb"><img src="style/images-4/user-header2.png" alt=""></div>
+                <div class="plan-userHeader inb"><img src="http://www.gmatonline.cn/{{item2.userImage}}" onerror="this.src='style/images/userDefault.png'" alt=""></div>
                 <div class="inb">
-                    <p class="user-name">Trouble-Z</p>
-                    <p class="publish-data">2016.10.13 11:42:32</p>
+                    <p class="user-name"><strong class="replyer">{{item2.uName}}</strong><strong ng-show="item2.replyUserName!=''" class="replyer-name">{{" 回复 "+item2.replyUserName}}</strong></p>
+                    <p class="publish-data">{{item2.createTime*1000 | date:'yyyy-MM-dd HH:mm:ss'}}</p>
                 </div>
             </div>
-            <p class="user-comment">
-                你真的认识”平行“吗？你懂SC的省略原则吗？你能在句子表达正确的情况下还保证句子美观吗？
-                雷哥GMAT SC公开课一元钱一小时带你深剖SC的平行结构搞定GMAT
-            </p>
+            <p class="user-comment" ng-bind-html="item2.content"></p>
+            <input type="hidden" id="Bid" value="{{item2.uid}}">
+            <input type="hidden" id="Bname" value="{{item2.uName}}">
         </li>
-        <li>
-            <div class="user-wrap">
-                <div class="plan-userHeader inb"><img src="style/images-4/user-header2.png" alt=""></div>
-                <div class="inb">
-                    <p class="user-name">Trouble-Z</p>
-                    <p class="publish-data">2016.10.13 11:42:32</p>
-                </div>
-            </div>
-            <p class="user-comment">
-                你真的认识”平行“吗？你懂SC的省略原则吗？你能在句子表达正确的情况下还保证句子美观吗？
-                雷哥GMAT SC公开课一元钱一小时带你深剖SC的平行结构搞定GMAT
-            </p>
-        </li>
-        <li>
-            <div class="user-wrap">
-                <div class="plan-userHeader inb"><img src="style/images-4/user-header2.png" alt=""></div>
-                <div class="inb">
-                    <p class="user-name">Trouble-Z</p>
-                    <p class="publish-data">2016.10.13 11:42:32</p>
-                </div>
-            </div>
-            <p class="user-comment">
-                你真的认识”平行“吗？你懂SC的省略原则吗？你能在句子表达正确的情况下还保证句子美观吗？
-                雷哥GMAT SC公开课一元钱一小时带你深剖SC的平行结构搞定GMAT
-            </p>
-        </li>
-        <li>
-            <div class="user-wrap">
-                <div class="plan-userHeader inb"><img src="style/images-4/user-header2.png" alt=""></div>
-                <div class="inb">
-                    <p class="user-name">Trouble-Z</p>
-                    <p class="publish-data">2016.10.13 11:42:32</p>
-                </div>
-            </div>
-            <p class="user-comment">
-                你真的认识”平行“吗？你懂SC的省略原则吗？你能在句子表达正确的情况下还保证句子美观吗？
-                雷哥GMAT SC公开课一元钱一小时带你深剖SC的平行结构搞定GMAT
-            </p>
-        </li>
+
     </ul>
 </section>
 <!--回复框-->
 <section class="reply-wrap">
     <div class="reply-int">
         <div class="entry-wrap inb">
-            <img src="style/images-4/user-header2.png" alt="">
+            <img src="" onerror="this.src='style/images/userDefault.png'" id="reply-img" alt="">
         </div>
         <input id="reply-int" type="text" placeholder="我也说一句……">
         <input type="button" class="send" value="发送">
@@ -283,14 +228,15 @@
             }
         });
 
-        $("#reply-int").focus(function () {
-            $(".reply-wrap").css({"position": "relative"});
-            $("body").css({"padding-bottom":"0"})
-        });
-        $("#reply-int").blur(function () {
-            $(".reply-wrap").css({"position": "fixed"});
-            $("body").css({"padding-bottom":"3rem"})
-        })
+
+//        $("#reply-int").focus(function () {
+//            $(".reply-wrap").css({"position": "relative"});
+//            $("body").css({"padding-bottom":"0"})
+//        });
+//        $("#reply-int").blur(function () {
+//            $(".reply-wrap").css({"position": "fixed"});
+//            $("body").css({"padding-bottom":"3rem"})
+//        })
 
     });
 

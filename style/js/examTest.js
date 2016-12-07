@@ -17,7 +17,7 @@ $(function(){
     var stop=Request['break'];
     var readqid=Request['readqid'];
     var breaktime=Request['breaktime'];
-    var userId=sessionStorage.getItem("userId");
+    var userId=localStorage.getItem("userId");
     var myApp = angular.module("myApp",[]);
 //通过模块生成调用控制器
     myApp.controller("PriceCtrl",["$scope","$http",'$sce',function($scope,$http,$sce){
@@ -210,7 +210,7 @@ var starTime = parseInt(new Date().getTime()/1000);
 function subanswer(useranswer_mk) {
     var endTime=parseInt(new Date().getTime()/1000);
     var duration = (endTime - starTime);
-    var userId=sessionStorage.getItem("userId");
+    var userId=localStorage.getItem("userId");
     var checke=$("#show_answer").attr("checked");
     var mark=$("#marks").val();
     var Request=GetRequests();

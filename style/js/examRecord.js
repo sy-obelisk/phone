@@ -2,7 +2,7 @@ $(function(){
     //获取页面参数
     var Request=GetRequests();
     var types=Request['type'];
-    var userId=sessionStorage.getItem("userId");
+    var userId=localStorage.getItem("userId");
     if(types=='verbal'){
          $(".resultHd ul li:first-child").addClass("on");
     }else if(types=='quant'){

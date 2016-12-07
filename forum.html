@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
 <head>
     <meta charset="UTF-8">
     <!--阻止浏览器缓存-->
@@ -41,6 +41,13 @@
     <script src="style/js/common.js"></script>
     <script src="style/js/jquery.swipebox.js"></script>
     <script src="style/js/swiper-3.3.1.jquery.min.js"></script>
+    <!-- 引用核心层插件 -->
+    <!--<script type="text/javascript" src="style/js/zyFile.js"></script>-->
+    <!-- 引用控制层插件 -->
+    <!--<script type="text/javascript" src="style/js/zyUpload.js"></script>-->
+    <!-- 引用初始化JS -->
+    <script src="style/js/forum.js"></script>
+    <script type="text/javascript" src="style/js/angular1.3.1.js"></script>
     <title>发布帖子</title>
     <style>
         /*公共标题*/
@@ -117,7 +124,7 @@
             border: 1px dashed #cccccc;
         }
 
-        #add-img {
+        #fileImage {
             position: absolute;
             left: 0;
             top: 0;
@@ -135,7 +142,8 @@
             resize: none;
             height: 7.5rem;
         }
-        .submit-wrap{
+
+        .submit-wrap {
             /*position: absolute;*/
             /*bottom: 1.5rem;*/
             /*left: 50%;*/
@@ -143,6 +151,7 @@
             width: 80%;
             margin: 9rem auto 0;
         }
+
         .forum-submit {
             border: none;
             outline: none;
@@ -153,18 +162,50 @@
             background: #6699FF;
             color: #ffffff;
         }
-        .forum-wrap .article-img .up-img{
+
+        .forum-wrap .article-img .up-img {
             width: 2.3rem;
             height: 2.3rem;
             line-height: 2rem;
         }
+
+        .up-img {
+            width: 2.3rem;
+            height: 2.3rem;
+            text-align: center;
+            margin: 0 1.2% 1.2% 0;
+            display: inline-block;
+            vertical-align: middle;
+            overflow: hidden;
+        }
+
+        .uploadImg {
+            width: 100%;
+            height: 100%;
+        }
+
+        #add-img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 99;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+
+        #preview {
+            display: inline;
+            vertical-align: middle;
+        }
     </style>
 </head>
-<body>
+<body ng-controller="PriceCtrl">
 <!--公共标题栏-->
 <section class="commonTit tm clearfix">
     <a href="javascript:history.go(-1)"><i class="return fl icon-angle-left"></i></a>
-    <span class="Tit inb">分布帖子</span>
+    <span class="Tit inb">发布帖子</span>
     <a class="fr" href="#"><img src="style/images-4/icon-pen.png" style="height: 0.8rem" alt=""></a>
 </section>
 <section>
@@ -177,31 +218,42 @@
                 <textarea class="text-write" placeholder="写点什么……"></textarea>
             </div>
             <div class="up-icon">
-                <div class="article-img">
-                    <div class="up-img">
-                        <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                    </div>
-                    <div class="up-img">
-                        <a href="style/images-4/index-bg.png" class="swipebox" title="My Caption"><img src="style/images-4/index-bg.png" alt="image"></a>
-                    </div>
-                    <div class="up-img">
-                        <a href="style/images-4/bg-5.png" class="swipebox" title="My Caption"><img src="style/images-4/bg-5.png" alt="image"></a>
-                    </div>
-                    <div class="up-img">
-                        <a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>
-                    </div>
+                <!--<div class="article-img">-->
+                <!--<div class="up-img">-->
+                <!--<a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>-->
+                <!--</div>-->
+                <!--<div class="up-img">-->
+                <!--<a href="style/images-4/index-bg.png" class="swipebox" title="My Caption"><img src="style/images-4/index-bg.png" alt="image"></a>-->
+                <!--</div>-->
+                <!--<div class="up-img">-->
+                <!--<a href="style/images-4/bg-5.png" class="swipebox" title="My Caption"><img src="style/images-4/bg-5.png" alt="image"></a>-->
+                <!--</div>-->
+                <!--<div class="up-img">-->
+                <!--<a href="style/images-4/img-1.png" class="swipebox" title="My Caption"><img src="style/images-4/img-1.png" alt="image"></a>-->
+                <!--</div>-->
 
-                    <div class="add-img inb">
-                        <input id="add-img" type="file" accept="image/*"/>
+                <!--<div class="add-img inb filePicker">-->
+                <!--<input id="add-img" type="file" accept="image/*"/>-->
+                <!--<img src="style/images-4/add-img2.png" style="width: 1.2rem" alt="">-->
+                <!--</div>-->
+                <!--</div>-->
+
+                <form id="upform" name="myForm" method="post" enctype="multipart/form-data">
+                    <div id="preview"></div>
+                    <div class="add-img inb filePicker">
+                        <input name="upload" id="add-img" type="file"/>
                         <img src="style/images-4/add-img2.png" style="width: 1.2rem" alt="">
                     </div>
-                </div>
+                </form>
+                <div class="fileUrl"></div>
+                <!--<div id="demo" class="demo"></div>-->
+                <!--<div class="add-img inb filePicker"> <input id="add-img" type="file"> <img src="style/images-4/add-img2.png" style="width: 1.2rem" alt=""> </div>';-->
 
             </div>
         </div>
     </div>
     <div class="submit-wrap tm">
-        <input class="forum-submit" type="button" value="发布">
+        <input class="forum-submit upload_btn" type="button" value="发布">
     </div>
 </section>
 </body>
@@ -222,5 +274,6 @@
             loopAtEnd: false // true will return to the first image after the last image is reached
         });
     });
+
 </script>
 </html>

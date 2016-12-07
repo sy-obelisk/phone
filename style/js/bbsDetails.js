@@ -2,7 +2,7 @@
 var Request=GetRequests();
 var ids=Request['id'];
 var nameT=Request['nameT'];
-var userId=sessionStorage.getItem("userId");
+var userId=localStorage.getItem("userId");
 $(function(){
 $(".invitaImg").css("height",$(".invitaImg").width()+"px");
 

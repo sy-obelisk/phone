@@ -7,7 +7,7 @@ $(function(){
         marginTop:"-"+$(".numWhite").width()+"px"
     });
     $(".greyDiv").css("paddingTop",$(".numWhite").height()/2+"px");
-    var userId=sessionStorage.getItem("userId");
+    var userId=localStorage.getItem("userId");
     var myApp = angular.module("myApp",[]);
 //通过模块生成调用控制器
     myApp.controller("PriceCtrl",["$scope","$http",'$sce',function($scope,$http,$sce){

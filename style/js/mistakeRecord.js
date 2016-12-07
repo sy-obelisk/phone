@@ -18,7 +18,7 @@ $(function(){
     }
     $("#section").val(sections);
     //声明模块
-    var userId=sessionStorage.getItem("userId");
+    var userId=localStorage.getItem("userId");
     var myApp = angular.module("myApp",[]);
 //通过模块生成调用控制器
     myApp.controller("PriceCtrl",["$scope","$http",function($scope,$http){

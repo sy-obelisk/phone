@@ -124,7 +124,7 @@
     <div class="tm">
         <div class="header-text inb" style="margin: 0.6rem 0 0 0.8rem;">
             <span>{{nickname}}</span>
-            <p class="test-hint">你最近做到了【精选题库】SC-3-42</p>
+            <p style="font-size: 0.6rem" ng-show="questionrecord>0" class="test-hint">你最近做到了{{questionrecord.sections}}-{{questionrecord.questionid}}-{{questionrecord.twoname}}</p>
             <div class="user-btn">继续做题</div>
         </div>
     </div>
@@ -176,10 +176,10 @@
     <div class="row" style="margin: 0 auto">
         <ul class="footer-list">
             <li>
-                <a href="library-wrap.html">
+                <a href="index.html">
                     <div class="ft-list-wrap">
                         <i><img src="style/images-4/icon-1A.png" style="width: 12px" alt=""></i>
-                        <p class="ft-name">做题模考</p>
+                        <p class="ft-name">首页</p>
                     </div>
                 </a>
             </li>

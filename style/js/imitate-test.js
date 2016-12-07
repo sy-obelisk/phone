@@ -7,7 +7,7 @@ $(function () {
 //通过模块生成调用控制器
     myApp.controller("PriceCtrl", ["$scope", "$http", function ($scope, $http) {
         //获取sessionStorage存储的userId
-        var userId = sessionStorage.getItem("userId");
+        var userId = localStorage.getItem("userId");
         //初始请求
         //模考
         var codeOn = "";

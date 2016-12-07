@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
 <head>
     <meta charset="UTF-8">
     <!--阻止浏览器缓存-->
@@ -36,9 +36,16 @@
     <link rel="stylesheet" href="style/css/common.css">
     <link rel="stylesheet" href="style/css/font-awesome.min.css">
     <link rel="stylesheet" href="style/css/swiper-3.3.1.min.css">
+    <link rel="stylesheet" href="style/css/emojione.min.css">
+    <link href="cdn.bootcss.com/emojione/2.2.2/assets/sprites/emojione.sprites.css" rel="stylesheet">
+    <!--<link href="style/css/emoji.css" rel="stylesheet">-->
+    <script src="style/js/emojione.js"></script>
     <script src="style/js/jquery-1.12.2.min.js"></script>
+    <script src="style/js/public.js"></script>
     <script src="style/js/common.js"></script>
+    <script src="style/js/message.js"></script>
     <script src="style/js/swiper-3.3.1.jquery.min.js"></script>
+    <script type="text/javascript" src="style/js/angular1.3.1.js"></script>
     <title>新消息</title>
     <style>
         .msg-list{
@@ -52,9 +59,9 @@
         .head-portrait{
             /*width: 20%;*/
             width: 3rem;
-            height: 2.2rem;
+            height: 3rem;
             text-align: center;
-            line-height: 2.2rem;
+            line-height: 3rem;
             overflow: hidden;
             margin-right: 0.4rem;
         }
@@ -82,7 +89,8 @@
             padding:0 0.1rem;
            text-align: justify;
             font-size: 0.45rem;
-            line-height: 0.56rem;
+            line-height: 0.7rem;
+            height:2.2rem;
             color: #ffffff;
             background: #197fee;
         }
@@ -93,7 +101,7 @@
         }
     </style>
 </head>
-<body>
+<body ng-controller="PriceCtrl">
 <!--公共标题栏-->
 <section class="commonTit tm clearfix">
     <a href="javascript:history.go(-1)"><i class="return fl icon-angle-left"></i></a>
@@ -102,34 +110,19 @@
 <!--消息列表-->
 <section>
     <ul class="msg-list">
-        <li>
-            <div class="head-portrait fl"><img src="style/images-4/1.jpg" alt=""></div>
+        <li ng-repeat="item1 in item">
+            <div class="head-portrait fl"><img src="http://www.gmatonline.cn/{{item1.userImage}}" onerror="this.src='style/images/userDefault.png'" alt=""></div>
             <div class="msg-wrap fl">
-                <p class="msg-user">Trouble-Z</p>
-                <p class="msg-text ellipsis-3">
-                    你真的认识”平行“吗？你懂SC的省略原则吗？你能在句子表达正确的情况下还保证句子美观吗？
-                    雷哥GMAT SC公开课一元钱一小时带你深剖SC的平行结构搞定GMAT
-                </p>
-            </div>
-            <div class="publish-content fr"><img src="style/images-4/2.jpg" alt=""></div>
-        </li>
-        <li>
-            <div class="head-portrait fl"><img src="style/images-4/1.jpg" alt=""></div>
-            <div class="msg-wrap fl">
-                <p class="msg-user">Trouble-Z</p>
-                <p class="msg-text ellipsis-3">
-                    你真的认识”平行“吗？你懂SC的省略原则吗？你能在句子表达正确的情况下还保证句子美观吗？
-                    雷哥GMAT SC公开课一元钱一小时带你深剖SC的平行结构搞定GMAT
-                </p>
+                <p class="msg-user">{{item1.userName}}</p>
+                <p class="msg-text ellipsis-3" ng-bind-html="item1.content"></p>
+                <p class="publish-data">{{item1.createTime*1000 | date:'yyyy-MM-dd HH:mm:ss'}}</p>
             </div>
             <div class="publish-content fr">
-                <p class="pub-text ellipsis-4">你真的认识”平行“吗？你懂SC的省略原则吗？</p>
+                <p class="pub-text ellipsis-4" ng-bind-html="item1.content"></p>
             </div>
         </li>
-
-
     </ul>
-    <div class="show-more tm"><span>查看更多......</span></div>
+    <!--<div class="show-more tm"><span>查看更多......</span></div>-->
 </section>
 
 </body>

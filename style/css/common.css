@@ -22,22 +22,22 @@
 }
 
 .header-text span {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #ffffff;
 }
 
 .header-text p {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     color: #ffffff;
 }
 
 .user-btn {
-    width: 3.9rem;
-    font-size: 0.5rem;
+    width: 4.8rem;
+    font-size: 0.7rem;
     color: #ffffff;
     font-family: "Microsoft YaHei";
     border-radius: 15px;
-    line-height: 1.2rem;
+    line-height: 1.4rem;
     margin: 0.5rem auto 0;
     background: rgba(255, 255, 255, 0.2);
 }
@@ -46,7 +46,8 @@
 .commonTit {
     padding: 0.3rem 0.6rem;
     /*height: 2.2rem;*/
-    background: #197FEE;
+    /*background: #197FEE;*/
+    background: #323436;
 }
 
 .commonTit i.return {
@@ -146,16 +147,16 @@
     vertical-align: middle;
     overflow: hidden;
 }
-
-
-/*.article-img .up-img:nth-child(5n) {*/
-    /*margin-right: 0;*/
-/*}*/
+.up-img img{
+    width: 100%;
+    height: 100%;
+}
 
 .comment img {
-    width: 0.7rem;
+    height: 0.55rem;
     vertical-align: baseline;
     margin-left: 0.4rem;
+    margin-right: 0.15rem;
 }
 .comment img.comment-icon{
     vertical-align: middle;
@@ -357,6 +358,7 @@ footer{
     color: #6699FF;
 }
 .hint{
+    display: none;
     right: -0.8rem;
     top: -0.8rem;
     font-size: 0.45rem;
@@ -389,4 +391,11 @@ footer{
     font-size: 1.2rem;
     float: right;
 
+}
+
+.knowledge-list li {
+    margin: 0.2rem 0;
+}
+.knowledge-list li a{
+    display: block;
 }

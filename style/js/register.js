@@ -41,16 +41,20 @@ function clickDX(e, timeN, str) {
  */
 function register(){
     var phone=$("#phone").val();
-    var phonecode=$("#phoneCode").val();
+    var code=$("#phoneCode").val();
     var password=$("#password").val();
     var username=$("#username").val();
+    var phoneCode=sessionStorage.getItem("phoneCode");
     $.ajax({
-        url: 'http://www.gmatonline.cn/index.php?web/appapi/registerforapp',
+        url: 'http://login.viplgw.cn/cn/wap-api/register',
         data: {
-            Phone: phone,
-            phonecode: phonecode,
-            password: password,
-            username: username
+            registerStr: phone,
+            type:1,
+            phoneCode:phoneCode,
+            code: code,
+            pass: password,
+            userName: username,
+            source:'1',
         },
         type: 'post',
         cache: false,
@@ -77,16 +81,18 @@ function register(){
 function phoneCode(e){
     var phone=$("#phone").val();
     $.ajax({
-        url: 'http://www.gmatonline.cn/index.php?web/appapi/phonecode',
+        //url: 'http://www.gmatonline.cn/index.php?web/appapi/phonecode',
+        url: 'http://login.viplgw.cn/cn/wap-api/phone-code',
         data: {
-            Phonenum: phone
+            phoneNum: phone,
+            type:'1',
         },
         type: 'post',
         cache: false,
         dataType: 'json',
         success: function (data) {
-            console.log(data)
             if (data.code == 1) {
+                sessionStorage.setItem('phoneCode',data.phonecode);
                 alert(data.message);
                 clickDX(e, 60, 1);
             } else {
@@ -104,21 +110,25 @@ function phoneCode(e){
  */
 function foundPwd(){
     var phone=$("#phone").val();
-    var phonecode=$("#phonecode").val();
+    var code=$("#phonecode").val();
     var password=$("#password").val();
+    var phoneCode=sessionStorage.getItem("phoneCode");
+
     $.ajax({
-        url: 'http://www.gmatonline.cn/index.php?web/appapi/foundModifyPwd',
+        url: 'http://login.viplgw.cn/cn/wap-api/find-pass',
         data: {
-            ep: phone,
-            epnum: phonecode,
-            password: password,
-            qufen: 1
+            type:'1',
+            code: code,
+            pass: password,
+            registerStr: phone,
+            phoneCode:phoneCode,
         },
         type: 'post',
         cache: false,
         dataType: 'json',
-        success: function () {
-            alert('修改密码成功！去登录试试！');
+        success: function (data) {
+            console.log(data)
+            alert(data.message);
             location.href="login.html";
         },
         error: function () {

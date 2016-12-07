@@ -15,7 +15,7 @@ $(function(){
     var Request=GetRequests();
     var anId=Request['anId'];
     var tikuid=sessionStorage.getItem("tikuid");
-    var userId=sessionStorage.getItem("userId");
+    var userId=localStorage.getItem("userId");
     $("#reNeed").val(anId);
     var myApp = angular.module("myApp",[]);
     myApp.directive('isOver',function(){

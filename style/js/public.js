@@ -67,7 +67,6 @@ function time_To_hhmmss(seconds){
     }else if(ss!=0){
         return parseInt(ss)+"s";
     }
-
 }
 //展开个人中心导航
 function personNav(evt){
@@ -102,7 +101,12 @@ function loginOut(){
                 },
                 success: function (data) {
                     if (data.code == 1) {
-                        sessionStorage.removeItem("userId");
+                        localStorage.removeItem("userId");
+                        localStorage.removeItem("nickname");
+                        localStorage.removeItem("username");
+                        localStorage.removeItem("wapUid");
+                        sessionStorage.removeItem("icon");
+                        sessionStorage.removeItem("nickname");
                         sessionStorage.removeItem("articletitle");
                         sessionStorage.removeItem("article");
                         sessionStorage.removeItem("countNum");
