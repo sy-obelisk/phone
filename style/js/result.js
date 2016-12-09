@@ -2,15 +2,29 @@ $(function(){
 //    中间的绿色圆形
     $(".centerData").css("height",$(".centerData").width()+"px");
 //    弹窗居中
-    $(".warn-center").css({
-        marginLeft:"-"+$(".warn-center").width()*1.9+"px"
-    });
+//    $(".warn-center").css({
+//        marginLeft:"-"+$(".warn-center").width()*1.9+"px"
+//    });
 
     //声明模块
+    var Request=GetRequests();
     var myApp = angular.module("myApp",[]);
+    var type=Request['type'];console.log(type)
     var userId = localStorage.getItem("userId");
     var tikuid = sessionStorage.getItem("tikuid");
     var countNum = sessionStorage.getItem("countNum");
+    if (type==1){
+        $(".testDetail").attr('href','testResult.html?type='+type+'');
+        $(".return").click(function(){
+            location.href='topic-library.html';
+        })
+    }
+    if (type==2){
+        $(".testDetail").attr('href','testResult.html?type='+type+'');
+        $(".return").click(function(){
+            location.href='test-sprint.html';
+        })
+    }
 //通过模块生成调用控制器
     myApp.controller("PriceCtrl",["$scope","$http",function($scope,$http){
         $http({

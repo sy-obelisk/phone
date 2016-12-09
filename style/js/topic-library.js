@@ -109,10 +109,10 @@ function SpellCharacters(data, strName) {
             '<li ng-repeat="item4 in items4">' +
             '<div class="fl topic-left">' +
             '<p class="topic-name ellipsis">' + strn + '-' + v.stname + '</p>' +
-            '<p class="topic-data">题目总数：20&nbsp;&nbsp;<em class="doing">2020</em>人已做</p>' +
+            '<p class="topic-data">题目总数：41&nbsp;&nbsp;<em class="doing">2020</em>人已做</p>' +
             '</div>' +
             '<div class="do-btn fr">' +
-            '<a href="practice.html?tikuId=' + v.stid + '&type=1&knowName=' + (one + '-' + two) + '&articletitle=">开始做题</a>' +
+            '<a href="practice.html?tikuId=' + v.stid + '&type=1&knowName=' + (one + '-' + two) + '&articletitle=">点击做题</a>' +
             '</div>'+
             '</li>';
     });

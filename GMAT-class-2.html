@@ -68,7 +68,7 @@
 </section>
 <section class="wrap">
     <ul class="hot-list clearfix">
-        <li ng-repeat="item in items">
+        <li ng-repeat="item in items" ng-class="{'courseHide':$index<3}">
             <div class="hot-img"><a href="courseDetails.html?contentId={{item.result.contentid}}"><img src="http://www.gmatonline.cn/{{item.contentthumb}}" alt=""></a></div>
             <div class="hot-wrap clearfix">
                 <div class="inb hot-info">
@@ -91,7 +91,7 @@
                 <a href="index.html">
                     <div class="ft-list-wrap">
                         <i><img src="style/images-4/icon-1A.png" style="width: 12px" alt=""></i>
-                        <p class="ft-name">首页</p>
+                        <p class="ft-name">做题模考</p>
                     </div>
                 </a>
             </li>

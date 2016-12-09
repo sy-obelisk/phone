@@ -41,6 +41,7 @@
     <link href="cdn.bootcss.com/emojione/2.2.2/assets/sprites/emojione.sprites.css" rel="stylesheet">
     <!--<link href="style/css/emoji.css" rel="stylesheet">-->
     <script src="style/js/emojione.js"></script>
+    <!--<script src="style/js/zepto.min.js"></script>-->
     <script src="style/js/jquery-1.12.2.min.js"></script>
     <script src="style/js/common.js"></script>
     <script src="style/js/jquery.swipebox.js"></script>
@@ -59,22 +60,41 @@
             background: #ffffff;
             margin-bottom: 0.6rem;
         }
-        .msgHint{
+
+        .msgHint {
             border-radius: 6px;
             display: inline-block;
             padding: 0rem 0.6rem 0.22rem;
             margin: 0 auto;
             background: #197FEE;
         }
-        .hintWrap{
+
+        .hintWrap {
             display: none;
-            padding:0.5rem 0 0;
+            padding: 0.5rem 0 0;
             background: #ffffff;
         }
-        .msg{
+
+        .msg {
             padding-left: 0.5rem;
             color: #ffffff;
             font-size: 0.6rem;
+        }
+
+        .refresh {
+            color: #999;
+            display: none;
+            text-align: center;
+            font-size: 0.4rem;
+            padding: 0.5rem 0;
+
+        }
+
+        .touchend {
+            transition: all 0.6s ease-out;
+            -webkit-transform: translate(0, 0) translateZ(0);
+            transform: translate(0, 0) translateZ(0);
+        cubic-bezier(0.1, 0.57, 0.1, 1);
         }
 
     </style>
@@ -82,62 +102,73 @@
 <body id="plan-test" ng-controller="PriceCtrl">
 <!--公共标题栏-->
 <section class="commonTit tm clearfix">
-    <a href="javascript:history.go(-1)"><i class="return fl icon-angle-left"></i></a>
+    <a href="user-center.html"><i class="return fl icon-angle-left"></i></a>
     <span class="Tit inb">备考八卦</span>
     <a class="fr" href="forum.html"><img src="style/images-4/icon-pen.png" style="height: 0.8rem" alt=""></a>
 </section>
 <!--消息提醒-->
-<section class="hintWrap tm">
-    <a href="message.html"><div class="msgHint"><img src="style/images-4/light-1.png" style="width: 1.3rem" alt=""><span class="msg">你有{{num}}条新消息</span></div></a>
-</section>
 <section>
-    <ul class="publish-list">
+    <div id="wrapper" class="wrapper" style="transform: translate(0px, 0px) translateZ(0px);">
+        <div id="refresh" class="refresh">
+            <span class="text">刷新中...</span>
+        </div>
+        <section class="hintWrap tm">
+            <a href="message.html">
+                <div class="msgHint"><img src="style/images-4/light-1.png" style="width: 1.3rem" alt=""><span
+                        class="msg">你有{{num}}条新消息</span></div>
+            </a>
+        </section>
+        <ul class="publish-list">
 
-        <li ng-repeat="item1 in items1">
-            <div class="user-wrap">
-                <div class="plan-userHeader inb"><img src="http://www.gmatonline.cn/{{item1.icon}}" onerror="this.src='style/images/userDefault.png'" alt=""></div>
-                <div class="inb">
-                    <p class="user-name">{{item1.publisher}}</p>
-                    <p class="publish-data">{{item1.createTime*1000 | date:'yyyy-MM-dd HH:mm:ss'}}</p>
+            <li ng-repeat="item1 in items1">
+                <div class="user-wrap">
+                    <div class="plan-userHeader inb"><img src="http://www.gmatonline.cn/{{item1.icon}}"
+                                                          onerror="this.src='style/images/userDefault.png'" alt="">
+                    </div>
+                    <div class="inb">
+                        <p class="user-name">{{item1.publisher}}</p>
+                        <p class="publish-data">{{item1.createTime*1000 | date:'yyyy-MM-dd HH:mm:ss'}}</p>
+                    </div>
                 </div>
-            </div>
-            <div class="article-wrap">
-                <a href="show-article.html?id={{item1.id}}&publisher={{item1.uid}}&type=1">
-                    <h1 class="article-tit" ng-bind-html="item1.title"></h1>
-                    <div>
-                        <div class="box">
-                            <p class="article-text" ng-bind-html="item1.content"></p>
-                        </div>
-                        <div class="article-img">
-                            <div class="up-img" ng-repeat="item2 in item1.image">
-                                <a href="http://gossip.gmatonline.cn/{{item2}}" class="swipebox" title="My Caption"><img src="http://gossip.gmatonline.cn/{{item2}}" alt="image"></a>
+                <div class="article-wrap">
+                    <a href="show-article.html?id={{item1.id}}&publisher={{item1.uid}}&type=1">
+                        <h1 class="article-tit" ng-bind-html="item1.title"></h1>
+                        <div>
+                            <div class="box">
+                                <p class="article-text" ng-bind-html="item1.content"></p>
+                            </div>
+                            <div class="article-img">
+                                <div class="up-img" ng-repeat="item2 in item1.image">
+                                    <a href="http://gossip.gmatonline.cn/{{item2}}" class="swipebox" title="My Caption"><img src="http://gossip.gmatonline.cn/{{item2}}" alt="image"></a>
+                                </div>
                             </div>
                         </div>
+                    </a>
+                    <div class="tr comment">
+                        <input class="gossipId" type="hidden" value="{{item1.id}}">
+                        <em class="likeWrap"><img src="style/images-4/icon-p2.png" alt=""><span class="likeNum">{{item1.likeNum}}</span></em>
+                        <em class="comment-icon" ><img class="on" src="style/images-4/icon-p1.png" alt=""><span>{{item1.count}}</span></em>
+
                     </div>
-                </a>
-                <div class="tr comment">
-                    <input class="gossipId" type="hidden" value="{{item1.id}}">
-                    <em class="likeWrap"><img src="style/images-4/icon-p2.png" alt=""><span class="likeNum">{{item1.likeNum}}</span></em>
-                    <em class="comment-icon"><img  class="on" src="style/images-4/icon-p1.png" alt=""><span>{{item1.count}}</span></em>
-
+                    <div class="comment-list">
+                        <a href="show-article.html?id={{item1.id}}&publisher={{item1.uid}}&type=1">
+                            <p ng-repeat="item1 in item1.reply" ng-class="{'courseHide':$index>3}" class="comment-text">
+                                <strong class="replyer-name">{{item1.uName}}</strong><strong
+                                    ng-show="item1.replyUserName!=''" class="replyer-name">{{" 回复"+item1.replyUserName}}</strong>:<span ng-bind-html="item1.content"></span>
+                            </p>
+                        </a>
+                        <a href="show-article.html?id={{item1.id}}&publisher={{item1.uid}}&type=1">
+                            <div class="show-all-comment" ng-show="{{item1.count}}>4">查看全部{{item1.count}}条评论…</div>
+                            <div class="show-all-comment tm" ng-show="{{item1.count}}<=0">暂时没有评论！我要去评论....</div>
+                        </a>
+                    </div>
                 </div>
-                <div class="comment-list">
-                    <a href="show-article.html?id={{item1.id}}&publisher={{item1.uid}}&type=1">
-                        <p ng-repeat="item1 in item1.reply" ng-class="{'courseHide':$index>3}" class="comment-text">
-                            <strong class="replyer-name">{{item1.uName}}</strong><strong ng-show="item1.replyUserName!=''" class="replyer-name">{{" 回复 "+item1.replyUserName}}</strong>:<span ng-bind-html="item1.content"></span>
-                        </p>
-                    </a>
-                    <a href="show-article.html?id={{item1.id}}&publisher={{item1.uid}}&type=1">
-                        <div class="show-all-comment" ng-show="{{item1.count}}>4">查看全部{{item1.count}}条评论…</div>
-                        <div class="show-all-comment tm" ng-show="{{item1.count}}<=0">暂时没有评论！我要去评论....</div>
-                    </a>
-                </div>
-            </div>
 
-        </li>
+            </li>
 
 
-    </ul>
+        </ul>
+    </div>
 </section>
 <!--footer-->
 <footer>
@@ -147,7 +178,7 @@
                 <a href="index.html">
                     <div class="ft-list-wrap">
                         <i><img src="style/images-4/icon-1A.png" style="width: 12px" alt=""></i>
-                        <p class="ft-name">首页</p>
+                        <p class="ft-name">做题模考</p>
                     </div>
                 </a>
             </li>
@@ -191,8 +222,73 @@
 </body>
 
 <script type="text/javascript">
+
+    $(function () {
+
+        var wrapper = document.getElementById('wrapper');
+        var body = document.body;
+        var start, diff;
+        document.addEventListener('touchstart', function (event) {
+            if (event.targetTouches.length == 1) {
+                var touch = event.targetTouches[0];
+                start = touch.pageY;
+            }
+        }, false);
+        function touchend(){
+            document.addEventListener('touchend', function (event) {
+                $(wrapper).css({
+                    '-webkit-transform': 'translate(0, 0) translateZ(0)',
+                    'transform': 'translate(0, 0) translateZ(0)'
+                });
+                if (body.scrollTop === 0) {
+                    $(wrapper).addClass("touchend").animate({top: "0"}, 600, function () {
+                        location.reload();
+                    })
+                }
+//            if(body.scrollTop === 0){
+//                $(wrapper).animate({
+//                    '-webkit-transform': 'translate(0, 0) translateZ(0)',
+//                    'transform': 'translate(0, 0) translateZ(0)'
+//                }, 600, 'cubic-bezier(0.1, 0.57, 0.1, 1)', function() {
+//                    location.reload();
+//                })
+//            }
+            }, false);
+        }
+
+
+        document.addEventListener('touchmove', function (event) {
+            if (body.scrollTop > 0) {
+                diff = 0;
+                return false;
+            }
+            if (diff < 0) {
+                $(wrapper).css({
+                    '-webkit-transform': 'translate(0, 0) translateZ(0)',
+                    'transform': 'translate(0, 0) translateZ(0)'
+                });
+                return false;
+            }
+            if (body.scrollTop === 0) {
+                $(wrapper).removeClass("touchend");
+                if (event.targetTouches.length == 1) {
+                    event.preventDefault();
+                    var touch = event.targetTouches[0];
+                    diff = touch.pageY - start;
+                    $(".refresh").show();
+                    $(wrapper).css({
+                        '-webkit-transform': 'translate(0, ' + diff / 3 + 'px) translateZ(0)',
+                        'transform': 'translate(0, ' + diff / 3 + 'px) translateZ(0)'
+                    });
+                    touchend();
+                }
+            }
+        }, false);
+
+
+    });
     //    查看图片
-    jQuery(function ($) {
+    $(function ($) {
         $(".swipebox").swipebox({
             useCSS: true, // false will force the use of jQuery for animations
             useSVG: true, // false to force the use of png for buttons

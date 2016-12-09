@@ -15,6 +15,16 @@ $(function(){
     sessionStorage.setItem("knowName",knowName);
     var tikuid=sessionStorage.getItem("tikuid");
     var myApp = angular.module("myApp",[]);
+   if(type==1){
+       $(".reload").click(function(){
+           location.href="topic-library.html";
+       })
+   }
+    if(type==2){
+       $(".reload").click(function(){
+           location.href="test-sprint.html";
+       })
+   }
 //通过模块生成调用控制器
     myApp.controller("PriceCtrl",["$scope","$http","$sce",function($scope,$http,$sce){
         $http({
@@ -32,6 +42,7 @@ $(function(){
         }).success(function(data) {
             console.log(data);
             sessionStorage.setItem("countNum",data.count);
+            var regExp = new RegExp("files|/files", 'g');
             if(data.articletitle==null){
                 sessionStorage.setItem("article","")
             }else {
@@ -47,13 +58,17 @@ $(function(){
                 $scope.counts=data.count;
                 $scope.article=data.articletitle;
                 $scope.questionNum=data.questionNum;
-                $scope.question=$sce.trustAsHtml(escape2Html(data.question.question));
-                $scope.qslctarr=data.question.qslctarr;
+                $scope.question=$sce.trustAsHtml(escape2Html(data.question.question.replace(regExp,'http://www.gmatonline.cn/files')));
                 $scope.questionanswer=data.question.questionanswer;
                 $scope.questionid=data.question.questionid;
                 $scope.sectiontype=data.question.sectiontype;
                 $scope.p_content=$sce.trustAsHtml(escape2Html(data.parse.p_content));
                 $scope.questionarticle = $sce.trustAsHtml(data.question.questionarticle);
+                $scope.qslctarr=data.question.qslctarr;
+                //for(var i=0;i<$scope.qslctarr.length;i++){
+                //    $scope.qslctarr=data.question.qslctarr[i];
+                //
+                //}
                 if (data.question.subjecttype == 5 && data.question.sectiontype == 7) {
                     $(".readArticle").show();
                 }
@@ -196,7 +211,7 @@ function submitAnswer(){
                         location.href='practice.html?tikuId='+tikuid+'&type='+type+'&knowName='+knowName+'&articletitle='+article+'';
                         //location.reload();
                     }else{
-                        location.href="result.html";
+                        location.href='result.html?type='+type+'';
 
 
                     }

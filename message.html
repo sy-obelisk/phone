@@ -110,7 +110,9 @@
 <!--消息列表-->
 <section>
     <ul class="msg-list">
+
         <li ng-repeat="item1 in item">
+            <a href="show-article.html?id={{item1.gossipId}}&publisher={{item1.receiverId}}&type=1">
             <div class="head-portrait fl"><img src="http://www.gmatonline.cn/{{item1.userImage}}" onerror="this.src='style/images/userDefault.png'" alt=""></div>
             <div class="msg-wrap fl">
                 <p class="msg-user">{{item1.userName}}</p>
@@ -120,6 +122,7 @@
             <div class="publish-content fr">
                 <p class="pub-text ellipsis-4" ng-bind-html="item1.content"></p>
             </div>
+            </a>
         </li>
     </ul>
     <!--<div class="show-more tm"><span>查看更多......</span></div>-->

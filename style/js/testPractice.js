@@ -14,9 +14,22 @@ $(function(){
     //获取页面参数
     var Request=GetRequests();
     var anId=Request['anId'];
+    var type=Request['type'];
     var tikuid=sessionStorage.getItem("tikuid");
     var userId=localStorage.getItem("userId");
     $("#reNeed").val(anId);
+    if (type==1){
+        $(".return").click(function(){
+            location.href='topic-library.html';
+            location.href='result.html?type='+type+'';
+        })
+    }
+    if (type==2){
+        $(".return").click(function(){
+            //location.href='test-sprint.html';
+            location.href='result.html?type='+type+'';
+        })
+    }
     var myApp = angular.module("myApp",[]);
     myApp.directive('isOver',function(){
         return {

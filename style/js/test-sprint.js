@@ -14,11 +14,13 @@ $(function () {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
         }).success(function (data) {
+            console.log(data)
             $scope.items31 = data.sc;
             $scope.items32 = data.cr;
             $scope.items33 = data.rc;
             $scope.items34 = data.ps;
             $scope.items35 = data.ds;
+
         });
 
     }]);

@@ -25,7 +25,7 @@ $(function () {
             if ($scope.num == 0) {
                 $(".hintWrap ").hide();
             } else {
-                $(".hintWrap ").slideDown();
+                $(".hintWrap ").show();
             }
             $scope.items1 = data.data.data;
             for (var i = 0; i < $scope.items1.length; i++) {
@@ -72,7 +72,6 @@ $(function () {
             success:function(data){
                 alert(data.message);
                 $('.onLike').find('.likeNum').html(data.likeNum);
-                console.log(data)
             }
         })
 

@@ -107,6 +107,7 @@ $(function () {
                 }
                 if(data.code==1){
                     alert('发布成功');
+                    location.href='plan-test.html';
                 }
 
             }
