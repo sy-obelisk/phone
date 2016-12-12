@@ -49,7 +49,7 @@
 <body ng-controller="PriceCtrl">
 <!--公共标题栏-->
 <section class="commonTit2 tm clearfix">
-    <a href="javascript:history.go(-1)"><i class="return fl icon-angle-left"></i></a>
+    <a href="GMAT-class.html"><i class="return fl icon-angle-left"></i></a>
     <span class="Tit inb">视频课</span>
 </section>
 <!--banner-->
@@ -57,7 +57,7 @@
     <div class="swiper-container">
         <ul class="swiper-wrapper banner-wrap">
             <li class="swiper-slide" ng-repeat="item1 in items1" ng-class="{'courseHide':$index>3}">
-                <a href="videoDetails.html?contentId={{item1.contentid}}"><img src="http://www.gmatonline.cn/{{item1.contentthumb}}" alt=""></a>
+                <a href="videoDetails.html?contentId={{item1.contentid}}&type=1"><img src="http://www.gmatonline.cn/{{item1.contentthumb}}" alt=""></a>
                 <div class="banner-tit-wrap clearfix">
                     <span class="banner-tit fl">{{item1.contenttitle}}</span>
                     <span class="banner-price fr"><em class="sign">￥</em><span>{{item1.price}}</span></span>
@@ -68,15 +68,15 @@
 </section>
 <section class="wrap">
     <ul class="hot-list clearfix">
-        <li ng-repeat="item1 in items1" ng-class="{'courseHide':$index<3}">
-            <div class="hot-img"><a href="videoDetails.html?contentId={{item1.contentid}}"><img src="http://www.gmatonline.cn/{{item1.contentthumb}}" alt=""></a></div>
+        <li ng-repeat="item1 in items1" ng-class="{'courseHide':$index<4}">
+            <div class="hot-img"><a href="videoDetails.html?contentId={{item1.contentid}}&type=1"><img src="http://www.gmatonline.cn/{{item1.contentthumb}}" alt=""></a></div>
             <div class="hot-wrap clearfix">
                 <div class="inb hot-info">
                     <p class="hot-tit ellipsis">{{item1.contenttitle}}</p>
                     <p><em class="sign">￥</em><span class="hot-price">{{item1.price}}</span></p>
                 </div>
                 <div class="fr">
-                    <a href="videoDetails.html?contentId={{item1.contentid}}"><img class="play-icon" src="style/images-4/play.png" alt=""></a>
+                    <a href="videoDetails.html?contentId={{item1.contentid}}&type=1"><img class="play-icon" src="style/images-4/play.png" alt=""></a>
                 </div>
             </div>
         </li>

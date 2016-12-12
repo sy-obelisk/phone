@@ -49,7 +49,7 @@
 <body ng-controller="PriceCtrl">
 <!--公共标题栏-->
 <section class="commonTit2 tm clearfix">
-    <a href="javascript:history.go(-1)"><i class="return fl icon-angle-left"></i></a>
+    <a href="GMAT-class.html"><i class="return fl icon-angle-left"></i></a>
     <span class="Tit inb">直播课</span>
 </section>
 <!--banner-->
@@ -57,7 +57,7 @@
     <div class="swiper-container">
         <ul class="swiper-wrapper banner-wrap">
             <li class="swiper-slide" ng-repeat="item in items" ng-class="{'courseHide':$index>3}">
-                <a href="courseDetails.html?contentId={{item.contentid}}"><img src="http://www.gmatonline.cn/{{item.contentthumb}}" alt=""></a>
+                <a href="courseDetails.html?contentId={{item.result.contentid}}&type=2"><img src="http://www.gmatonline.cn/{{item.contentthumb}}" alt=""></a>
                 <div class="banner-tit-wrap clearfix">
                     <span class="banner-tit fl">{{item.contenttitle}}</span>
                     <span class="banner-price fr"><em class="sign">￥</em><span>{{item.price}}</span></span>
@@ -69,14 +69,14 @@
 <section class="wrap">
     <ul class="hot-list clearfix">
         <li ng-repeat="item in items" ng-class="{'courseHide':$index<3}">
-            <div class="hot-img"><a href="courseDetails.html?contentId={{item.result.contentid}}"><img src="http://www.gmatonline.cn/{{item.contentthumb}}" alt=""></a></div>
+            <div class="hot-img"><a href="courseDetails.html?contentId={{item.result.contentid}}&type=2"><img src="http://www.gmatonline.cn/{{item.contentthumb}}" alt=""></a></div>
             <div class="hot-wrap clearfix">
                 <div class="inb hot-info">
                     <p class="hot-tit ellipsis">{{item.contenttitle}}</p>
                     <p><em class="sign">￥</em><span class="hot-price">{{item.price}}</span></p>
                 </div>
                 <div class="fr">
-                    <a href="courseDetails.html?contentId={{item.contentid}}"><img class="play-icon" src="style/images-4/play.png" alt=""></a>
+                    <a href="courseDetails.html?contentId={{item.contentid}}&type=2"><img class="play-icon" src="style/images-4/play.png" alt=""></a>
                 </div>
             </div>
         </li>

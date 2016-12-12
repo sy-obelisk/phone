@@ -2,9 +2,9 @@ $(function(){
 //    中间的绿色圆形
     $(".centerData").css("height",$(".centerData").width()+"px");
 //    弹窗居中
-//    $(".warn-center").css({
-//        marginLeft:"-"+$(".warn-center").width()*1.9+"px"
-//    });
+    $(".warn-center").css({
+        marginLeft:"-"+$(".warn-center").width()*1.9+"px"
+    });
 
     //声明模块
     var Request=GetRequests();

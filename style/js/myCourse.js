@@ -100,7 +100,9 @@ function removeLi(o){
 }
 
 function payCome(o){
-    var userId=sessionStorage.getItem("userId");
+    var url=window.location.href;
+    var userId=localStorage.getItem("userId");
+    console.log(url);
     $.ajax({
         url: 'http://www.gmatonline.cn/index.php?web/appapi/wappay',
         type: 'post',
@@ -118,9 +120,10 @@ function payCome(o){
             $("#WIDout_trade_no").val(data.goods.order);
             $("#WIDsubject").val(data.goods.title);
             $("#WIDtotal_fee").val(data.goods.account);
-            $("#WIDshow_url").val(data.goods.url);
+            //$("#WIDshow_url").val(data.goods.url);
+            $("#WIDshow_url").val(url);
             $("#WIDbody").val(data.goods.remarks);
-            $("#service").val(data.goods.order_status);
+            $("#service").val('WAP');
             $("#orderS")[0].submit();
         },
         error: function () {

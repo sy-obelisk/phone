@@ -65,10 +65,11 @@ $(function(){
                 $scope.p_content=$sce.trustAsHtml(escape2Html(data.parse.p_content));
                 $scope.questionarticle = $sce.trustAsHtml(data.question.questionarticle);
                 $scope.qslctarr=data.question.qslctarr;
-                //for(var i=0;i<$scope.qslctarr.length;i++){
-                //    $scope.qslctarr=data.question.qslctarr[i];
-                //
-                //}
+                for(var i=0;i<$scope.qslctarr.length;i++){
+                    $scope.qslctarr[i].select=$sce.trustAsHtml(escape2Html(data.question.qslctarr[i].select.replace(regExp,'http://www.gmatonline.cn/files')));
+                    console.log( $scope.qslctarr[i].select)
+                }
+
                 if (data.question.subjecttype == 5 && data.question.sectiontype == 7) {
                     $(".readArticle").show();
                 }
@@ -212,8 +213,6 @@ function submitAnswer(){
                         //location.reload();
                     }else{
                         location.href='result.html?type='+type+'';
-
-
                     }
                 }else{
                     alert(data.message);

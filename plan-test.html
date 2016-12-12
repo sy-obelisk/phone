@@ -242,6 +242,7 @@
                 });
                 if (body.scrollTop === 0) {
                     $(wrapper).addClass("touchend").animate({top: "0"}, 600, function () {
+                        $(".refresh").show();
                         location.reload();
                     })
                 }
@@ -275,7 +276,6 @@
                     event.preventDefault();
                     var touch = event.targetTouches[0];
                     diff = touch.pageY - start;
-                    $(".refresh").show();
                     $(wrapper).css({
                         '-webkit-transform': 'translate(0, ' + diff / 3 + 'px) translateZ(0)',
                         'transform': 'translate(0, ' + diff / 3 + 'px) translateZ(0)'

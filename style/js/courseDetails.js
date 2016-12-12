@@ -1,6 +1,18 @@
 $(function () {
     var Request = GetRequests();
     var contentId = Request['contentId'];
+    var type=Request['type'];
+    if(type==2){
+        $('.return').click(function(){
+            location.href="GMAT-class-2.html";
+        })
+    }
+    if(type==3){
+        $('.return').click(function(){
+            location.href="GMAT-class-3.html";
+        })
+    }
+    console.log(type)
     //声明模块
     var userId=localStorage.getItem("userId");
     var myApp = angular.module("myApp", []);
@@ -165,13 +177,15 @@ $(function () {
 
 });
 function payQu() {
-
+    var userid=localStorage.getItem('userId');
+    var url=window.location.href;
     $.ajax({
         url: 'http://www.gmatonline.cn/index.php?web/appapi/wapOrder',
         type: 'post',
         cache: false,
         data: {
             num: 1,
+            userid:userid,
             price: $("#py_price").val(),
             integral: 0,
             consignee: $("#consignee").val(),
@@ -188,15 +202,17 @@ function payQu() {
 
         },
         success: function (data) {
+            console.log(data)
             if (data.hrefType == 1) {
                 location.href = "myCourse.html?status=2";
             } else {
                 $("#WIDout_trade_no").val(data.goods.order);
                 $("#WIDsubject").val(data.goods.title);
                 $("#WIDtotal_fee").val(data.goods.account);
-                $("#WIDshow_url").val(data.goods.url);
+                //$("#WIDshow_url").val(data.goods.url);
+                $("#WIDshow_url").val(url);
                 $("#WIDbody").val(data.goods.remarks);
-                $("#service").val(data.goods.order_status);
+                $("#service").val('WAP');
                 $("#orderQ")[0].submit();
             }
         },

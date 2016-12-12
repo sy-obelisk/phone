@@ -70,8 +70,8 @@ function totalP(){
 }
 
 function payComeOn(){
+    var url=window.location.href;
     var userId=localStorage.getItem("userId");
-    console.log(userId)
     var userN=$("#userName").val();
     var phoneS=$("#phone").val();
     if(!userN || !phoneS){
@@ -112,7 +112,8 @@ function payComeOn(){
                 $("#WIDout_trade_no").val(data.goods.order);
                 $("#WIDsubject").val(data.goods.title);
                 $("#WIDtotal_fee").val(data.goods.account);
-                $("#WIDshow_url").val(data.goods.url);
+                //$("#WIDshow_url").val(data.goods.url);
+                $("#WIDshow_url").val(url);
                 $("#WIDbody").val(data.goods.remarks);
                 $("#service").val('WAP');
                 $("#orderSub")[0].submit();
