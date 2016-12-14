@@ -12,7 +12,11 @@ $(function () {
             url: 'http://www.gmatonline.cn/index.php?web/appapi/kaodianchongci',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            data:{
+                userid:userId
             }
+
         }).success(function (data) {
             console.log(data)
             $scope.items31 = data.sc;

@@ -179,10 +179,11 @@
     margin: 0.2rem 0;
 }
 .comment-list{
-    display: none;
+    /*display: none;*/
     position: relative;
     border-radius: 2px;
-    padding: 0.2rem 0.6rem;
+    /*padding: 0.2rem 0.6rem;*/
+    padding: 0.2rem 0;
     border: 1px solid #cccccc;
 }
 

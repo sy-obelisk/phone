@@ -132,7 +132,7 @@
 <!--公共标题栏-->
 <section class="commonTit tm clearfix">
     <a href="index.html"><i class="return fl icon-angle-left"></i></a>
-    <span class="Tit inb">题库</span>
+    <span class="Tit inb">单项练习</span>
 </section>
 <!--题库分类-->
 <section>
@@ -156,7 +156,7 @@
         <li ng-repeat="item4 in items4">
             <div class="fl topic-left">
                 <p class="topic-name ellipsis">讲义-{{item4.stname}}</p>
-                <p class="topic-data">题目总数：41&nbsp;&nbsp;<em class="doing">2020</em>人已做</p>
+                <p class="topic-data">题目总数：{{item4.lowertknumb}}&nbsp;&nbsp;<em class="doing">{{item4.correct}}%</em>正确率</p>
             </div>
             <div class="do-btn fr">
                 <a href="#" onclick="locaPrac(this,'1')" data-stid="{{item4.stid}}">点击做题</a>
