@@ -63,7 +63,7 @@ function register(){
             console.log(data)
             if (data.code == 1) {
                 alert(data.message);
-                location.href="/newwap/login.html";
+                location.href="login.html";
             } else {
                 alert(data.message);
             }
