@@ -29,9 +29,11 @@ $(function () {
 function changeLowerOne(o) {
     var one = $(".sort-nav2 span.on").attr("data-id");
     var two = $(o).attr("data-id");
+    var userId=localStorage.getItem("userId");
     $.ajax({
         url: 'http://www.gmatonline.cn/index.php?web/appapi/tiku2',
         data: {
+            userid:userId,
             twoId: one,
             secId: two
         },
@@ -60,9 +62,11 @@ function changeLowerOne(o) {
 function changeLowerTwo(o) {
     var one = $(o).attr("data-id");
     var two = $(".sort-nav span.on").attr("data-id");
+    var userId=localStorage.getItem("userId");
     $.ajax({
         url: 'http://www.gmatonline.cn/index.php?web/appapi/tiku2',
         data: {
+            userid:userId,
             twoId: one,
             secId: two
         },
