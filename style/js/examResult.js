@@ -8,8 +8,19 @@ $(function(){
     });
     var Request=GetRequests();
     var mkid=Request["mkid"];
+    var type=Request["type"];
     var mkscoreid=Request["mkscoreid"];
     var userId=localStorage.getItem("userId");
+    if(type==1){
+        $('.return').click(function(){
+            location.href='imitate-test.html'
+        })
+    }
+    if(type==2){
+        $('.return').click(function(){
+          location.href='examRecord.html?type=verbal'
+        })
+    }
     //声明模块
     var myApp = angular.module("myApp",[]);
 //通过模块生成调用控制器
@@ -27,6 +38,7 @@ $(function(){
             }
         }).success(function(data) {
             console.log(data)
+            $scope.type=type;
             $scope.name = data.mkinfo.name;
             $scope.mkid = data.mkid;
             //$scope.mark = data.mark;

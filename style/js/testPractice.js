@@ -15,19 +15,22 @@ $(function(){
     var Request=GetRequests();
     var anId=Request['anId'];
     var type=Request['type'];
-    var tikuid=sessionStorage.getItem("tikuid");
+    var tikuid=Request["tikuId"];
+    var knowName=Request["knowName"];
+    var knowsId=Request["knowsId"];
+    //var tikuid=sessionStorage.getItem("tikuid");
     var userId=localStorage.getItem("userId");
     $("#reNeed").val(anId);
     if (type==1){
         $(".return").click(function(){
-            location.href='topic-library.html';
-            location.href='result.html?type='+type+'';
+            //location.href='topic-library.html';
+            location.href='result.html?type='+type+'&tikuId='+tikuid+'&knowName='+knowName+'&knowsId='+knowsId+'';
         })
     }
     if (type==2){
         $(".return").click(function(){
             //location.href='test-sprint.html';
-            location.href='result.html?type='+type+'';
+            location.href='result.html?type='+type+'&tikuId='+tikuid+'&knowName='+knowName+'&knowsId='+knowsId+'';
         })
     }
     var myApp = angular.module("myApp",[]);
@@ -45,10 +48,11 @@ $(function(){
         }
     });
 //通过模块生成调用控制器
-    myApp.controller("PriceCtrl",["$scope","$http",function($scope,$http){
+    myApp.controller("PriceCtrl",["$scope","$http","$sce",function($scope,$http,$sce){
         //获取题目信息
         $http({
             method: 'post',
+            //url: 'http://gmatonline.cc/index.php?web/appapi/detalisResult',
             url: 'http://www.gmatonline.cn/index.php?web/appapi/detalisResult',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -59,7 +63,10 @@ $(function(){
                 id:anId
             }
         }).success(function(data) {
-            console.log(data)
+            $scope.type=type;
+            $scope.tikuId=tikuid;
+            $scope.knowName=knowName;
+            $scope.knowsId=knowsId;
             $scope.synthesis=data.synthesis;
             $scope.qtitle=data.answerContent.qtitle;
             $scope.qslctarr=data.answerContent.qslctarr;
@@ -68,6 +75,10 @@ $(function(){
             $scope.questionid=data.answerContent.questionid;
             $scope.qanswertype=data.answerContent.qanswertype;
             $scope.p_content=data.parse.p_content;
+            $scope.questionarticle= $sce.trustAsHtml(data.answerContent.questionarticle);
+            if (data.answerContent.subjecttype == 5 && data.answerContent.sectiontype == 7) {
+                $(".readArticle").show();
+            }
 
         });
 
@@ -210,6 +221,7 @@ function QuestionContent(data,type,ndzn,donum){
 function submitAnswer(){
     var answer=$(".topic-con ul li.blue").attr("data-answer");
         $.ajax({
+            //url: 'http://gmatonline.cc/index.php?web/appapi/DoProblemAnswer',
             url: 'http://www.gmatonline.cn/index.php?web/appapi/DoProblemAnswer',
             data: {
                 questionid: $("#questionid").val(),
@@ -243,4 +255,21 @@ function submitAnswer(){
 function reloadSee(){
     var answId=$("#reNeed").val();
     location.href="practiceDetail.html?anId="+answId;
+}
+
+
+//展开文章
+function slideUpD(o){
+    var height=$(".douText")[0].offsetHeight+"px";
+    $(o).hide().siblings(".closeIcon").show();
+    $(o).parents(".readArticle").animate({
+        height:height
+    });
+}
+//收起文章
+function closeArt(o){
+    $(o).hide().siblings(".zhankai").show();
+    $(o).parents(".readArticle").animate({
+        height:"100px"
+    });
 }

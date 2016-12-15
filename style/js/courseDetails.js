@@ -12,7 +12,6 @@ $(function () {
             location.href="GMAT-class-3.html";
         })
     }
-    console.log(type)
     //声明模块
     var userId=localStorage.getItem("userId");
     var myApp = angular.module("myApp", []);
@@ -152,7 +151,7 @@ $(function () {
                 $scope.catid = data.goods.catid;
                 $scope.commodity_type = data.goods.commodity_type;
                 if (data.order == false) {
-                    $(".buy a").html("立即购买").attr("href", "sureOrder.html?contentid=" + $scope.contentid + "&catid=" + $scope.catid + "&commodity_type=" + $scope.commodity_type);
+                    $(".buy a").html("立即购买").attr("href", "sureOrder.html?type="+type+"&contentid=" + $scope.contentid + "&catid=" + $scope.catid + "&commodity_type=" + $scope.commodity_type);
                 } else {
                     $scope.commodity_type = data.order.commodity_type;
                     $scope.id = data.contentid;
@@ -202,7 +201,6 @@ function payQu() {
 
         },
         success: function (data) {
-            console.log(data)
             if (data.hrefType == 1) {
                 location.href = "myCourse.html?status=2";
             } else {

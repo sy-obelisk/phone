@@ -11,6 +11,7 @@ $(function(){
     var type=Request['type'];
     var article=Request['articletitle'];
     var knowName=Request['knowName'];
+    var knowsId=Request['knowsId'];
     sessionStorage.setItem("tikuid",tikuId);
     sessionStorage.setItem("knowName",knowName);
     var tikuid=sessionStorage.getItem("tikuid");
@@ -22,13 +23,14 @@ $(function(){
    }
     if(type==2){
        $(".reload").click(function(){
-           location.href="test-sprint.html";
+           location.href='sprintDetails.html?knowsId='+knowsId+'';
        })
    }
 //通过模块生成调用控制器
     myApp.controller("PriceCtrl",["$scope","$http","$sce",function($scope,$http,$sce){
         $http({
             method: 'post',
+            //url: 'http://gmatonline.cc/index.php?web/appapi/lianxi',
             url: 'http://www.gmatonline.cn/index.php?web/appapi/lianxi',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -52,8 +54,9 @@ $(function(){
             //console.log(sessionStorage.getItem("article"));
             sessionStorage.setItem("knowId",data.user_konw_id);
             $scope.knowName=knowName;
+            $scope.type=type;
             if(data.userCode==0){
-                location.href="login.html";
+                //location.href="login.html";
             }else{
                 $scope.counts=data.count;
                 $scope.article=data.articletitle;
@@ -180,6 +183,7 @@ var startTime = parseInt(new Date().getTime()/1000);
 function submitAnswer(){
     var Request=GetRequests();
     var type=Request['type'];
+    var knowsId=Request['knowsId'];
     var knowName=Request['knowName'];
     var tikuid=Request['tikuId'];
     var endTime=parseInt(new Date().getTime()/1000);
@@ -209,10 +213,10 @@ function submitAnswer(){
                 if(data.code == 1){
                     //答题成功
                     if(data.next == 1){
-                        location.href='practice.html?tikuId='+tikuid+'&type='+type+'&knowName='+knowName+'&articletitle='+article+'';
+                        location.href='practice.html?tikuId='+tikuid+'&knowsId='+knowsId+'&type='+type+'&knowName='+knowName+'&articletitle='+article+'';
                         //location.reload();
                     }else{
-                        location.href='result.html?type='+type+'';
+                        location.href='result.html?type='+type+'&tikuId='+tikuid+'&knowsId='+knowsId+'&knowName='+knowName+'';
                     }
                 }else{
                     alert(data.message);

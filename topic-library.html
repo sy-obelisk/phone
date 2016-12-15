@@ -155,11 +155,14 @@
     <ul class="topic-list clearfix">
         <li ng-repeat="item4 in items4">
             <div class="fl topic-left">
-                <p class="topic-name ellipsis">讲义-{{item4.stname}}</p>
-                <p class="topic-data">题目总数：{{item4.lowertknumb}}&nbsp;&nbsp;<em class="doing">{{item4.correct}}%</em>正确率</p>
+                <p class="topic-name ellipsis">讲义-{{$index+1}}-{{item4.lowertknumb}}</p>
+                <p class="topic-data">题目总数：{{item4.lowertknumb}}&nbsp;&nbsp;正确率 : <em class="doing">{{item4.correct}}%</em></p>
             </div>
             <div class="do-btn fr">
-                <a href="#" onclick="locaPrac(this,'1')" data-stid="{{item4.stid}}">点击做题</a>
+
+                <a href="#" ng-show="{{item4.userlowertk==0 || 'false'}}" onclick="locaPrac(this,'1')" data-stid="{{item4.stid}}">开始做题</a>
+                <a href="#" ng-show="{{item4.userlowertk>0 && item4.userlowertk<item4.lowertknumb || 'false'}}" onclick="locaPrac(this,'1')" data-stid="{{item4.stid}}">继续做题</a>
+                <a class="toResult" href="#" ng-show="{{item4.userlowertk==item4.lowertknumb || 'false'}}" onclick="locaPrac(this,'1')" data-stid="{{item4.stid}}">查看结果</a>
             </div>
         </li>
 

@@ -24,18 +24,18 @@
 <body>
 <div ng-controller="PriceCtrl">
 <div class="blueNav">
-    <b><a href="javascript:history.go(-1);"> <img src="style/images/index_jiantou.png" alt="白色箭头图标"/></a></b>
+    <b class="return"><a href="javascript:void(0);"> <img src="style/images/index_jiantou.png" alt="白色箭头图标"/></a></b>
     <span>{{name}}{{id}}</span>
 </div>
 <div class="greyNav">
     <ul>
-        <li class="{{disV}} {{onV01}}"><a href="examR-details.html?mkid={{mkid}}&mark={{mark}}&subject=5">Verbal</a></li>
-        <li class="{{disV}} {{onV02}}"><a href="examR-details.html?mkid={{mkid}}&mark={{mark}}&section=6">SC</a></li>
-        <li class="{{disV}} {{onV03}}"><a href="examR-details.html?mkid={{mkid}}&mark={{mark}}&section=8">CR</a></li>
-        <li class="{{disV}} {{onV04}}"><a href="examR-details.html?mkid={{mkid}}&mark={{mark}}&section=7">RC</a></li>
-        <li class="{{disQ}} {{onQ01}}"><a href="examR-details.html?mkid={{mkid}}&mark={{mark}}&subject=6">Quant</a></li>
-        <li class="{{disQ}} {{onQ02}}"><a href="examR-details.html?mkid={{mkid}}&mark={{mark}}&section=5">DS</a></li>
-        <li class="{{disQ}} {{onQ03}}"><a href="examR-details.html?mkid={{mkid}}&mark={{mark}}&section=4">PS</a></li>
+        <li class="{{disV}} {{onV01}}"><a href="examR-details.html?mkid={{mkid}}&mark={{mark}}&subject=5&type={{type}}&mkscoreid={{mkscoreid}}">Verbal</a></li>
+        <li class="{{disV}} {{onV02}}"><a href="examR-details.html?mkid={{mkid}}&mark={{mark}}&section=6&type={{type}}&mkscoreid={{mkscoreid}}">SC</a></li>
+        <li class="{{disV}} {{onV03}}"><a href="examR-details.html?mkid={{mkid}}&mark={{mark}}&section=8&type={{type}}&mkscoreid={{mkscoreid}}">CR</a></li>
+        <li class="{{disV}} {{onV04}}"><a href="examR-details.html?mkid={{mkid}}&mark={{mark}}&section=7&type={{type}}&mkscoreid={{mkscoreid}}">RC</a></li>
+        <li class="{{disQ}} {{onQ01}}"><a href="examR-details.html?mkid={{mkid}}&mark={{mark}}&subject=6&type={{type}}&mkscoreid={{mkscoreid}}">Quant</a></li>
+        <li class="{{disQ}} {{onQ02}}"><a href="examR-details.html?mkid={{mkid}}&mark={{mark}}&section=5&type={{type}}&mkscoreid={{mkscoreid}}">DS</a></li>
+        <li class="{{disQ}} {{onQ03}}"><a href="examR-details.html?mkid={{mkid}}&mark={{mark}}&section=4&type={{type}}&mkscoreid={{mkscoreid}}">PS</a></li>
     </ul>
 </div>
 <div class="container">
@@ -43,17 +43,17 @@
         <div class="twoNav">
             <div class="col-xs-3 col-sm-3">
                 <div class="borderDiv {{twoLC}}">
-                    <a href="examR-details.html?mkid={{mkid}}&section={{section}}&subject={{subject}}&mark=all">全部题目</a>
+                    <a href="examR-details.html?mkid={{mkid}}&section={{section}}&subject={{subject}}&mark=all&type={{type}}&mkscoreid={{mkscoreid}}">全部题目</a>
                 </div>
             </div>
             <div class="col-xs-3 col-sm-3">
                 <div class="borderDiv {{twoLC02}}">
-                    <a href="examR-details.html?mkid={{mkid}}&section={{section}}&subject={{subject}}&mark=yesfalse">只看错题</a>
+                    <a href="examR-details.html?mkid={{mkid}}&section={{section}}&subject={{subject}}&mark=yesfalse&type={{type}}&mkscoreid={{mkscoreid}}">只看错题</a>
                 </div>
             </div>
             <div class="col-xs-6 col-sm-6">
                 <div class="borderDiv {{twoLC03}}">
-                    <a href="examR-details.html?mkid={{mkid}}&section={{section}}&subject={{subject}}&mark=long_time">用时较长的题目</a>
+                    <a href="examR-details.html?mkid={{mkid}}&section={{section}}&subject={{subject}}&mark=long_time&type={{type}}&mkscoreid={{mkscoreid}}">用时较长的题目</a>
                 </div>
             </div>
             <div class="clearBox"></div>
@@ -62,7 +62,7 @@
         <div class="examList">
             <ul>
                 <li ng-repeat="questionrecordT in questionrecord">
-                    <a href="examDetail-twoL.html?id={{questionrecordT.questionid}}&mkid={{mkid}}&tureAnswer={{questionrecordT.questionanswer}}&userAnswer={{questionrecordT.useranswer}}">
+                    <a href="examDetail-twoL.html?id={{questionrecordT.questionid}}&mkscoreid={{mkscoreid}}&mkid={{mkid}}&mark={{mark}}&tureAnswer={{questionrecordT.questionanswer}}&userAnswer={{questionrecordT.useranswer}}&type={{type}}">
                         <div class="col-xs-10 col-sm-10">
                             <h4 ng-bind-html="questionrecordT.questiontitle"></h4>
                             <!--<h4>{{questionrecordT.questiontitle}}</h4>-->

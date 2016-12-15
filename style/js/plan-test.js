@@ -9,7 +9,7 @@ $(function () {
     myApp.controller("PriceCtrl", ["$scope", "$http", "$sce", function ($scope, $http, $sce) {
         $http({
             method: 'post',
-            url: 'http://gossip.gmatonline.cn/cn/wap-api/gossip-list',
+            url: 'http://gossip.viplgw.cn/cn/wap-api/gossip-list',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
@@ -62,7 +62,7 @@ $(function () {
         $(this).parents("li").siblings("li").find(".likeWrap").removeClass("onLike");
         var gossipId=$(this).parent(".comment").find(".gossipId").val(); //帖子ID
         $.ajax({
-            url:'http://gossip.gmatonline.cn/cn/wap-api/add-like',
+            url:'http://gossip.viplgw.cn/cn/wap-api/add-like',
             method:"POST",
             dataType:"json",
             data:{
@@ -70,8 +70,17 @@ $(function () {
                 uid:wapUid,
             },
             success:function(data){
+                console.log(data)
                 alert(data.message);
                 $('.onLike').find('.likeNum').html(data.likeNum);
+                if(data.code==1){
+                    $('.onLike').find('img').attr('src','style/images-4/icon-p2B.png');
+                    $('.onLike').find('.likeNum').css({"color":'#ffba00'})
+                }
+                if(data.code==2){
+                    $('.onLike').find('img').attr('src','style/images-4/icon-p2.png');
+                    $('.onLike').find('.likeNum').css({"color":'#808080'})
+                }
             }
         })
 

@@ -28,7 +28,7 @@
     <!--蓝色导航-->
     <div class="blueNav">
         <!--<b><a href="examRecord.html?type=verbal"> <img src="style/images/index_jiantou.png" alt="白色箭头图标"/></a></b>-->
-        <b><a href="imitate-test.html"> <img src="style/images/index_jiantou.png" alt="白色箭头图标"/></a></b>
+        <b class="return"><a href="javascript:void(0);"> <img src="style/images/index_jiantou.png" alt="白色箭头图标"/></a></b>
         <span>{{name}}{{nameid}}</span>
         <img src="style/images/result_share.png" alt="分享图标" onclick="showShare(event)" class="rightShare"/>
     </div>
@@ -57,7 +57,7 @@
                 <div ng-bind-html="fonts" class="fontDiv"></div>
             </div>
             <div class="greyBtn">
-                <a href="examR-details.html?mkid={{mkid}}&mkscoreid={{mkscoreid}}&mark={{markT}}">
+                <a href="examR-details.html?mkid={{mkid}}&mkscoreid={{mkscoreid}}&mark={{markT}}&type={{type}}">
                     <input type="button" value="查看详情"/>
                 </a>
                 <br>

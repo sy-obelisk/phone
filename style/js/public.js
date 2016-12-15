@@ -105,6 +105,7 @@ function loginOut(){
                         localStorage.removeItem("nickname");
                         localStorage.removeItem("username");
                         localStorage.removeItem("wapUid");
+                        localStorage.removeItem("status");
                         sessionStorage.removeItem("icon");
                         sessionStorage.removeItem("nickname");
                         sessionStorage.removeItem("articletitle");

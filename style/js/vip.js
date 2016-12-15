@@ -21,10 +21,9 @@ $(function(){
                 userid:userId
             }
         }).success(function(data) {
-            console.log(data)
             if(data.userCode==1){
-                $("#firstA").attr("href","sureOrder.html?contentid=297&commodity_type=7");
-                $("#lastA").attr("href","sureOrder.html?contentid=298&commodity_type=7");
+                $("#firstA").attr("href","sureOrder.html?contentid=297&commodity_type=7&type=vip");
+                $("#lastA").attr("href","sureOrder.html?contentid=298&commodity_type=7&type=vip");
                 $scope.photo = data.userinfo.photo;
                 $scope.nickname = data.userinfo.nickname;
 

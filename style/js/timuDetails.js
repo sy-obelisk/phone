@@ -16,7 +16,8 @@ $(function(){
                 questionid:queId
             }
         }).success(function(data) {
-            $scope.question=$sce.trustAsHtml(escape2Html(data.question));
+            var regExp = new RegExp("files|/files", 'g');
+            $scope.question=$sce.trustAsHtml(escape2Html(data.question.replace(regExp,'http://www.gmatonline.cn/files')));
             $scope.qslctarr=data.qslctarr;
             $scope.questionanswer=data.questionanswer;
             $scope.questionid=data.questionid;

@@ -1,6 +1,7 @@
 $(function(){
     var Request=GetRequests();
     var contentId=Request['contentId'];
+    var type=Request['type'];
     var userId=localStorage.getItem("userId");
     //声明模块
     var myApp = angular.module("myApp",[]);
@@ -19,6 +20,8 @@ $(function(){
         }).success(function(data) {
             $scope.contenttitle = data.data.contenttitle;
             $scope.contentthumb = data.data.contentthumb;
+            $scope.phone = data.userData.phone;
+            $scope.username = data.userData.username;
             $scope.price = data.data.price;
             $scope.oldprice = data.data.oldprice;
             $scope.teacher = data.data.teacher;
@@ -36,7 +39,7 @@ $(function(){
                 $scope.catid = data.goods.catid;
                 $scope.commodity_type = data.goods.commodity_type;
                 if(data.order==false){
-                    $(".buy a").attr("href","sureOrder.html?contentid="+$scope.contentid +"&catid="+$scope.catid+"&commodity_type="+$scope.commodity_type);
+                    $(".buy a").attr("href","sureOrder.html?&type="+type+"&contentid="+$scope.contentid +"&catid="+$scope.catid+"&commodity_type="+$scope.commodity_type);
                 }else{
                     $scope.commodity_type = data.order.commodity_type;
                     $scope.id = data.contentid;
@@ -60,13 +63,15 @@ $(function(){
 
 
 });
-
+var userId=localStorage.getItem("userId");
 function payQu(){
+    var url = window.location.href;
     $.ajax({
         url: 'http：//www.gmatonline.cn/index.php?web/appapi/wapOrder',
         type: 'post',
         cache: false,
         data: {
+            userid:userId,
             num:1,
             price:$("#py_price").val(),
             integral:0,
@@ -76,8 +81,9 @@ function payQu(){
             check:0,
             id:$("#commodity_id").val(),
             title:$("#commodity_title").val(),
-            //url:$("#url").val(),
+            url:$("#url").val(),
             image:$("#image").val()
+
         },
         dataType: 'json',
         beforeSend:function(){
@@ -90,10 +96,12 @@ function payQu(){
                 $("#WIDout_trade_no").val(data.goods.order);
                 $("#WIDsubject").val(data.goods.title);
                 $("#WIDtotal_fee").val(data.goods.account);
-                $("#WIDshow_url").val(data.goods.url);
+                //$("#WIDshow_url").val(data.goods.url);
+                $("#WIDshow_url").val(url);
                 $("#WIDbody").val(data.goods.remarks);
-                $("#service").val(data.goods.order_status);
+                $("#service").val('WAP');
                 $("#orderQ")[0].submit();
+
             }
         },
         error: function () {

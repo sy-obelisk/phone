@@ -25,7 +25,7 @@
 <div ng-controller="PriceCtrl">
     <!--蓝色导航-->
     <div class="blueNav">
-        <b><a href="javascript:history.go(-1);">  <img src="style/images/index_jiantou.png" alt="白色箭头图标"/></a></b>
+        <b><a href="test-sprint.html">  <img src="style/images/index_jiantou.png" alt="白色箭头图标"/></a></b>
         <span>{{knowName}}</span>
     </div>
 
@@ -34,7 +34,7 @@
              <div class="listContent">
                  <ul>
                      <li ng-repeat="datasT in datas" is-over="toggle.now">
-                         <h4><span>{{datasT.stname}}</span>(已做{{datasT.over}}道)</h4>
+                         <h4><span>{{$index+1}}-{{datasT.sum}}题</span>(已做{{datasT.over}}道)</h4>
                          <div class="col-xs-3 col-sm-3">
                              <p>{{datasT.doneNumber}}</p>
                              <span>完成人数</span>
@@ -49,18 +49,22 @@
                          </div>
                          <div class="col-xs-3 col-sm-3">
                              <input value="{{datasT.type}}" type="hidden" class="leixin"/>
-                             <a href="practice.html?tikuId={{datasT.stid}}&type=2&knowName={{knowName}}&articletitle=" class="green gr01">
+                             <a href="practice.html?tikuId={{datasT.stid}}&knowsId={{ids}}&type=2&knowName={{knowName}}&articletitle=" class="green gr01">
                                  <p><img src="style/images/sprintD_greenEdit.png" alt="笔图标"/></p>
                                  <span>开始做题</span>
                              </a>
-                             <a href="practice.html?tikuId={{datasT.stid}}&type=2&knowName={{knowName}}" class="red dis">
+                             <a href="practice.html?tikuId={{datasT.stid}}&knowsId={{ids}}&type=2&knowName={{knowName}}" class="red dis">
                                  <p><img src="style/images/sprintD_redEdit.png" alt="笔图标"/></p>
                                  <span>继续做题</span>
                              </a>
-                             <a href="practice.html?tikuId={{datasT.stid}}&type=2&knowName={{knowName}}" class="green dis gr02">
-                                 <p><img src="style/images/sprintD_greenEdit.png" alt="笔图标"/></p>
-                                 <span>重新做题</span>
+                             <a href="result.html?tikuId={{datasT.stid}}&knowsId={{ids}}&type=2&knowName={{knowName}}" class="blue dis gr02">
+                                 <p><img src="style/images/sprintD_blueEdit.png" alt="笔图标"/></p>
+                                 <span>查看结果</span>
                              </a>
+                             <!--<a href="practice.html?tikuId={{datasT.stid}}&type=2&knowName={{knowName}}" class="green dis gr02">-->
+                                 <!--<p><img src="style/images/sprintD_greenEdit.png" alt="笔图标"/></p>-->
+                                 <!--<span>重新做题</span>-->
+                             <!--</a>-->
                          </div>
                          <div class="clearBox"></div>
                      </li>

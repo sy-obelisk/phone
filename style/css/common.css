@@ -165,6 +165,7 @@
 .comment-text, .comment {
     font-size: 0.7rem;
     color: #808080;
+    margin: 0.1rem;
     /*margin: 0.2rem 0 0.3rem;*/
 }
 .comment{
@@ -184,7 +185,7 @@
     border-radius: 2px;
     /*padding: 0.2rem 0.6rem;*/
     padding: 0.2rem 0;
-    border: 1px solid #cccccc;
+    /*border: 1px solid #cccccc;*/
 }
 
 /*课程公共样式*/

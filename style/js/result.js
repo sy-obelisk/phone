@@ -9,20 +9,23 @@ $(function(){
     //声明模块
     var Request=GetRequests();
     var myApp = angular.module("myApp",[]);
-    var type=Request['type'];console.log(type)
+    var type=Request['type'];
     var userId = localStorage.getItem("userId");
-    var tikuid = sessionStorage.getItem("tikuid");
+    var tikuid = Request['tikuId'];
+    var knowName = Request['knowName'];
+    var knowsId = Request['knowsId'];
+    //var tikuid = sessionStorage.getItem("tikuid");
     var countNum = sessionStorage.getItem("countNum");
     if (type==1){
-        $(".testDetail").attr('href','testResult.html?type='+type+'');
+        $(".testDetail").attr('href','testResult.html?type='+type+'&tikuId='+tikuid+'&knowName='+knowName+'&knowsId='+knowsId+'');
         $(".return").click(function(){
             location.href='topic-library.html';
         })
     }
     if (type==2){
-        $(".testDetail").attr('href','testResult.html?type='+type+'');
+        $(".testDetail").attr('href','testResult.html?type='+type+'&tikuId='+tikuid+'&knowName='+knowName+'&knowsId='+knowsId+'');
         $(".return").click(function(){
-            location.href='test-sprint.html';
+            location.href='sprintDetails.html?knowsId='+knowsId+'';
         })
     }
 //通过模块生成调用控制器
@@ -39,8 +42,12 @@ $(function(){
             }
 
         }).success(function(data) {
-            $scope.knowName=sessionStorage.getItem("knowName");
-            $scope.correct = data.correct;
+            $scope.knowName=knowName;
+            if(data.correct==null){
+                $scope.correct = 0;
+            }else {
+                $scope.correct = data.correct;
+            }
             $scope.countNum = countNum;
             $scope.tikuid = data.tikuid;
             $scope.correctLv = data.userData.correct;

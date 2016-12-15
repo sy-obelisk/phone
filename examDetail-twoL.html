@@ -26,13 +26,19 @@
 <div ng-controller="PriceCtrl">
     <!--蓝色导航-->
     <div class="blueNav">
-        <b><a href="examRecord.html"><img src="style/images/practice_off.png" alt="退出图标"/></a></b>
+        <b class="return"><a href="javascript:void(0);"><img src="style/images/practice_off.png" alt="退出图标"/></a></b>
         <span>{{name}}{{nameid}}</span>
     </div>
 
     <div class="container">
         <div class="row">
             <div class="topicContent">
+                <div class="readArticle">
+                    <!--{{questionarticle}}-->
+                    <div ng-bind-html="questionarticle" class="douText"></div>
+                    <img src="style/images/iconfont-zhankai.png" alt="展开图标" class="zhankai" onclick="slideUpD(this)"/>
+                    <span class="closeIcon" onclick="closeArt(this)">×</span>
+                </div>
                 <div class="topic-title" ng-bind-html="questiontitle">
                     <!--{{questiontitle}}-->
                 </div>
@@ -49,8 +55,8 @@
                             <div class="col-xs-10 col-sm-10">
                                 <div class="answers">
                                     <div class="triangle"></div>
-                                    <p>
-                                        {{qslctarrT.select}}
+                                    <p ng-bind-html="qslctarrT.select">
+                                        <!--{{qslctarrT.select}}-->
                                     </p>
                                 </div>
                             </div>

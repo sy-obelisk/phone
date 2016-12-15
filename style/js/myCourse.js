@@ -2,6 +2,7 @@
 $(function(){
     var Request=GetRequests();
     var sta=Request['status'];
+    var type=Request['type'];
     var userId=localStorage.getItem("userId");
     if(sta==2){
         $(".courseHd ul li").first().addClass("on");
@@ -9,6 +10,15 @@ $(function(){
         $(".courseHd ul li:nth-child(2)").addClass("on");
     }else if(sta==0){
         $(".courseHd ul li").last().addClass("on");
+    }
+    if(type==1){
+        $('.return').click(function(){
+            location.href="videoDetails.html?contentId=330&type="+type+""
+        })
+    }else {
+        $('.return').click(function(){
+            location.href="user-center.html";
+        })
     }
 
     //声明模块

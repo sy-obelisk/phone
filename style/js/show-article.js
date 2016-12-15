@@ -38,7 +38,7 @@ $(function () {
         //帖子详情
         $http({
             method: 'post',
-            url: 'http://gossip.gmatonline.cn/cn/wap-api/gossip-details',
+            url: 'http://gossip.viplgw.cn/cn/wap-api/gossip-details',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
@@ -74,7 +74,7 @@ $(function () {
         var Request = GetRequests();
         var id = Request['id'];//帖子ID
         $.ajax({
-            url:'http://gossip.gmatonline.cn/cn/wap-api/add-like',
+            url:'http://gossip.viplgw.cn/cn/wap-api/add-like',
             method:"POST",
             dataType:"json",
             data:{
@@ -123,7 +123,7 @@ $(function () {
         } else {
             $.ajax({
                 method: "POST",
-                url: 'http://gossip.gmatonline.cn/cn/wap-api/reply',
+                url: 'http://gossip.viplgw.cn/cn/wap-api/reply',
                 data: {
                     content: content,
                     type: 1,

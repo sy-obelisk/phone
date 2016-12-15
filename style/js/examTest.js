@@ -102,7 +102,7 @@ $(function(){
                         $scope.qnyesum = data.qnyesum;
                         //$scope.subject = 'subject';
                         for(var i=0;i<$scope.qslctarr.length;i++){
-                            $scope.qslctarr[i].select=$sce.trustAsHtml(data.data.qslctarr[i].select);
+                            $scope.qslctarr[i].select=$sce.trustAsHtml(data.data.qslctarr[i].select.replace(regExp,'http://www.gmatonline.cn/files'));
                         }
 
                         if($scope.subject){

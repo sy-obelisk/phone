@@ -24,7 +24,7 @@
 <!--蓝色导航-->
 <div class="blueNav">
     <b class="return"><a href="javascript:void(0)"><img src="style/images/practice_off.png" alt="退出图标"/></a></b>
-    <span>讲义SC（<span id="currNum">0</span>/<span id="totalNum">0</span>）</span>
+    <span>{{knowName}}（<span id="currNum">0</span>/<span id="totalNum">0</span>）</span>
 </div>
 <!--题目选择栏-->
 <div class="selection">
@@ -37,7 +37,7 @@
            <li ng-repeat="synthesisT in synthesis" is-over="toggle.now" data-queId="{{synthesisT.questionid}}"
                ng-class="{'onRed':'{{synthesisT.questionid}}'=='{{questionid}}' && '{{synthesisT.qanswertype}}'=='1',
                'onGreen':'{{synthesisT.questionid}}'=='{{questionid}}' && '{{synthesisT.qanswertype}}'=='0'}">
-               <a href="testResult.html?anId={{synthesisT.answerid}}"
+               <a href="testResult.html?anId={{synthesisT.answerid}}&type={{type}}&tikuId={{tikuId}}&knowName={{knowName}}&knowsId={{knowsId}}"
                   ng-class="{'red':'{{synthesisT.qanswertype}}'==1,'green':'{{synthesisT.qanswertype}}'==0}">{{$index+1}}</a></li>
        </ul>
    </div>
@@ -46,6 +46,12 @@
 <div class="container">
     <div class="row">
         <div class="topicContent">
+            <div class="readArticle">
+                <!--{{questionarticle}}-->
+                <div ng-bind-html="questionarticle" class="douText"></div>
+                <img src="style/images/iconfont-zhankai.png" alt="展开图标" class="zhankai" onclick="slideUpD(this)">
+                <span class="closeIcon" onclick="closeArt(this)">×</span>
+            </div>
             <div class="topic-title">
                {{qtitle}}
             </div>

@@ -33,6 +33,7 @@ $(function(){
             console.log(data);
             $scope.knowName = data.data.knowName;
             $scope.datas = data.data.data;
+            $scope.ids=ids;
             if($scope.datas.length==0){
                alert('暂无此类数据')
             }

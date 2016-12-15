@@ -154,7 +154,7 @@
                         <a href="show-article.html?id={{item1.id}}&publisher={{item1.uid}}&type=1">
                             <p ng-repeat="item1 in item1.reply" ng-class="{'courseHide':$index>3}" class="comment-text">
                                 <strong class="replyer-name">{{item1.uName}}</strong><strong
-                                    ng-show="item1.replyUserName!=''" class="replyer-name">{{" 回复"+item1.replyUserName}}</strong>:<span ng-bind-html="item1.content"></span>
+                                    ng-show="item1.replyUserName!=''" class="replyer-name">{{" 回复 "+item1.replyUserName}}</strong> : <span ng-bind-html="item1.content"></span>
                             </p>
                         </a>
                         <a href="show-article.html?id={{item1.id}}&publisher={{item1.uid}}&type=1">

@@ -156,11 +156,11 @@
         <li ng-repeat="itemT in item">
             <div class="fl topic-left">
                 <p class="topic-name ellipsis">{{itemT.name}}</p>
-                <p class="topic-data"><em class="doing">{{itemT.totalusernum}}</em>人已做</p>
-                <!--题目总数：{{itemT.count}}&nbsp;&nbsp;-->
+                <p class="topic-data">{{itemT.totalusernum}} 人已做&nbsp;&nbsp;平均得分 ：<em class="doing">{{itemT.averscore}}</em></p>
+
             </div>
             <div class="do-btn fr">
-                <a href="{{itemT.otherA}}">开始做题</a>
+                <a href="{{itemT.otherA}}">{{itemT.status}}</a>
             </div>
         </li>
     </ul>
@@ -170,7 +170,7 @@
     <div class="row" style="margin: 0 auto">
         <ul class="footer-list">
             <li class="on">
-                <a href="library-wrap.html">
+                <a href="index.html">
                     <div class="ft-list-wrap">
                         <i><img src="style/images-4/icon-1B.png" style="width: 12px" alt=""></i>
                         <p class="ft-name">做题模考</p>

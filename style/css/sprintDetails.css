@@ -43,12 +43,18 @@ body{
 }
 .listContent ul li .col-xs-3 a.green span{
     color: #18ae67;
+    font-weight: bold;
+}
+.listContent ul li .col-xs-3 a.blue span{
+    color: #29a7eb;
+    font-weight: bold;
 }
 .listContent ul li .col-xs-3 a.dis{
     display: none;
 }
 .listContent ul li .col-xs-3 a.red span{
     color: #d43439;
+    font-weight: bold;
 }
 .listContent ul li .col-xs-3 a img{
     width: 20%;

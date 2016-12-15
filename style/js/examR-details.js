@@ -2,7 +2,20 @@ $(function () {
     //声明模块
     var myApp = angular.module("myApp", []);
     var Request = GetRequests();
+    var type= Request['type'];
+    var mkid= Request['mkid'];
+    var mkscoreid= Request['mkscoreid'];
     var userId=localStorage.getItem("userId");
+    if(type==1){
+        $('.return').click(function(){
+            location.href='examResult.html?type='+type+'&mkid='+mkid+'&mkscoreid='+mkscoreid+''
+        })
+    }
+    if(type==2){
+        $('.return').click(function(){
+            location.href='examResult.html?mkid='+mkid+'&mkscoreid='+mkscoreid+'&type='+type+''
+        })
+    }
 //通过模块生成调用控制器
     myApp.controller("PriceCtrl", ["$scope", "$http", "$sce", function ($scope, $http, $sce) {
         $http({
@@ -23,6 +36,8 @@ $(function () {
             if (data.userCode == 0) {
                 //location.href = "login.html";
             } else {
+                $scope.type=type;
+                $scope.mkscoreid=mkscoreid;
                 $scope.name = data.mkinfo.name;
                 $scope.mkid = data.mkid;
                 $scope.id = data.mkinfo.id;
