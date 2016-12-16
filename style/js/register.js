@@ -62,11 +62,10 @@ function register(){
         success: function (data) {
             if (data.code == 1) {
                 alert(data.message);
-                //login();
+                login();
                 //location.href="login.html";
             } else {
-
-                alert(data.message); login();
+                alert(data.message);
             }
         },
         error: function () {

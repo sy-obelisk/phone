@@ -401,3 +401,10 @@ footer{
 .knowledge-list li a{
     display: block;
 }
+
+a.a_jixu{
+    background: #ef921a!important;
+}
+a.a_result{
+    background: #4bc93a!important;
+}

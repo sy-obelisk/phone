@@ -63,19 +63,26 @@ $(function(){
                 id:anId
             }
         }).success(function(data) {
+            var regExp = new RegExp("files|/files", 'g');
             $scope.type=type;
             $scope.tikuId=tikuid;
             $scope.knowName=knowName;
             $scope.knowsId=knowsId;
             $scope.synthesis=data.synthesis;
-            $scope.qtitle=data.answerContent.qtitle;
+            $scope.qtitle=$sce.trustAsHtml(data.answerContent.question.replace(regExp,'http://www.gmatonline.cn/files'));
             $scope.qslctarr=data.answerContent.qslctarr;
             $scope.questionanswer=data.answerContent.questionanswer;
             $scope.useranswer=data.answerContent.useranswer;
             $scope.questionid=data.answerContent.questionid;
             $scope.qanswertype=data.answerContent.qanswertype;
-            $scope.p_content=data.parse.p_content;
+            $scope.p_content=$sce.trustAsHtml(escape2Html(data.parse.p_content));
             $scope.questionarticle= $sce.trustAsHtml(data.answerContent.questionarticle);
+            for(var i=0;i<$scope.qslctarr.length;i++){
+                console.log( $scope.qslctarr[i].select)
+                $scope.qslctarr[i].select=$sce.trustAsHtml(data.answerContent.qslctarr[i].select.replace(regExp,'http://www.gmatonline.cn/files'));
+
+            }
+
             if (data.answerContent.subjecttype == 5 && data.answerContent.sectiontype == 7) {
                 $(".readArticle").show();
             }

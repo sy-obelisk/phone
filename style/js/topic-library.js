@@ -14,7 +14,7 @@ $(function () {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             data: {
-                twoId: 12,
+                twoId: '1,15',
                 secId: 6,
                 userid: userId
             }

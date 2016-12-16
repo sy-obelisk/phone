@@ -8,6 +8,7 @@ $(function(){
     var Request=GetRequests();
     var startTime=Request['startTime'];
     var mkid=Request['mkid'];
+    var type=Request['type'];
     var mark=Request['mark'];
     var step=Request['step'];
     var first=Request['first'];
@@ -66,13 +67,13 @@ $(function(){
                 } else if(data.hrefType == 1){
                     //location.href="examTest.html?next=1&allmark=allmark&mark="+data.mark;
                 }else if(data.hrefType == 3){
-                    location.href='examResult.html?mkid='+data.mkid+'&mkscoreid='+data.mkscoreid+'';
+                    location.href='examResult.html?type='+type+'&mkid='+data.mkid+'&mkscoreid='+data.mkscoreid+'';
                 }else if(data.hrefType == 4){
-                    location.href="examResult.html?mkid="+data.mkid+"&mark=all&mkscoreid="+data.mkscoreid;
+                    location.href="examResult.html?type="+type+"&mkid="+data.mkid+"&mark=all&mkscoreid="+data.mkscoreid;
                 }else if(data.hrefType == 5){
                     //subject="zhongduan"
                     //$scope.break='1';
-                    location.href='examTest.html?&subject=zhongduan&break=1&breakStartTime='+data.breakStartTime+'&mkid='+mkid+'&step='+step+'&mkscoreid='+mkscoreid+'&first=&breaktime='+breaktime+'&startTime='+startTime+'&mkid='+mkid+'&mark='+mark+'';
+                    location.href='examTest.html?type='+type+'&subject=zhongduan&break=1&breakStartTime='+data.breakStartTime+'&mkid='+mkid+'&step='+step+'&mkscoreid='+mkscoreid+'&first=&breaktime='+breaktime+'&startTime='+startTime+'&mkid='+mkid+'&mark='+mark+'';
                 }else if(data.hrefType == 6){
                     //location.href="examResult.html?mkid="+data.mkid;
                 } else {
@@ -141,7 +142,7 @@ $(function(){
                 var startTime=sessionStorage.getItem("startTime");
                 var breaktime=sessionStorage.getItem("breaktime");
                 var mkscoreid=sessionStorage.getItem("mkscoreid");
-                location.href='examTest.html?&breakStartTime=&subject=yuwen&break=&first=&startTime='+startTime+'&breaktime='+breaktime+'&readqid=&mkid='+mkid+'&step=&mkscoreid='+mkscoreid+'&mark=all';
+                location.href='examTest.html?type='+type+'&breakStartTime=&subject=yuwen&break=&first=&startTime='+startTime+'&breaktime='+breaktime+'&readqid=&mkid='+mkid+'&step=&mkscoreid='+mkscoreid+'&mark=all';
             };
 
         });
@@ -215,6 +216,7 @@ function subanswer(useranswer_mk) {
     var mark=$("#marks").val();
     var Request=GetRequests();
     var mkid=Request['mkid'];
+    var type=Request['type'];
     var subject=Request['subject'];
     var stop=Request['break'];
     var breakStartTime=Request['breakStartTime'];
@@ -255,8 +257,7 @@ function subanswer(useranswer_mk) {
         cache: false,
         dataType: 'json',
         success: function (data) { //alert(data.message);
-            //console.log(data)
-            location.href='examTest.html?&breakStartTime='+breakStartTime+'&subject='+subject+'&break='+stop+'&first=&startTime='+startTime+'&breaktime='+breaktime+'&readqid='+readqid+'&mkid='+mkid+'&step=&mkscoreid='+mkscoreid+'&mark='+mark+'';
+            location.href='examTest.html?type='+type+'&breakStartTime='+breakStartTime+'&subject='+subject+'&break='+stop+'&first=&startTime='+startTime+'&breaktime='+breaktime+'&readqid='+readqid+'&mkid='+mkid+'&step=&mkscoreid='+mkscoreid+'&mark='+mark+'';
             //if (data.mylogin == 'login') {
             //    window.location.replace('/exam/&mylogin=login');
             //} else {
@@ -290,12 +291,14 @@ function subanswer(useranswer_mk) {
 //}
 
 function ckanswer(subj) {
+    var Request=GetRequests();
+    var type=Request['type'];
     var useranswer = $(".topic-con ul li.blue").attr("data-answer");
     var marksubject=subj;
     var mark=$("#marks").val();
     var breaktime=$("#breaktime").val();
     if(marksubject=='subject'){
-        window.location.href="examTest.html?next=1&mark="+mark+"&submark=subject&breaktime=";
+        window.location.href="examTest.html?type="+type+"&next=1&mark="+mark+"&submark=subject&breaktime=";
     }else{
         //alert(useranswer);
         if (useranswer == '' || typeof(useranswer) == 'undefined') {

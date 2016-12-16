@@ -1,5 +1,6 @@
 $(function () {
     var Request = GetRequests();
+    var type=Request['type'];
     //声明模块
     var myApp = angular.module("myApp", []);
 //通过模块生成调用控制器
@@ -23,12 +24,12 @@ $(function () {
                 name:name
             }
         }).success(function (data) {
-            console.log(data)
             sessionStorage.setItem("mklct",data.mklct);
             sessionStorage.setItem("mklct_qids",data.mklct_qids);
             if (data.userCode == 0) {
                 location.href="login.html";
             } else {
+                $scope.type=type;
                 $scope.mkid=data.mkid;
                 $scope.step=data.step;
                 $scope.mklct=data.mklct;

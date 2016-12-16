@@ -52,8 +52,8 @@
                 <img src="style/images/iconfont-zhankai.png" alt="展开图标" class="zhankai" onclick="slideUpD(this)">
                 <span class="closeIcon" onclick="closeArt(this)">×</span>
             </div>
-            <div class="topic-title">
-               {{qtitle}}
+            <div class="topic-title" ng-bind-html="qtitle">
+               <!--{{qtitle}}-->
             </div>
             <div class="topic-con">
                 <ul>
@@ -67,8 +67,8 @@
                         <div class="col-xs-10 col-sm-10">
                             <div class="answers">
                                 <div class="triangle"></div>
-                                <p>
-                                    {{qslctarrT.select}}
+                                <p ng-bind-html="qslctarrT.select">
+                                    <!--{{qslctarrT.select}}-->
                                 </p>
                             </div>
                         </div>
@@ -94,8 +94,8 @@
         <div class="container">
             <div class="row">
                 <h2>正确答案：{{questionanswer}}</h2>
-                <p>
-                    {{p_content}}
+                <p ng-bind-html="p_content">
+                    <!--{{p_content}}-->
                 </p>
             </div>
         </div>

@@ -28,57 +28,62 @@ $(function(){
    }
 //通过模块生成调用控制器
     myApp.controller("PriceCtrl",["$scope","$http","$sce",function($scope,$http,$sce){
-        $http({
-            method: 'post',
-            //url: 'http://gmatonline.cc/index.php?web/appapi/lianxi',
-            url: 'http://www.gmatonline.cn/index.php?web/appapi/lianxi',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            data:{
-                articletitle:article,
-                userid:userId,
-                id:tikuid,
-                type:type
-            }
-        }).success(function(data) {
-            console.log(data);
-            sessionStorage.setItem("countNum",data.count);
-            var regExp = new RegExp("files|/files", 'g');
-            if(data.articletitle==null){
-                sessionStorage.setItem("article","")
-            }else {
-                sessionStorage.setItem("article",data.articletitle);
-            }
+       if(userId==null){
+           location.href='login.html';
+       }else {
+           $http({
+               method: 'post',
+               //url: 'http://gmatonline.cc/index.php?web/appapi/lianxi',
+               url: 'http://www.gmatonline.cn/index.php?web/appapi/lianxi',
+               headers: {
+                   'Content-Type': 'application/x-www-form-urlencoded'
+               },
+               data:{
+                   articletitle:article,
+                   userid:userId,
+                   id:tikuid,
+                   type:type
+               }
+           }).success(function(data) {
+               console.log(data);
+               sessionStorage.setItem("countNum",data.count);
+               var regExp = new RegExp("files|/files", 'g');
+               if(data.articletitle==null){
+                   sessionStorage.setItem("article","")
+               }else {
+                   sessionStorage.setItem("article",data.articletitle);
+               }
 
-            //console.log(sessionStorage.getItem("article"));
-            sessionStorage.setItem("knowId",data.user_konw_id);
-            $scope.knowName=knowName;
-            $scope.type=type;
-            if(data.userCode==0){
-                //location.href="login.html";
-            }else{
-                $scope.counts=data.count;
-                $scope.article=data.articletitle;
-                $scope.questionNum=data.questionNum;
-                $scope.question=$sce.trustAsHtml(escape2Html(data.question.question.replace(regExp,'http://www.gmatonline.cn/files')));
-                $scope.questionanswer=data.question.questionanswer;
-                $scope.questionid=data.question.questionid;
-                $scope.sectiontype=data.question.sectiontype;
-                $scope.p_content=$sce.trustAsHtml(escape2Html(data.parse.p_content));
-                $scope.questionarticle = $sce.trustAsHtml(data.question.questionarticle);
-                $scope.qslctarr=data.question.qslctarr;
-                for(var i=0;i<$scope.qslctarr.length;i++){
-                    $scope.qslctarr[i].select=$sce.trustAsHtml(escape2Html(data.question.qslctarr[i].select.replace(regExp,'http://www.gmatonline.cn/files')));
-                    console.log( $scope.qslctarr[i].select)
-                }
+               //console.log(sessionStorage.getItem("article"));
+               sessionStorage.setItem("knowId",data.user_konw_id);
+               $scope.knowName=knowName;
+               $scope.type=type;
+               if(data.userCode==0){
+                   //location.href="login.html";
+               }else{
+                   $scope.counts=data.count;
+                   $scope.article=data.articletitle;
+                   $scope.questionNum=data.questionNum;
+                   $scope.question=$sce.trustAsHtml(data.question.question.replace(regExp,'http://www.gmatonline.cn/files'));
+                   $scope.questionanswer=data.question.questionanswer;
+                   $scope.questionid=data.question.questionid;
+                   $scope.sectiontype=data.question.sectiontype;
+                   $scope.p_content=$sce.trustAsHtml(escape2Html(data.parse.p_content));
+                   $scope.questionarticle = $sce.trustAsHtml(data.question.questionarticle);
+                   $scope.qslctarr=data.question.qslctarr;
+                   for(var i=0;i<$scope.qslctarr.length;i++){
+                       console.log( $scope.qslctarr[i].select)
+                       $scope.qslctarr[i].select=$sce.trustAsHtml(data.question.qslctarr[i].select.replace(regExp,'http://www.gmatonline.cn/files'));
 
-                if (data.question.subjecttype == 5 && data.question.sectiontype == 7) {
-                    $(".readArticle").show();
-                }
-            }
+                   }
 
-        });
+                   if (data.question.subjecttype == 5 && data.question.sectiontype == 7) {
+                       $(".readArticle").show();
+                   }
+               }
+
+           });
+       }
 
         //获取题目信息
 

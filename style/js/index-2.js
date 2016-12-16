@@ -80,7 +80,6 @@ $(function () {
                 $(".test-num").html("0");
             } else {
                 $scope.questionrecord = data.questionrecord[0];
-                console.log($scope.questionrecord)
                 $scope.correct = data.correct;
                 $scope.num = data.totalnum.num;
             }

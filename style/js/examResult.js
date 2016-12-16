@@ -3,9 +3,9 @@ $(function(){
     $(".centerData").css("height",$(".centerData").width()+"px");
 //    弹窗居中
 
-    $(".warn-center").css({
-        marginLeft:"-"+parseInt($(".warn-center").css("width"))/2+"%"
-    });
+    //$(".warn-center").css({
+    //    marginLeft:"-"+parseInt($(".warn-center").css("width"))/2+"%"
+    //});
     var Request=GetRequests();
     var mkid=Request["mkid"];
     var type=Request["type"];
@@ -56,20 +56,30 @@ $(function(){
                 $scope.totalNum=data.VerbalNum;
                 if($scope.V_score<='25'){
                     $scope.V_scoreT="<"+$scope.V_score;
-                    $scope.fonts=$sce.trustAsHtml("满分51分，正确率低于35%得分均为<25分");
+                    $scope.fonts=$sce.trustAsHtml("满分<b>51</b>分，正确率低于35%得分均为<<b>25</b>分");
+                    $scope.markT='verbal';
+                }
+                if($scope.V_score>'25'){
+                    $scope.V_scoreT=' : '+$scope.V_score +"分";
+                    $scope.fonts=$sce.trustAsHtml("满分<b>51</b>分");
                     $scope.markT='verbal';
                 }
             }else if(data.QuantNum!=0 && data.VerbalNum==0){//数学
                 $scope.totalNum=data.QuantNum;
                 if($scope.Q_score<='30'){
                     $scope.V_scoreT="<"+$scope.Q_score;
-                    $scope.fonts=$sce.trustAsHtml("满分51分，正确率低于30%得分均为<30分");
+                    $scope.fonts=$sce.trustAsHtml("满分<b>51</b>分，正确率低于30%得分均为<<b>30</b>分");
+                    $scope.markT='quant';
+                }
+                if($scope.Q_score>'30'){
+                    $scope.V_scoreT=' : '+$scope.Q_score +"分";
+                    $scope.fonts=$sce.trustAsHtml("满分<b>51</b>分");
                     $scope.markT='quant';
                 }
             }else if(data.QuantNum!=0 && data.VerbalNum!=0){//全套
                 $scope.totalNum=parseInt(data.QuantNum)+parseInt(data.VerbalNum);
-                $scope.V_scoreT=$scope.Totalscore;
-                $scope.fonts=$sce.trustAsHtml(escape2Html("<p>语文得分"+data.credit.V_score+"分（满分51分）</p>"+"<p>数学得分"+data.credit.Q_score+"分（满分51分）</p>"));
+                $scope.V_scoreT=" : "+$scope.Totalscore+"分";
+                $scope.fonts=$sce.trustAsHtml(escape2Html("<p>语文得分<b>"+data.credit.V_score+"</b>分（满分<b>51</b>分）</p>"+"<p>数学得分<b>"+data.credit.Q_score+"</b>分（满分<b>51</b>分）</p>"));
                 $scope.markT='all';
             }
 
