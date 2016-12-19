@@ -80,9 +80,11 @@ $(function () {
                     if ($scope.item[i].markquestion == 2) {//显示完成图标
                         $scope.item[i].otherA = "examResult.html?type=1&mkid=" + $scope.item[i].id + "&mkscoreid=" + $scope.item[i].mkscoreid;
                         $scope.item[i].status='查看结果';
+                        $scope.item[i].a_result='a_result';
                     } else {
                         $scope.item[i].otherA = "examStart.html?type=1&mark="+ $scope.marks + "&id=" + $scope.item[i].id + "&name=" + $scope.item[i].name;
                         $scope.item[i].status='开始做题';
+                        $scope.item[i].a_result='';
                     }
                 }
             });
@@ -120,9 +122,11 @@ $(function () {
                     if ($scope.item[i].markquestion == 2) {//显示完成图标
                         $scope.item[i].otherA = "examResult.html?type=1&mkid=" + $scope.item[i].id + "&mkscoreid=" + $scope.item[i].mkscoreid;
                         $scope.item[i].status='查看结果';
+                        $scope.item[i].a_result='a_result';
                     } else {
                         $scope.item[i].otherA = "examStart.html?type=1&mark=" + $scope.marks + "&id=" + $scope.item[i].id + "&name=" + $scope.item[i].name;
                         $scope.item[i].status='开始做题';
+                        $scope.item[i].a_result='';
                     }
                 }
             });

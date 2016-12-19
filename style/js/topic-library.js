@@ -116,11 +116,11 @@ function SpellCharacters(data, strName) {
             console.log("开始做题");
         }
         if (v.userlowertk>0 && v.userlowertk< v.lowertknumb){
-            str2='<a href="practice.html?tikuId=' + v.stid + '&type=1&knowName=' + (one + '-' + two) + '&articletitle=">继续做题</a>';
+            str2='<a class="a_jixu" href="practice.html?tikuId=' + v.stid + '&type=1&knowName=' + (one + '-' + two) + '&articletitle=">继续做题</a>';
             console.log("继续做题");
         }
         if (v.userlowertk== v.lowertknumb){
-            str2='<a href="result.html?tikuId=' + v.stid + '&type=1&knowName=' + (one + '-' + two) + '&articletitle=">查看结果</a>';
+            str2='<a class="a_result" href="result.html?tikuId=' + v.stid + '&type=1&knowName=' + (one + '-' + two) + '&articletitle=">查看结果</a>';
             console.log("查看结果");
         }
         str +=
