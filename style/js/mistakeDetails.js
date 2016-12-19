@@ -25,7 +25,7 @@ $(function(){
                 section:sectionid
             }
         }).success(function(data) {
-
+            $(".loader").fadeOut(100);
             if (data.question.code==1){
                 sessionStorage.setItem("quid",data.question.question.questionid);
                 sessionStorage.setItem('articletitle',data.question.articletitle);

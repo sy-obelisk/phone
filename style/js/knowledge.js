@@ -17,6 +17,7 @@ $(function () {
                 userid: userId
             }
         }).success(function (data) {
+            $(".loader").fadeOut(100);
             $scope.items51 = data.cr;
             $scope.items52 = data.sc;
             $scope.items53 = data.q;

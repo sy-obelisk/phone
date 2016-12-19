@@ -18,7 +18,7 @@ $(function () {
             }
 
         }).success(function (data) {
-            console.log(data)
+            $(".loader").fadeOut(100);
             $scope.items31 = data.sc;
             $scope.items32 = data.cr;
             $scope.items33 = data.rc;

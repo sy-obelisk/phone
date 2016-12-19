@@ -17,7 +17,9 @@ $(function(){
                 contentid:contentids
             }
         }).success(function(data) {
-            $scope.contenttext=$sce.trustAsHtml(escape2Html(data.data.content.contenttext.replace(/img src=&quot;/g,'img src="http://www.gmatonline.cn')));
+            $(".loader").fadeOut(100);
+            var regExp = new RegExp("files|/files", 'g');
+            $scope.contenttext=$sce.trustAsHtml(escape2Html(data.data.content.contenttext.replace(regExp,'http://www.gmatonline.cn/files')));
             $scope.contenttitle=data.data.content.contenttitle;
             $scope.contentinputtime=data.data.content.contentinputtime;
             if(data.userData==false){

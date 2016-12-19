@@ -13,6 +13,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
     <link rel="stylesheet" href="style/css/bootstrap.css"/>
     <link rel="stylesheet" href="style/css/myCourse.css"/>
+    <link rel="stylesheet" href="style/css/common.css">
     <link rel="stylesheet" href="style/css/public.css"/>
     <script type="text/javascript" src="style/js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="style/js/bootstrap.js"></script>
@@ -23,6 +24,12 @@
 </head>
 <body>
 <div ng-controller="PriceCtrl">
+    <!--loding 图片-->
+    <div class="loader">
+        <div class="loader-content">
+            <img src="style/images-4/loading.gif" alt="Loader" class="loader-loader"/>
+        </div>
+    </div>
     <!-------------------蓝色导航--------------------->
     <div class="blueNav">
         <b class="return"><a href="javascript:void(0);"> <img src="style/images/index_jiantou.png" alt="白色箭头图标"/></a></b>

@@ -25,6 +25,7 @@ $(function(){
                 type:types
             }
         }).success(function(data) {
+            $(".loader").fadeOut(100);
             $scope.mkscoreid=data.mkscoreid;
             $scope.correct = data.correct;
             $scope.mklist_num = data.mklist_num;

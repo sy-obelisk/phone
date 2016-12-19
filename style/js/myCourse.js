@@ -41,6 +41,7 @@ $(function(){
                 //头部个人中心图标未登陆点击跳转到登陆
                 $("#personIcon").click(function(){location.href="login.html"});
             }else{
+                $(".loader").fadeOut(100);
                 $scope.nickname = data.userData.nickname;
                 $scope.photo = data.userData.photo;
                 $scope.course = data.course;

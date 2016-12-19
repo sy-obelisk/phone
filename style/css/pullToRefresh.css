@@ -37,12 +37,12 @@
     color: #888;
     font-family: Arial, Microsoft YaHei;
 } .pullUp{ display:block;}
-.loader {
-    display: inline-block;
-    font-size: 0px;
-    padding: 0px;
-    display: none;
-}
+/*.loader {*/
+    /*display: inline-block;*/
+    /*font-size: 0px;*/
+    /*padding: 0px;*/
+    /*display: none;*/
+/*}*/
 .loader span {
     vertical-align: middle;
     border-radius: 100%;

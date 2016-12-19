@@ -12,9 +12,6 @@
             }else{
                 docEl.style.fontSize = 40 * (clientWidth / 750) + 'px';
             }
-            //if (!clientWidth) return;
-            //docEl.style.fontSize = 40 * (clientWidth / 750) + 'px';
-            //console.log(40 * (clientWidth / 750))
         };
 
     if (!doc.addEventListener) return;

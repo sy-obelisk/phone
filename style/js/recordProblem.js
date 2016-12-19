@@ -30,6 +30,7 @@ $(function(){
                 section:sections
             }
         }).success(function(data) {
+            $(".loader").fadeOut(100);
             if(data.userCode==0){
                 location.href="login.html";
             }else{

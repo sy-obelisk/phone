@@ -33,6 +33,7 @@ $(function () {
                 userid: userId
             }
         }).success(function (data) {
+            $(".loader").fadeOut(100);
             $scope.item = data.data;
             $scope.marks = data.mark;
             for (var i = 0; i < $scope.item.length; i++) {
@@ -50,6 +51,7 @@ $(function () {
         });
         //点击一级菜单 请求
         $(".imitate-wrap span").click(function () {
+            $(".loader").fadeIn(100);
             var code = "";
             var mark = $(this).attr("data-mark");
             if (mark == "verbal") {
@@ -74,6 +76,7 @@ $(function () {
                     userid: userId
                 }
             }).success(function (data) {
+                $(".loader").fadeOut(100);
                 $scope.item = data.data;
                 $scope.marks = data.mark;
                 for (var i = 0; i < $scope.item.length; i++) {
@@ -92,6 +95,7 @@ $(function () {
         });
         //点击二级菜单 请求
         $(".imitate-wrap2 span").click(function () {
+            $(".loader").fadeIn(100);
             var code = "";
             var mark = $(".imitate-wrap span.on").attr("data-mark");
             $(this).addClass("on").siblings("span").removeClass("on");
@@ -116,6 +120,7 @@ $(function () {
                     userid: userId
                 }
             }).success(function (data) {
+                $(".loader").fadeOut(100);
                 $scope.item = data.data;
                 $scope.marks = data.mark;
                 for (var i = 0; i < $scope.item.length; i++) {

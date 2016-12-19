@@ -19,7 +19,7 @@ $(function () {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
         }).success(function (data) {
-            console.log(data);
+            $(".loader").fadeOut(100);
             $scope.items61 = data.data[0].data;
             $scope.items62 = data.data[1].data;
             $scope.items63 = data.data[2].data;

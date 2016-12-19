@@ -46,11 +46,12 @@
     <script type="text/javascript" src="style/js/angular1.3.1.js"></script>
     <title>最新资讯</title>
     <style>
-        .news-tab{
+        .news-tab {
             text-align: center;
             padding: 0.6rem;
         }
-        .news-tab span{
+
+        .news-tab span {
             width: 30.9%;
             margin-left: 0.82%;
             display: inline-block;
@@ -61,17 +62,21 @@
             border: 1px solid #197FEE;
             color: #197FEE;
         }
-        .news-tab span.on{
+
+        .news-tab span.on {
             color: #ffffff;
             background: #197fee;
         }
-        .news-tab span:first-child{
+
+        .news-tab span:first-child {
             margin-left: 0;
         }
-        .news-list{
+
+        .news-list {
             display: none;
         }
-        .news-list li{
+
+        .news-list li {
             padding: 0.3rem 0.6rem;
             background: #ffffff;
             text-align: justify;
@@ -80,19 +85,29 @@
             line-height: 0.8rem;
             color: #666666;
         }
-        .news-list li p{
+
+        .news-list li p {
             color: #666666;
-          margin: 0.2rem 0;
+            margin: 0.2rem 0;
         }
-        .news-tit{
+
+        .news-tit {
             font-size: 0.7rem;
             line-height: 1.2rem;
-          color: #1a1a1a;
+            color: #1a1a1a;
             border-bottom: 1px solid #cccccc;
         }
+
+
     </style>
 </head>
 <body ng-controller="PriceCtrl">
+<!--loding 图片-->
+<div class="loader">
+    <div class="loader-content">
+        <img src="style/images-4/loading.gif" alt="Loader" class="loader-loader"/>
+    </div>
+</div>
 <!--公共标题栏-->
 <section class="commonTit tm clearfix">
     <a href="index.html"><i class="return fl icon-angle-left"></i></a>
@@ -111,11 +126,11 @@
     <ul class="news-list" style="display: block;">
         <li ng-repeat="item61 in items61">
             <a href="infoDetails-threeL.html?contentid={{item61.contentid}}">
-            <h1 class="news-tit">{{item61.contenttitle}}</h1>
-            <p class="ellipsis-3">
-                {{item61.abstract}}
-            </p>
-            <p>{{item61.contentinputtime * 1000 | date:'yyyy-MM-dd'}}</p>
+                <h1 class="news-tit">{{item61.contenttitle}}</h1>
+                <p class="ellipsis-3">
+                    {{item61.abstract}}
+                </p>
+                <p>{{item61.contentinputtime * 1000 | date:'yyyy-MM-dd'}}</p>
             </a>
         </li>
 
@@ -147,9 +162,9 @@
 </section>
 </body>
 <script>
-    $(function(){
-        $(".news-tab span").click(function(){
-            var num=$(this).index();
+    $(function () {
+        $(".news-tab span").click(function () {
+            var num = $(this).index();
             $(this).addClass("on").siblings("span").removeClass("on");
             $(".news-list").eq(num).fadeIn().siblings("ul.news-list").hide();
         })
