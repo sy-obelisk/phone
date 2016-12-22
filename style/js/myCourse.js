@@ -39,6 +39,7 @@ $(function(){
         }).success(function(data) {
             if(data.userData==false){
                 //头部个人中心图标未登陆点击跳转到登陆
+                location.href="login.html";
                 $("#personIcon").click(function(){location.href="login.html"});
             }else{
                 $(".loader").fadeOut(100);

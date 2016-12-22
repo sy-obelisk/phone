@@ -25,13 +25,18 @@ $(function(){
                 type:types
             }
         }).success(function(data) {
-            $(".loader").fadeOut(100);
-            $scope.mkscoreid=data.mkscoreid;
-            $scope.correct = data.correct;
-            $scope.mklist_num = data.mklist_num;
-            $scope.mklist_all = data.mklist_all;
-            $scope.photo = data.userData.photo;
-            $scope.nickname = data.userData.nickname;
+            if(data.userCode==0){
+                location.href="login.html"
+            }else {
+                $(".loader").fadeOut(100);
+                $scope.mkscoreid=data.mkscoreid;
+                $scope.correct = data.correct;
+                $scope.mklist_num = data.mklist_num;
+                $scope.mklist_all = data.mklist_all;
+                $scope.photo = data.userData.photo;
+                $scope.nickname = data.userData.nickname;
+            }
+
 
         });
     }]);
