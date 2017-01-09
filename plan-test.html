@@ -81,20 +81,15 @@
             font-size: 0.6rem;
         }
 
-        .refresh {
+        .scroller .loading {
             color: #999;
-            display: none;
             text-align: center;
             font-size: 0.4rem;
             padding: 0.5rem 0;
-
         }
 
-        .touchend {
-            transition: all 0.6s ease-out;
-            -webkit-transform: translate(0, 0) translateZ(0);
-            transform: translate(0, 0) translateZ(0);
-        cubic-bezier(0.1, 0.57, 0.1, 1);
+        .scroller {
+            -webkit-overflow-scrolling: touch;
         }
 
     </style>
@@ -106,11 +101,10 @@
     <span class="Tit inb">备考八卦</span>
     <a class="fr" href="forum.html"><img src="style/images-4/icon-pen.png" style="height: 0.8rem" alt=""></a>
 </section>
-<!--消息提醒-->
-<section>
-    <div id="wrapper" class="wrapper" style="transform: translate(0px, 0px) translateZ(0px);">
-        <div id="refresh" class="refresh">
-            <span class="text">刷新中...</span>
+<section style="overflow:hidden;">
+    <div id="container" class="scroller">
+        <div class="loading">
+            下拉刷新数据
         </div>
         <section class="hintWrap tm">
             <a href="message.html">
@@ -118,12 +112,10 @@
                         class="msg">你有{{num}}条新消息</span></div>
             </a>
         </section>
-        <ul class="publish-list">
-
+        <ul class="publish-list scroll">
             <li ng-repeat="item1 in items1">
                 <div class="user-wrap">
-                    <div class="plan-userHeader inb"><img src="http://www.gmatonline.cn/{{item1.icon}}"
-                                                          onerror="this.src='style/images/userDefault.png'" alt="">
+                    <div class="plan-userHeader inb"><img src="http://www.gmatonline.cn/{{item1.icon}}" onerror="this.src='style/images/userDefault.png'" alt="">
                     </div>
                     <div class="inb">
                         <p class="user-name">{{item1.publisher}}</p>
@@ -222,71 +214,136 @@
 </body>
 
 <script type="text/javascript">
-
-    $(function () {
-
-        var wrapper = document.getElementById('wrapper');
-        var body = document.body;
-        var start, diff;
-        document.addEventListener('touchstart', function (event) {
-            if (event.targetTouches.length == 1) {
-                var touch = event.targetTouches[0];
-                start = touch.pageY;
+    var slide = function (option) {
+        var defaults = {
+            container: '',
+            next: function () {
             }
-        }, false);
-        function touchend(){
-            document.addEventListener('touchend', function (event) {
-                $(wrapper).css({
-                    '-webkit-transform': 'translate(0, 0) translateZ(0)',
-                    'transform': 'translate(0, 0) translateZ(0)'
-                });
-                if (body.scrollTop === 0) {
-                    $(wrapper).addClass("touchend").animate({top: "0"}, 600, function () {
-                        $(".refresh").show();
-                        location.reload();
-                    })
+        };
+        var start,
+                end,
+                length,
+                isLock = false,//是否锁定整个操作
+                isCanDo = false,//是否移动滑块
+                isTouchPad = (/hp-tablet/gi).test(navigator.appVersion),
+                hasTouch = 'ontouchstart' in window && !isTouchPad;
+        var obj = document.querySelector(option.container);
+        var loading = obj.firstElementChild;
+        var offset = loading.clientHeight;
+        var objparent = obj.parentElement;
+        /*操作方法*/
+        var fn =
+        {
+            //移动容器
+            translate: function (diff) {
+                obj.style.webkitTransform = 'translate3d(0,' + diff + 'px,0)';
+                obj.style.transform = 'translate3d(0,' + diff + 'px,0)';
+            },
+            //设置效果时间
+            setTransition: function (time) {
+                obj.style.webkitTransition = 'all ' + time + 's';
+                obj.style.transition = 'all ' + time + 's';
+            },
+            //返回到初始位置
+            back: function () {
+                fn.translate(0 - offset);
+                //标识操作完成
+                isLock = false;
+            },
+            addEvent: function (element, event_name, event_fn) {
+                if (element.addEventListener) {
+                    element.addEventListener(event_name, event_fn, false);
+                } else if (element.attachEvent) {
+                    element.attachEvent('on' + event_name, event_fn);
+                } else {
+                    element['on' + event_name] = event_fn;
                 }
-//            if(body.scrollTop === 0){
-//                $(wrapper).animate({
-//                    '-webkit-transform': 'translate(0, 0) translateZ(0)',
-//                    'transform': 'translate(0, 0) translateZ(0)'
-//                }, 600, 'cubic-bezier(0.1, 0.57, 0.1, 1)', function() {
-//                    location.reload();
-//                })
-//            }
-            }, false);
+            }
+        };
+
+        fn.translate(0 - offset);
+        fn.addEvent(obj, 'touchstart', start);
+        fn.addEvent(obj, 'touchmove', move);
+        fn.addEvent(obj, 'touchend', end);
+        fn.addEvent(obj, 'mousedown', start)
+        fn.addEvent(obj, 'mousemove', move)
+        fn.addEvent(obj, 'mouseup', end)
+
+        //滑动开始
+        function start(e) {
+            if (objparent.scrollTop <= 0 && !isLock) {
+                var even = typeof event == "undefined" ? e : event;
+                //标识操作进行中
+                isLock = true;
+                isCanDo = true;
+                //保存当前鼠标Y坐标
+                start = hasTouch ? even.touches[0].pageY : even.pageY;
+                //消除滑块动画时间
+                fn.setTransition(0);
+                loading.innerHTML = '下拉刷新...';
+            }
+            return false;
         }
 
-
-        document.addEventListener('touchmove', function (event) {
-            if (body.scrollTop > 0) {
-                diff = 0;
-                return false;
-            }
-            if (diff < 0) {
-                $(wrapper).css({
-                    '-webkit-transform': 'translate(0, 0) translateZ(0)',
-                    'transform': 'translate(0, 0) translateZ(0)'
-                });
-                return false;
-            }
-            if (body.scrollTop === 0) {
-                $(wrapper).removeClass("touchend");
-                if (event.targetTouches.length == 1) {
-                    event.preventDefault();
-                    var touch = event.targetTouches[0];
-                    diff = touch.pageY - start;
-                    $(wrapper).css({
-                        '-webkit-transform': 'translate(0, ' + diff / 3 + 'px) translateZ(0)',
-                        'transform': 'translate(0, ' + diff / 3 + 'px) translateZ(0)'
-                    });
-                    touchend();
+        //滑动中
+        function move(e) {
+            if (objparent.scrollTop <= 0 && isCanDo) {
+                var even = typeof event == "undefined" ? e : event;
+                //保存当前鼠标Y坐标
+                end = hasTouch ? even.touches[0].pageY : even.pageY;
+                if (start < end) {
+                    even.preventDefault();
+                    //消除滑块动画时间
+                    fn.setTransition(0);
+                    //移动滑块
+                    if ((end - start - offset) / 2 <= 150) {
+                        length = (end - start - offset) / 2;
+                        fn.translate(length);
+                    }
+                    else {
+                        length += 0.3;
+                        fn.translate(length);
+                    }
                 }
             }
-        }, false);
+        }
 
+        //滑动结束
+        function end(e) {
+            if (isCanDo) {
+                isCanDo = false;
+                //判断滑动距离是否大于等于指定值
+                if (end - start >= offset) {
+                    //设置滑块回弹时间
+                    fn.setTransition(1);
+                    //保留提示部分
+                    fn.translate(0);
+                    //执行回调函数
+                    loading.innerHTML = '正在刷新...';
 
+                    if (typeof option.next == "function") {
+                        option.next.call(fn, e);
+                    }
+                } else {
+                    //返回初始状态
+                    fn.back();
+                }
+            }
+        }
+    };
+    slide({
+        container: "#container", next: function (e) {
+            //松手之后执行逻辑,ajax请求数据，数据返回后隐藏加载中提示
+            var that = this;
+            setTimeout(function () {
+                that.back.call();
+                location.reload();
+            }, 2000);
+
+        }
     });
+
+
     //    查看图片
     $(function ($) {
         $(".swipebox").swipebox({
