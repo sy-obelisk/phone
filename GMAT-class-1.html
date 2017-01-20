@@ -62,7 +62,7 @@
 <section class="wrap">
     <div class="swiper-container">
         <ul class="swiper-wrapper banner-wrap">
-            <li class="swiper-slide" ng-repeat="item1 in items1" ng-class="{'courseHide':$index>3}">
+            <li class="swiper-slide" ng-repeat="item1 in items1" ng-class="{'courseHide':$index<5}">
                 <a href="videoDetails.html?contentId={{item1.contentid}}&type=1"><img src="http://www.gmatonline.cn/{{item1.contentthumb}}" alt=""></a>
                 <div class="banner-tit-wrap clearfix">
                     <span class="banner-tit fl">{{item1.contenttitle}}</span>
@@ -74,7 +74,7 @@
 </section>
 <section class="wrap">
     <ul class="hot-list clearfix">
-        <li ng-repeat="item1 in items1" ng-class="{'courseHide':$index<4}">
+        <li ng-repeat="item1 in items1" ng-class="{'courseHide':$index<6}">
             <div class="hot-img"><a href="videoDetails.html?contentId={{item1.contentid}}&type=1"><img src="http://www.gmatonline.cn/{{item1.contentthumb}}" alt=""></a></div>
             <div class="hot-wrap clearfix">
                 <div class="inb hot-info">

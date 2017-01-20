@@ -67,7 +67,7 @@ input[type='button']{
 }
 .blueNav b{
     font-weight: normal;
-    float: left;
+    /*float: left;*/
     font-size: 1.3em;
     position: absolute;
     left: 2%;

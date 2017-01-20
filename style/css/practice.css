@@ -125,6 +125,7 @@
     border-bottom: 1px solid #cdcdcd;
     border-left: 1px solid #cdcdcd;
     transform:rotate(45deg) ;
+    -webkit-transform:rotate(45deg) ;
     -moz-transform:rotate(45deg);
     position: absolute;
     left: -5px;

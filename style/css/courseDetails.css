@@ -45,6 +45,10 @@
     margin-bottom: 50px;
     word-wrap: break-word;
 }
+.courseIntroduce .contentText img{
+    height: auto!important;
+    max-width: 100%!important;
+}
 .courseIntroduce h2{
     color: #0cbd61;
     /*margin-bottom: 20px;*/
