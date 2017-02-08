@@ -46,7 +46,7 @@ function register(){
     var username=$("#username").val();
     var phoneCode=sessionStorage.getItem("phoneCode");
     $.ajax({
-        url: 'http://login.viplgw.cn/cn/wap-api/register',
+        url: 'http://login.gmatonline.cn/cn/wap-api/register',
         data: {
             registerStr: phone,
             type:1,
@@ -82,7 +82,7 @@ function phoneCode(e){
     var phone=$("#phone").val();
     $.ajax({
         //url: 'http://www.gmatonline.cn/index.php?web/appapi/phonecode',
-        url: 'http://login.viplgw.cn/cn/wap-api/phone-code',
+        url: 'http://login.gmatonline.cn/cn/wap-api/phone-code',
         data: {
             phoneNum: phone,
             type:'1',
@@ -115,7 +115,7 @@ function foundPwd(){
     var phoneCode=sessionStorage.getItem("phoneCode");
 
     $.ajax({
-        url: 'http://login.viplgw.cn/cn/wap-api/find-pass',
+        url: 'http://login.gmatonline.cn/cn/wap-api/find-pass',
         data: {
             type:'1',
             code: code,
@@ -143,7 +143,7 @@ function login() {
     var username = $("#phone").val();
     //var username = $("#username").val();
     var password = $("#password").val();
-    $.post('http://login.viplgw.cn/cn/wap-api/gmat-check-login', {
+    $.post('http://login.gmatonline.cn/cn/wap-api/gmat-check-login', {
         userName: username,
         userPass: password
     }, function (data) {
@@ -159,7 +159,7 @@ function login() {
         }else {
             $.ajax({
                 type: "post",
-                url: "http://toefl.viplgw.cn/cn/wap-api/unify-login?uid=" + data.uid + "&username=" + data.username + "&password=" + data.password
+                url: "http://www.toeflonline.cn/cn/wap-api/unify-login?uid=" + data.uid + "&username=" + data.username + "&password=" + data.password
                 + "&email=" + data.email + "&phone=" + data.phone,
                 dataType: "jsonp",
                 jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(默认为:callback)
