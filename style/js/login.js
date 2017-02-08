@@ -34,7 +34,7 @@ function login() {
                     //留学
                     $.ajax({
                         type: "post",
-                        url: "http://smartapply.viplgw.cn/cn/wap-api/unify-login?uid=" + data.uid + "&username=" + data.username + "&password=" + data.password
+                        url: "http://smartapply.gmatonline.cn /cn/wap-api/unify-login?uid=" + data.uid + "&username=" + data.username + "&password=" + data.password
                         + "&email=" + data.email + "&phone=" + data.phone,
                         dataType: "jsonp",
                         jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(默认为:callback)
