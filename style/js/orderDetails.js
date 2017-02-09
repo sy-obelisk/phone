@@ -18,7 +18,7 @@ $(function(){
                 orderid:orderId
             }
         }).success(function(data) {
-            console.log(data)
+            $scope.userid=userId;
             $scope.course=data.data.course;
             $scope.contenttitle=data.data.course.contenttitle;
             $scope.contentthumb=data.data.course.contentthumb;
