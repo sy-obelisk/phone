@@ -85,8 +85,23 @@ $(function () {
             }
 
         });
+        //开屏图片
+        $http({
+            method: 'post',
+            url: 'http://gmatonline.cc/index.php?web/wapapi/adPicture',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+        }).success(function (data) {
+            if (data.switch=="false"){
+                $('.start_wrap').hide();
+
+            }else {
+                $scope.imgUrl=data.url;
+            }
 
 
+        });
 
     }]);
 });

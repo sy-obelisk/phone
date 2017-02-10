@@ -46,38 +46,97 @@
             background: url("style/images-4/bg-1.png") no-repeat 0 0;
             background-size: cover;
         }
-        .link-list{
+
+        .link-list {
             overflow: hidden;
             padding: 0rem 0.6rem 2.5rem;
         }
-        .link-list li{
+
+        .link-list li {
             width: 48%;
             border-radius: 5px;
             height: 5.3rem;
             margin: 0.5rem 0;
             background: rgba(255, 255, 255, 0.3);
         }
-        .link-list li:nth-child(odd){
+
+        .link-list li:nth-child(odd) {
             float: left;
         }
-        .link-list li:nth-child(even){
+
+        .link-list li:nth-child(even) {
             float: right;
         }
-        .link-wrap{
+
+        .link-wrap {
             padding-top: 0.7rem;
             text-align: center;
         }
-        .link-wrap img{
-            height:1.8rem;
+
+        .link-wrap img {
+            height: 1.8rem;
             margin-bottom: 0.6rem;
         }
-        .link-wrap p{
+
+        .link-wrap p {
             color: #ffffff;
             font-size: 0.6rem;
+        }
+
+        .start_wrap {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            z-index: 9999;
+        }
+
+        .start_list {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .start_list li a {
+            width: 100%;
+            height: 100%;
+            display: block;
+            background-size: cover !important;
+        }
+
+        .baner-page {
+            bottom: 8px;
+        }
+
+        .close_btn {
+            position: absolute;
+            right: 8px;
+            bottom: 8px;
+            z-index: 9999;
+            width: 60px;
+            height: 18px;
+            border-radius: 15px;
+            line-height: 18px;
+            font-size: 12px;
+            color: #ffffff;
+            text-align: center;
+            background: rgba(187, 187, 187, 0.61);
         }
     </style>
 </head>
 <body id="index" ng-controller="PriceCtrl">
+<div class="swiper-container-1 start_wrap">
+    <div class="close_btn">跳过 <em id="time">4</em>s</div>
+    <ul class="swiper-wrapper start_list">
+        <li class="swiper-slide">
+            <a style="background: url('{{imgUrl}}') no-repeat center" href="#"></a>
+        </li>
+    </ul>
+    <!--<div class="baner-page swiper-pagination"></div>-->
+</div>
+
 <!--设置-->
 <section class="header-user">
     <div class="row">
@@ -163,7 +222,6 @@
         </li>
     </ul>
 </nav>
-
 <!--footer-->
 <footer>
     <div class="row" style="margin: 0 auto">
@@ -214,4 +272,28 @@
     </div>
 </footer>
 </body>
+<script>
+    //    var mySwiper = new Swiper('.swiper-container-1', {
+    //        observer: true,
+    //        autoplay: 3000,
+    //        loop:false,
+    //        observeParents: true,
+    //        pagination : '.swiper-pagination',
+    //    });
+    $('.close_btn').click(function () {
+        $('.start_wrap').fadeOut();
+    });
+    var time = parseInt($("#time").html());
+    setTime = setInterval(function () {
+        if (time <= 0) {
+            clearInterval(setTime);
+            $('.start_wrap').fadeOut();
+            return;
+        }
+        time--;
+        $("#time").html(time);
+    }, 1000);
+
+
+</script>
 </html>
