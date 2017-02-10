@@ -280,7 +280,14 @@
     //        observeParents: true,
     //        pagination : '.swiper-pagination',
     //    });
+    var flag=sessionStorage.getItem("flag");
+    if(flag=="true"){
+        $('.start_wrap').hide();
+    }else {
+        $('.start_wrap').show();
+    }
     $('.close_btn').click(function () {
+       sessionStorage.setItem("flag","true");
         $('.start_wrap').fadeOut();
     });
     var time = parseInt($("#time").html());
@@ -288,6 +295,7 @@
         if (time <= 0) {
             clearInterval(setTime);
             $('.start_wrap').fadeOut();
+            sessionStorage.setItem("flag","true");
             return;
         }
         time--;

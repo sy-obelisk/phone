@@ -36,8 +36,8 @@ $(function () {
             $scope.rank = data.userData.rank;
             $scope.photo = data.userData.photo;
             //判断是否登陆,首页显示登录或者未登录不同的div
-            if ($scope.photo==""){
-                $scope.photo="/app/web_core/styles/images-3/details_defaultImg.png"
+            if ($scope.photo == "") {
+                $scope.photo = "/app/web_core/styles/images-3/details_defaultImg.png"
             }
             if ($scope.userCode == 1) {
                 $(".loginR").hide();
@@ -47,7 +47,7 @@ $(function () {
                 });
             } else {
                 $(".userApply li").eq(5).find("span").html("登录/注册");
-                $(".userApply li").eq(5).find("a").attr("href",'login.html');
+                $(".userApply li").eq(5).find("a").attr("href", 'login.html');
                 //头部个人中心图标未登陆点击跳转到登陆
                 $(".userName").html("游客");
                 $(".user-btn").html("登录").click(function () {
@@ -71,7 +71,7 @@ $(function () {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             data: {
-                section:6,
+                section: 6,
                 userid: userId
             }
         }).success(function (data) {
@@ -88,18 +88,18 @@ $(function () {
         //开屏图片
         $http({
             method: 'post',
-            url: 'http://gmatonline.cc/index.php?web/wapapi/adPicture',
+            url: 'http://www.gmatonline.cn/index.php?web/wapapi/adPicture',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
-            },
+            }
         }).success(function (data) {
-            if (data.switch=="false"){
+            if (data.switch == "false") {
                 $('.start_wrap').hide();
 
-            }else {
-                $scope.imgUrl=data.url;
+            } else {
+                $scope.imgUrl = data.url;
+                sessionStorage.setItem("flag", "true");
             }
-
 
         });
 
