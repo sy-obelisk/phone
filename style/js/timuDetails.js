@@ -43,12 +43,12 @@ function chooseAnswer(o){
 function seeCheck(o){
         if($(o).hasClass("on")){
             $(o).removeClass("on").html("查看解析").siblings(".parsing").animate({
-                "top":"-42px"
+                "bottom":"-300px"
             },function(){$(this).fadeOut().css("top",0)});
             return false;
         }else{
             $(o).addClass("on").html("收起解析").siblings(".parsing").show().animate({
-                "top":"-="+($(".parsing").height()+42)+"px"
+                "bottom":"42px"
             });
         }
 }
