@@ -2,6 +2,7 @@ $(function(){
     //获取页面参数
     var Request=GetRequests();
     var sections=Request['section'];
+    var page="1";
    if(sections==6){
        $(".resultHd ul li:first-child").addClass("on");
    }else if(sections==8){
@@ -21,11 +22,12 @@ $(function(){
     myApp.controller("PriceCtrl",["$scope","$http",function($scope,$http){
         $http({
             method: 'post',
-            url: 'http://www.gmatonline.cn/index.php?web/appapi/ProblemRecord',
+            url: 'http://www.gmatonline.cn/index.php?web/appapi/ProblemRecordUpdate',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             data:{
+                page:page,
                 userid:userId,
                 section:sections
             }

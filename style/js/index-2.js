@@ -64,27 +64,27 @@ $(function () {
         });
 
         //做题数量
-        $http({
-            method: 'post',
-            url: 'http://www.gmatonline.cn/index.php?web/appapi/ProblemRecord',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            data: {
-                section: 6,
-                userid: userId
-            }
-        }).success(function (data) {
-            if (data.userCode == 0) {
-                $(".test-percent").html("0%");
-                $(".test-num").html("0");
-            } else {
-                $scope.questionrecord = data.questionrecord[0];
-                $scope.correct = data.correct;
-                $scope.num = data.totalnum.num;
-            }
-
-        });
+        //$http({
+        //    method: 'post',
+        //    url: 'http://www.gmatonline.cn/index.php?web/appapi/ProblemRecord',
+        //    headers: {
+        //        'Content-Type': 'application/x-www-form-urlencoded'
+        //    },
+        //    data: {
+        //        section: 6,
+        //        userid: userId
+        //    }
+        //}).success(function (data) {
+        //    if (data.userCode == 0) {
+        //        $(".test-percent").html("0%");
+        //        $(".test-num").html("0");
+        //    } else {
+        //        $scope.questionrecord = data.questionrecord[0];
+        //        $scope.correct = data.correct;
+        //        $scope.num = data.totalnum.num;
+        //    }
+        //
+        //});
         //开屏图片
         $http({
             method: 'post',
