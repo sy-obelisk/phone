@@ -24,11 +24,12 @@ $(function(){
     myApp.controller("PriceCtrl",["$scope","$http",function($scope,$http){
         $http({
             method: 'post',
-            url: 'http://www.gmatonline.cn/index.php?web/appapi/ProblemFalseRecord',
+            url: 'http://www.gmatonline.cn/index.php?web/appapi/ProblemFalseRecordUpdate',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             data:{
+                page:'1',
                 userid:userId,
                 section:sections
             }
