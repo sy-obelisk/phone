@@ -98,8 +98,75 @@
             </ul>
 
         </div>
+        <div class="tm showMore">上拉加载更多...</div>
     </div>
-
 </div>
 </body>
+<script>
+    $(document).ready(function () {
+        $(window).scroll(function () {
+//            if ($(document).scrollTop() <= 0) {
+//                alert("滚动条已经到达顶部为0");
+//            }
+            if ($(document).scrollTop() >= $(document).height() - $(window).height()-15) {
+                el = document.querySelector("#wrapper ul");
+                var userId = localStorage.getItem("userId");
+                if($(".showMore").html()=="暂无更多数据！"){
+                    return false;
+                }else {
+                    $.ajax({
+                        url: 'http://www.gmatonline.cn/index.php?web/appapi/ProblemFalseRecordAjax', // 跳转到 action
+                        data: {
+                            userid: userId,
+                            section: $("#section").val(),
+                            page: parseInt($("#pageSize").val()) + 1
+                        },
+                        type: 'post',
+                        cache: false,
+                        dataType: 'json',
+                        beforeSend:function(){
+                            $(".showMore").html("加载中...！")
+                        },
+                        success: function (data) {
+                            if (data.questionrecord==""){
+                                $(".showMore").html("暂无更多数据！");
+                            }else {
+                                $("#pageSize").val(data.page);
+                                $.each(data.questionrecord, function (k, v) {
+                                    li = document.createElement('li');
+                                    a = document.createElement('a');
+                                    b = document.createElement('b');
+                                    span = document.createElement('span');
+                                    p = document.createElement('p');
+                                    span02 = document.createElement('span');
+                                    span03 = document.createElement('span');
+                                    b.innerHTML = v.sections + "-" + v.questionid + "-" + v.twoname;
+                                    span.innerHTML = v.answertime;
+                                    span02.innerHTML = v.qanswer;
+                                    span03.innerHTML = '/' + v.questionanswer;
+                                    if (v.qanswer == v.questionanswer) {
+                                        span02.className = "green";
+                                    } else {
+                                        span02.className = "red";
+                                    }
+                                    a.appendChild(b);
+                                    a.appendChild(span);
+                                    a.appendChild(p);
+                                    p.appendChild(span02);
+                                    p.appendChild(span03);
+                                    li.appendChild(a);
+                                    el.appendChild(li, el.childNodes[0]);
+                                });
+                            }
+                        }
+                    });
+                }
+
+            }
+        });
+    });
+
+
+
+</script>
 </html>

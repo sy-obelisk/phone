@@ -21,7 +21,7 @@
 }
 .resultContent{
     width: 100%;
-    margin-bottom: 80px;
+    /*margin-bottom: 80px;*/
 }
 .resultHd{
     width: 100%;
@@ -76,4 +76,13 @@
 }
 .dataS ul li p span.red{
     color: #f23131;
+}
+.tm{
+    text-align: center;
+}
+.showMore{
+    margin-top: 1em;
+    font-size: 0.8em;
+    height: 30px;
+    line-height: 30px;
 }

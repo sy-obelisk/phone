@@ -22,8 +22,8 @@
     <script type="text/javascript" src="style/js/TouchSlide.1.1.js"></script>
     <script type="text/javascript" src="style/js/public.js"></script>
     <script type="text/javascript" src="style/js/recordProblem.js"></script>
-    <!--<script type="text/javascript" src="style/js/iscroll.js"></script>-->
-    <!--<script type="text/javascript" src="style/js/pullToRefresh.js"></script>-->
+    <script type="text/javascript" src="style/js/iscroll.js"></script>
+    <script type="text/javascript" src="style/js/pullToRefresh.js"></script>
     <script type="text/javascript" src="style/js/angular1.3.1.js"></script>
 </head>
 <body>
@@ -43,135 +43,122 @@
     </div>
     <!--正确率-->
     <div class="accuracy">
-         <div class="col-xs-6 col-xs-6">
-             <div class="resultDiv haveB">
-                 <h4>{{num}}</h4>
-                 <span>共做题</span>
-             </div>
-         </div>
-         <div class="col-xs-6 col-xs-6">
-             <div class="resultDiv haveB">
-                 <h4>{{correct}}</h4>
-                 <span>正确率</span>
-             </div>
-         </div>
-         <div class="clearBox"></div>
+        <div class="col-xs-6 col-xs-6">
+            <div class="resultDiv haveB">
+                <h4>{{num}}</h4>
+                <span>共做题</span>
+            </div>
+        </div>
+        <div class="col-xs-6 col-xs-6">
+            <div class="resultDiv haveB">
+                <h4>{{correct}}</h4>
+                <span>正确率</span>
+            </div>
+        </div>
+        <div class="clearBox"></div>
     </div>
     <!--做题结果-->
-     <div class="resultContent">
-         <div class="resultHd">
-             <ul>
-                 <li><a href="recordProblem.html?section=6">SC</a></li>
-                 <li><a href="recordProblem.html?section=8">CR</a></li>
-                 <li><a href="recordProblem.html?section=7">RC</a></li>
-                 <li><a href="recordProblem.html?section=4">PS</a></li>
-                 <li><a href="recordProblem.html?section=5">DS</a></li>
-             </ul>
-             <div class="clearBox"></div>
-         </div>
-         <div class="resultBd">
-             <ul>
-                 <li>
-                     <div class="dataS" id="wrapper">
-                         <ul>
-                             <li ng-repeat="questionrecordT in questionrecord">
-                                 <a href="timuDetails.html?queId={{questionrecordT.questionid}}">
-                                     <b>{{questionrecordT.sections}}-{{questionrecordT.questionid}}-{{questionrecordT.twoname}}</b>
-                                    <span>{{questionrecordT.qanswer.answertime}}</span>
-                                     <p><span ng-class="{'green':'{{questionrecordT.qanswer}}'=='{{questionrecordT.questionanswer}}',
+    <div class="resultContent">
+        <div class="resultHd">
+            <ul>
+                <li><a href="recordProblem.html?section=6">SC</a></li>
+                <li><a href="recordProblem.html?section=8">CR</a></li>
+                <li><a href="recordProblem.html?section=7">RC</a></li>
+                <li><a href="recordProblem.html?section=4">PS</a></li>
+                <li><a href="recordProblem.html?section=5">DS</a></li>
+            </ul>
+            <div class="clearBox"></div>
+        </div>
+        <div class="resultBd">
+            <ul>
+                <li>
+                    <div class="dataS" id="wrapper">
+                        <ul>
+                            <li ng-repeat="questionrecordT in questionrecord">
+                                <a href="timuDetails.html?queId={{questionrecordT.questionid}}">
+                                    <b>{{questionrecordT.sections}}-{{questionrecordT.questionid}}-{{questionrecordT.twoname}}</b>
+                                    <span>{{questionrecordT.answertime*1000 | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+                                    <p><span ng-class="{'green':'{{questionrecordT.qanswer}}'=='{{questionrecordT.questionanswer}}',
                                      'red':'{{questionrecordT.qanswer}}'!='{{questionrecordT.questionanswer}}'}">
                                          {{questionrecordT.qanswer}}</span>/{{questionrecordT.questionanswer}}</p>
-                                 </a>
-                             </li>
-                         </ul>
-                     </div>
-                 </li>
-             </ul>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
 
-         </div>
-     </div>
+        </div>
+        <div class="tm showMore">上拉加载更多...</div>
+    </div>
 
 </div>
 
 <script>
-    refresher.init({
-        id: "wrapper",
-        pullDownAction: Refresh,
-        pullUpAction: Load
-    });
-    var el, li, i, a, b,span, p,span02;
-    function Refresh() {
-        setTimeout(function () {
-            el = document.querySelector("#wrapper ul");
-            el.innerHTML = '';
-            for (i = 0; i < 11; i++) {
-                ajaxFun();
-            }
-            wrapper.refresh();
-        }, 1000);
-
-    }
-
-    function Load() {
-        setTimeout(function () {
-//            var el, li, i, a, b,span, p,span02;
-            el = document.querySelector("#wrapper ul");
-//            for (i = 0; i < 2; i++) {
-            ajaxFun();
+    $(document).ready(function () {
+        $(window).scroll(function () {
+//            if ($(document).scrollTop() <= 0) {
+//                alert("滚动条已经到达顶部为0");
 //            }
-            wrapper.refresh();
-        }, 1000);
-    }
-
-
-    function ajaxFun(){
-        var userId=sessionStorage.getItem("userId");
-        $.ajax({
-            url : 'http://www.gmatonline.cn/index.php?web/appapi/getrecord', // 跳转到 action
-            data : {
-                userid:userId,
-                section:$("#section").val(),
-                pageSize:parseInt($("#pageSize").val())+1
-            },
-            type : 'post',
-            cache : false,
-            dataType : 'json',
-            success : function(data) {
-                if(data.lidata){
-                    $("#pageSize").val(data.pageSize);
-                    $.each(data.lidata,function(k,v){
-                        li = document.createElement('li');
-                        a = document.createElement('a');
-                        b = document.createElement('b');
-                        span = document.createElement('span');
-                        p = document.createElement('p');
-                        span02 = document.createElement('span');
-                        span03 = document.createElement('span');
-
-                        b.innerHTML= v.sections+"-"+ v.questionid+"-"+ v.twoname;
-                        span.innerHTML= v.qanswer.answertime;
-                        span02.innerHTML= v.qanswer.qanswer;
-                        span03.innerHTML= '/'+v.questionanswer;
-                        if(v.qanswer.qanswer==v.questionanswer){
-                            span02.className="green";
-                        }else{
-                            span02.className="red";
+            if ($(document).scrollTop() >= $(document).height() - $(window).height()-30) {
+                el = document.querySelector("#wrapper ul");
+                var userId = localStorage.getItem("userId");
+                if($(".showMore").html()=="暂无更多数据！"){
+                    return false;
+                }else {
+                    $.ajax({
+                        url: 'http://www.gmatonline.cn/index.php?web/appapi/ProblemRecordAjax', // 跳转到 action
+                        data: {
+                            userid: userId,
+                            section: $("#section").val(),
+                            page: parseInt($("#pageSize").val()) + 1
+                        },
+                        type: 'post',
+                        cache: false,
+                        dataType: 'json',
+                        beforeSend:function(){
+                            $(".showMore").html("加载中...！")
+                        },
+                        success: function (data) {
+                            if (data.questionrecord==""){
+                                $(".showMore").html("暂无更多数据！")
+                            }else {
+                                $("#pageSize").val(data.page);
+                                $.each(data.questionrecord, function (k, v) {
+                                    li = document.createElement('li');
+                                    a = document.createElement('a');
+                                    b = document.createElement('b');
+                                    span = document.createElement('span');
+                                    p = document.createElement('p');
+                                    span02 = document.createElement('span');
+                                    span03 = document.createElement('span');
+                                    b.innerHTML = v.sections + "-" + v.questionid + "-" + v.twoname;
+                                    span.innerHTML = v.answertime;
+                                    span02.innerHTML = v.qanswer;
+                                    span03.innerHTML = '/' + v.questionanswer;
+                                    if (v.qanswer == v.questionanswer) {
+                                        span02.className = "green";
+                                    } else {
+                                        span02.className = "red";
+                                    }
+                                    a.appendChild(b);
+                                    a.appendChild(span);
+                                    a.appendChild(p);
+                                    p.appendChild(span02);
+                                    p.appendChild(span03);
+                                    li.appendChild(a);
+                                    el.appendChild(li, el.childNodes[0]);
+                                });
+                            }
                         }
-                        a.appendChild(b);
-                        a.appendChild(span);
-                        a.appendChild(p);
-                        p.appendChild(span02);
-                        p.appendChild(span03);
-                        li.appendChild(a);
-                        el.appendChild(li, el.childNodes[0]);
                     });
-
                 }
 
             }
         });
+    });
 
-    }
+
 
 </script>
 </body>

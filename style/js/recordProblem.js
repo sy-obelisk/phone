@@ -39,9 +39,7 @@ $(function(){
                 $scope.correct = data.correct;
                 $scope.num = data.totalnum.num;
                 $scope.questionrecord = data.questionrecord;
-                $scope.pageSize = data.pageSize;
-                $scope.photo = data.userinfo.photo;
-                $scope.nickname = data.userinfo.nickname;
+                $scope.pageSize = data.page;
             }
 
         });
