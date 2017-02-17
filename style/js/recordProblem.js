@@ -33,6 +33,9 @@ $(function(){
             }
         }).success(function(data) {
             $(".loader").fadeOut(100);
+            if (data.questionrecord==""){
+                $(".showMore").html("暂未做题");
+            }
             if(data.userCode==0){
                 location.href="login.html";
             }else{
