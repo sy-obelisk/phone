@@ -55,13 +55,13 @@ function chooseAnswer(o){
 //查看解析
 function seeCheck(o){
     if($(o).hasClass("on")){
-        $(o).removeClass("on").html("查看解析").siblings(".parsing").animate({
+        $(o).removeClass("on").html("查看解析").siblings(".parsing").stop(true).animate({
             "bottom":"-300px"
-        },function(){$(this).fadeOut().css("top",0)});
+        });
         return false;
     }else{
-        $(o).addClass("on").html("收起解析").siblings(".parsing").show().animate({
-            "bottom":"42px"
+        $(o).addClass("on").html("收起解析").siblings(".parsing").stop(true).animate({
+            "bottom":"45px"
         });
     }
 }

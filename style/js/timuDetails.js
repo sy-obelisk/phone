@@ -41,16 +41,16 @@ function chooseAnswer(o){
 }
 //查看解析
 function seeCheck(o){
-        if($(o).hasClass("on")){
-            $(o).removeClass("on").html("查看解析").siblings(".parsing").animate({
-                "bottom":"-300px"
-            },function(){$(this).fadeOut().css("top",0)});
-            return false;
-        }else{
-            $(o).addClass("on").html("收起解析").siblings(".parsing").show().animate({
-                "bottom":"42px"
-            });
-        }
+    if($(o).hasClass("on")){
+        $(o).removeClass("on").html("查看解析").siblings(".parsing").stop(true).animate({
+            "bottom":"-300px"
+        });
+        return false;
+    }else{
+        $(o).addClass("on").html("收起解析").siblings(".parsing").stop(true).animate({
+            "bottom":"45px"
+        });
+    }
 }
 //下一题
 function nextTimu(){
