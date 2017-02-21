@@ -43,7 +43,7 @@ $(function () {
             img.push(val);
         });
         $.ajax({
-            url: "http://gossip.viplgw.cn/cn/wap-api/add-gossip",
+            url: "http://gossip.gmatonline.cn/cn/wap-api/add-gossip",
             type: "POST",
             data:{
                 uid:wapUid,
@@ -77,7 +77,7 @@ $(function () {
         var form=document.getElementById("upform");
         var fd =new FormData(form);
         $.ajax({
-            url: "http://gossip.viplgw.cn/cn/wap-api/app-image",
+            url: "http://gossip.gmatonline.cn/cn/wap-api/app-image",
             type: "POST",
             data: fd,
             processData: false,  // 告诉jQuery不要去处理发送的数据

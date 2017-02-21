@@ -9,7 +9,7 @@ $(function () {
     myApp.controller("PriceCtrl", ["$scope", "$http", "$sce", function ($scope, $http, $sce) {
         $http({
             method: 'post',
-            url: 'http://gossip.viplgw.cn/cn/wap-api/reply-list',
+            url: 'http://gossip.gmatonline.cn/cn/wap-api/reply-list',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },

@@ -9,7 +9,7 @@ $(function () {
     myApp.controller("PriceCtrl", ["$scope", "$http", "$sce", function ($scope, $http, $sce) {
         $http({
             method: 'post',
-            url: 'http://gossip.viplgw.cn/cn/wap-api/gossip-list',
+            url: 'http://gossip.gmatonline.cn/cn/wap-api/gossip-list',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
@@ -62,7 +62,7 @@ $(function () {
         $(this).parents("li").siblings("li").find(".likeWrap").removeClass("onLike");
         var gossipId=$(this).parent(".comment").find(".gossipId").val(); //帖子ID
         $.ajax({
-            url:'http://gossip.viplgw.cn/cn/wap-api/add-like',
+            url:'http://gossip.gmatonline.cn/cn/wap-api/add-like',
             method:"POST",
             dataType:"json",
             data:{
