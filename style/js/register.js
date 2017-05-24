@@ -78,14 +78,14 @@ function register(){
  * 手机验证码
  */
 
-function phoneCode(e){
+function phoneCode(e,typeNum){
     var phone=$("#phone").val();
     $.ajax({
         //url: 'http://www.gmatonline.cn/index.php?web/appapi/phonecode',
         url: 'http://login.gmatonline.cn/cn/wap-api/phone-code',
         data: {
             phoneNum: phone,
-            type:'2',
+            type:typeNum,
         },
         type: 'post',
         cache: false,
