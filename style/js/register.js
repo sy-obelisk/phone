@@ -85,7 +85,7 @@ function phoneCode(e){
         url: 'http://login.gmatonline.cn/cn/wap-api/phone-code',
         data: {
             phoneNum: phone,
-            type:'1',
+            type:'2',
         },
         type: 'post',
         cache: false,
