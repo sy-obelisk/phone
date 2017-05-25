@@ -42,34 +42,40 @@ $(function () {
             var val=$(this).val();
             img.push(val);
         });
-        $.ajax({
-            url: "http://gossip.gmatonline.cn/cn/wap-api/add-gossip",
-            type: "POST",
-            data:{
-                uid:wapUid,
-                image:img,
-                video:'',
-                audio:'',
-                belong:'1',
-                title:title,
-                content:content,
-                icon:icon,
-                publisher:publisher
-            },
-            dataType:'json',
-            success:function(data){
-                console.log(data);
-                if (data.code==0){
-                    alert('请先登录');
-                    location.href='login.html';
-                }
-                if(data.code==1){
-                    alert('发布成功');
-                    location.href='plan-test.html';
-                }
+        if(title==null||content==null){
+            alert('请输入标题和内容！');
+            return false;
+        }else {
+            $.ajax({
+                url: "http://gossip.gmatonline.cn/cn/wap-api/add-gossip",
+                type: "POST",
+                data:{
+                    uid:wapUid,
+                    image:img,
+                    video:'',
+                    audio:'',
+                    belong:'1',
+                    title:title,
+                    content:content,
+                    icon:icon,
+                    publisher:publisher
+                },
+                dataType:'json',
+                success:function(data){
+                    console.log(data);
+                    if (data.code==0){
+                        alert('请先登录');
+                        location.href='login.html';
+                    }
+                    if(data.code==1){
+                        alert('发布成功');
+                        location.href='plan-test.html';
+                    }
 
-            }
-        })
+                }
+            })
+        }
+
 
     });
     //html5 ajax form表单提交
